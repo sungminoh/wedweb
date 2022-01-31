@@ -217,7 +217,7 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
       >
         {Array.from(Array(14), (_, i) => i + 1).map((i) => (
           <div key={i}>
-            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpeg`} />
+            <PinchPhoto onZoom={setZoomed} src={`https://raw.githubusercontent.com/carlfisto/wedinv/main/public/photos/p${i}.jpeg`} />
           </div>
         ))}
       </Slider>
@@ -595,7 +595,7 @@ const Home = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               role="button"
-              src={`/photos/p${i + 1}.jpeg`}
+              src={`https://raw.githubusercontent.com/carlfisto/wedinv/main/public/photos/p${i + 1}.jpeg`}
               onClick={() => handlePhotoClick(i)}
               loading="lazy"
               alt=""
