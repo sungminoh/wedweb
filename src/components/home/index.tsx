@@ -217,7 +217,7 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
       >
         {Array.from(Array(12), (_, i) => i + 1).map((i) => (
           <div key={i}>
-            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpeg`} />
+            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpg`} />
           </div>
         ))}
       </Slider>
