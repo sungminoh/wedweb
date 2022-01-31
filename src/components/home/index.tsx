@@ -595,7 +595,7 @@ const Home = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               role="button"
-              src={`https://raw.githubusercontent.com/carlfisto/wedinv/main/public/photos/p${i + 1}.jpeg`}
+              src={`https://raw.githubusercontent.com/carlfisto/wedinv/main/public/photos/p${i + 1}.jpg`}
               onClick={() => handlePhotoClick(i)}
               loading="lazy"
               alt=""
