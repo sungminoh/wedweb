@@ -550,11 +550,7 @@ const Home = () => {
         <br />
         반포 JW 메리어트 호텔 5층 그랜드볼룸
       </p>
-          <!--
-      <Link href="/live" passHref>
-        <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>
-      </Link>
-          -->
+      
       <SectionHr />
 
       <SectionHeader>결혼합니다.</SectionHeader>
