@@ -21,7 +21,7 @@ const LivePage = () => {
         <meta property="og:description" content="10월 3일에 결혼합니다." />
         <meta
           property="og:image"
-          content="https://drive.google.com/uc?id=1kf4TQN50LQyEybKT844g6CLq7nXeG6cl"
+          content="https://drive.google.com/uc?id=1lF_ryhpAgqZ60Ho9XWYCulxlokcuaVhj"
         />
       </Head>
       <Live />
@@ -35,7 +35,7 @@ let liveUrlCache = { url: "", when: 0 };
 const getLiveUrl = async () => {
   if (liveUrlCache.when < Date.now() - 10000) {
     const liveUrl = await fetch(
-      "https://docs.google.com/document/export?format=txt&id=1nTE3m6M9WOqPU8vPUNemJhyQUCdvujM9MAVWsjn4H-g"
+      "https://drive.google.com/uc?id=1lF_ryhpAgqZ60Ho9XWYCulxlokcuaVhj"
     )
       .then((r) => r.text())
       .then((url) => url.trim());
