@@ -24,7 +24,7 @@ const HomePage = () => {
         />
         <meta
           property="og:image"
-          content="https://drive.google.com/uc?id=1kf4TQN50LQyEybKT844g6CLq7nXeG6cl"
+          content="https://drive.google.com/uc?id=1F7iGw2AJVJXfVa8TSMqQ_r8a3C_psPib"
         />
       </Head>
       <Home />
