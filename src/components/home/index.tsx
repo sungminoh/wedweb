@@ -624,6 +624,20 @@ const Home = () => {
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
       <SectionHr />
+      <SectionHeader>💸 마음 전하실 곳</SectionHeader>
+      <GiveWrap>
+        <p>
+          <strong>신랑측</strong> (이종찬)
+          <br />
+          <CopyText text="우리은행 1002-743-204058" />
+        </p>
+        <p>
+          <strong>신부측</strong> (이현경)
+          <br />
+          <CopyText text="신한은행 110-502-203145" />
+        </p>
+      </GiveWrap>
+      <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>
         <p>신랑측</p>
