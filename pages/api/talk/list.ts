@@ -4,7 +4,7 @@ import { COOKIE_TALK_ID, getTalkList } from "@/talk/api";
 import type { GetTalkListResponse } from "@/talk/types";
 
 const handleGet: NextApiHandler<GetTalkListResponse> = async (req, res) => {
-  const talkId = req.cookies[COOKIE_TALK_ID];
+  const talkId = req.cookies[COOKIE_TALK_ID] as string;
 
   const respData = await getTalkList(talkId);
 

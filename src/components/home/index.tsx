@@ -17,7 +17,7 @@ import Modal from "@/components/common/Modal";
 import timeDiffFormat from "@/common/utils/timeDiffFormat";
 import { useSessionStorage } from "@/common/hooks/useStorage";
 import coverPic from "@/public/photos/cover_min.jpg";
-import mapPic from "@/public/photos/map.gif";
+import mapPic from "@/public/photos/map.jpg";
 import { GetTalkListResponse, Party, Talk } from "@/talk/types";
 import {
   BoxShadowStyle,
@@ -36,7 +36,7 @@ const Header = styled.h1`
   margin: 40px 0;
 
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 900;
   line-height: 2.5;
 
   hr {
@@ -56,6 +56,8 @@ const CoverPicWrap = styled.div`
   line-height: 0;
 `;
 
+const imageSize = 28;
+
 const LiveButton = styled.button`
   padding: 8px 16px;
   border: 0;
@@ -63,7 +65,7 @@ const LiveButton = styled.button`
   margin: 12px 10px;
   color: white;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 900;
   background: rgba(255, 136, 170);
 
   animation: color-change 1s infinite;
@@ -215,7 +217,7 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
         arrows={false}
         dots={false}
       >
-        {Array.from(Array(14), (_, i) => i + 1).map((i) => (
+        {Array.from(Array(imageSize), (_, i) => i + 1).map((i) => (
           <div key={i}>
             <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpeg`} />
           </div>
@@ -326,7 +328,7 @@ const WriteButton = styled.button<{ visible: boolean }>`
 
   color: white;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 900;
   background: rgba(255, 136, 170, 0.9);
 
   ${BoxShadowStyle}
@@ -538,49 +540,48 @@ const Home = () => {
   return (
     <Main>
       <Header>
-        박영훈
+        장윤석
         <hr />
-        김현주
+        서보라
       </Header>
       <CoverPicWrap>
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
       <p>
-        2021년 10월 3일 일요일 오후 1시
+        2022년 12월 4일 일요일 오후 12시 20분
         <br />
-        반포 JW 메리어트 호텔 5층 그랜드볼룸
+        더컨벤션 잠실 (교통회관) 3층 아모르홀
       </p>
-      <Link href="/live" passHref>
-        <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>
-      </Link>
+
+
       <SectionHr />
 
-      <SectionHeader>결혼합니다.</SectionHeader>
+      <SectionHeader>아름다운 날. <br/>소중한 분을 초대합니다.</SectionHeader>
       <GreetingP>
-        청명한 가을날
+        저희 둘 소중한 만남으로
         <br />
-        새로이 시작하는 작은 사랑이
+        축복 속에서 한 가정을 이루려고 합니다.
         <br />
-        보다 크고 깊은 사랑이 되려고 합니다.
+        서로 존중하고 신뢰를 쌓으며
         <br />
-        함께 자리하시어 축복해 주시면
+        사랑을 키워나갈 수 있도록
         <br />
-        더없는 기쁨이겠습니다.
+        오셔서 자리를 빛내주시면 감사하겠습니다.
       </GreetingP>
       <GreetingP>
-        김종오 · 강경자의 장녀 현주
+        장문수 · 한은희의 장남 윤석
         <br />
-        박민양 · 최승현의 차남 영훈
+        서영거 · 김애영의 차녀 보라
       </GreetingP>
       <CallWrap>
-        <a href="tel:01071056849">
+        <a href="tel:01030071430">
           <CallButton
             icon={<EmojiLookRight />}
             bgColor="#abdaab"
             label="신랑측에 연락하기"
           />
         </a>
-        <a href="tel:01073692869">
+        <a href="tel:01097484110">
           <CallButton
             icon={<EmojiLookLeft />}
             bgColor="#c2e0a3"
@@ -590,7 +591,7 @@ const Home = () => {
       </CallWrap>
       <SectionHr />
       <PhotoGrid>
-        {Array.from(Array(14), (_, i) => i).map((i) => (
+        {Array.from(Array(imageSize), (_, i) => i).map((i) => (
           <li key={i}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -612,33 +613,62 @@ const Home = () => {
         </Modal>
       )}
       <SectionHr />
-      <SectionHeader>오시는 길</SectionHeader>
-      <Image src={mapPic} width="400px" alt="" />
+      <SectionHeader>🧭 오시는 길</SectionHeader>
+      <Image src={mapPic} width="395px" height="250px" alt="" />
       <p>
-        서울 서초구 신반포로 176
+        서울 송파구 올림픽로 319 (신천동 11-7)
         <br />
-        반포 JW 메리어트 호텔 5층 그랜드볼룸
+        (잠실역 9번 출구 바로 앞 위치)
+        <br />
+        더컨벤션 잠실 (교통회관) 3층 아모르홀
       </p>
-      <MapButton href="https://place.map.kakao.com/8005133">
+      <MapButton href="https://place.map.kakao.com/17651361">
         <PinAlt color="#1199EE" /> 카카오맵
       </MapButton>
-      <MapButton href="https://map.naver.com/v5/entry/place/11583195">
+      <MapButton href="https://naver.me/xC61fokj">
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
+
+
+      <p>
+        <br/>
+        주차 이용 시간은 2시간 입니다.
+        <br />
+        당일 혼잡할 가능성이 있사오니
+        <br />
+        가급적 대중교통 이용 부탁드립니다.
+      </p>
+
+      <SectionHr />
+
+      <p>
+        축하로 보내주시는 화환 대신 쌀드리미 화환으로 보내주시면
+        <br />
+        좋은 날 소외받는 이웃과 함께 사랑의 쌀을 나누겠습니다.
+        <br />
+        문의처: 쌀화환 드리米 / <a href="tel:0215448489">1544-8489</a> / <a href="https://dreame.co.kr">dreame.co.kr</a>
+      </p>
+
       <SectionHr />
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>
-          <strong>신랑측</strong> (박영훈)
+          <strong>신랑측</strong>
           <br />
-          <CopyText text="카카오뱅크 3333-07-0052253" />
+          <CopyText text="카카오뱅크 3333-03-2898123 (장윤석)" />
+          <br />
+          <CopyText text="국민 835-21-0405-261 (장문수)" />
+
         </p>
         <p>
-          <strong>신부측</strong> (김현주)
+          <strong>신부측</strong>
           <br />
-          <CopyText text="우리은행 1002-291-920831" />
+          <CopyText text="토스뱅크 000-00000-000 (서보라)" />
+          <br />
+          <CopyText text="농협 079-02-227858 (서영거)" />
         </p>
       </GiveWrap>
+
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>

@@ -2,12 +2,22 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, you need to create a Google Spreadsheet for this project. Please check [this page](https://www.labnol.org/google-api-service-account-220404) for setting up a service account.
+Once you add your service account as the editor of the spreadsheet, then please update such details in '.env' file.
+
+
+Then, you can run the development server:
 
 ```bash
-npm run dev
+# if you don't have next.js project in your local machine
+$ npm i next
+# you may need the following setup as well
+$ yarn add --dev @types/node
+
+
+$ npm run dev
 # or
-yarn dev
+$ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
@@ -32,3 +42,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Reference
+
+* https://hjkim.yhpark.io/
+* https://minha-joonyoung-wedding.vercel.app/
