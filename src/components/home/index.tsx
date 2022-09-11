@@ -16,7 +16,7 @@ import useSWR from "swr";
 import Modal from "@/components/common/Modal";
 import timeDiffFormat from "@/common/utils/timeDiffFormat";
 import { useSessionStorage } from "@/common/hooks/useStorage";
-import coverPic from "@/public/photos/cover_min.jpg";
+import coverPic from "@/public/photos/cover.jpg";
 import mapPic from "@/public/photos/map.jpg";
 import { GetTalkListResponse, Party, Talk } from "@/talk/types";
 import {
@@ -56,7 +56,7 @@ const CoverPicWrap = styled.div`
   line-height: 0;
 `;
 
-const imageSize = 28;
+const imageSize = 14;
 
 const LiveButton = styled.button`
   padding: 8px 16px;
@@ -219,7 +219,7 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
       >
         {Array.from(Array(imageSize), (_, i) => i + 1).map((i) => (
           <div key={i}>
-            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpeg`} />
+            <PinchPhoto onZoom={setZoomed} src={`/photos/f${i}.jpg`} />
           </div>
         ))}
       </Slider>
@@ -596,7 +596,7 @@ const Home = () => {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               role="button"
-              src={`/photos/p${i + 1}.jpeg`}
+              src={`/photos/g${i + 1}.jpg`}
               onClick={() => handlePhotoClick(i)}
               loading="lazy"
               alt=""
@@ -653,19 +653,19 @@ const Home = () => {
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>
-          <strong>신랑측</strong>
+          <strong>🤵 신랑측</strong>
           <br />
-          <CopyText text="카카오뱅크 3333-03-2898123 (장윤석)" />
+          <CopyText text="예시1" />
           <br />
-          <CopyText text="국민 835-21-0405-261 (장문수)" />
+          <CopyText text="예시2" />
 
         </p>
         <p>
-          <strong>신부측</strong>
+          <strong>👰 신부측</strong>
           <br />
-          <CopyText text="토스뱅크 000-00000-000 (서보라)" />
+          <CopyText text="예시3" />
           <br />
-          <CopyText text="농협 079-02-227858 (서영거)" />
+          <CopyText text="예시4" />
         </p>
       </GiveWrap>
 

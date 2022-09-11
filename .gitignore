@@ -35,3 +35,6 @@ yarn-error.log*
 
 # npm-install
 package-lock.json
+
+# gdrive key
+gdrive_key_do_not_pushjson.json
