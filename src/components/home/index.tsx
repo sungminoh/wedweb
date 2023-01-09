@@ -538,17 +538,17 @@ const Home = () => {
   return (
     <Main>
       <Header>
-        이종찬
+        최태준
         <hr />
-        이현경
+        이슬이
       </Header>
       <CoverPicWrap>
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
       <p>
-        2022년 4월 9일 토요일 오후 5시
+        2023년 2월 12일 일요일 오후 6시
         <br />
-        반포 JW 메리어트 호텔 5층 그랜드볼룸
+        신라호텔 다이너스티홀
       </p>
       
       <SectionHr />
@@ -566,19 +566,19 @@ const Home = () => {
         더없는 기쁨으로 간직하겠습니다.
       </GreetingP>
       <GreetingP>
-        이용규 · 박정애의 장남 이종찬
+        최갑현 · 이영희의 장남 태준
         <br />
-        노주희의 장녀 이현경
+        이희봉 · 김재락의 장녀 슬이
       </GreetingP>
       <CallWrap>
-        <a href="tel:01035637782">
+        <a href="tel:01093310848">
           <CallButton
             icon={<EmojiLookRight />}
             bgColor="#abdaab"
             label="신랑측에 연락하기"
           />
         </a>
-        <a href="tel:01046165728">
+        <a href="tel:01028205242">
           <CallButton
             icon={<EmojiLookLeft />}
             bgColor="#c2e0a3"
@@ -613,28 +613,28 @@ const Home = () => {
       <SectionHeader>오시는 길</SectionHeader>
       <Image src={mapPic} width="400px" alt="" />
       <p>
-        서울 서초구 신반포로 176
+        서울 중구 동호로 249
         <br />
-        반포 JW 메리어트 호텔 5층 그랜드볼룸
+        신라호텔 다이너스티홀
       </p>
-      <MapButton href="https://place.map.kakao.com/8005133">
+      <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
       </MapButton>
-      <MapButton href="https://map.naver.com/v5/entry/place/11583195">
+      <MapButton href="https://map.naver.com/v5/entry/place/12159697">
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
       <SectionHr />
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>
-          <strong>신랑측</strong> (이종찬)
+          <strong>신랑측</strong> (최태준)
           <br />
-          <CopyText text="우리은행 1002-743-204058" />
+          <CopyText text="우리은행 0000-000-000000" />
         </p>
         <p>
-          <strong>신부측</strong> (이현경)
+          <strong>신부측</strong> (이슬이)
           <br />
-          <CopyText text="신한은행 110-502-203145" />
+          <CopyText text="신한은행 000-000-000000" />
         </p>
       </GiveWrap>
       <SectionHr />
