@@ -108,10 +108,7 @@ const WriteTalk = ({ onWrite }: Props) => {
       const resp = await fetch("/api/talk", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...data,
-          created: new Date(),
-        }),
+        body: JSON.stringify(data),
       });
       const { id } = (await resp.json()) as PostTalkResponse;
 
