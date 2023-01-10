@@ -461,7 +461,8 @@ const TalkBubble = ({
            <small>
             {!talk.published
               ? "검수중"
-              : timeDiffFormat(new Date(talk.created))}
+              /*: timeDiffFormat(new Date(talk.created)) */
+            }
           </small> 
         </div>
       </div>
