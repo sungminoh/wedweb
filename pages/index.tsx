@@ -20,7 +20,8 @@ const HomePage = () => {
         <meta property="og:title" content="최태준 ♡ 이슬이 청첩장" />
         <meta
           property="og:description"
-          content="2023년 2월 12일 일요일 오후 6시에 결혼합니다. 신라호텔 다이너스티홀 (서울 중구 동호로 249)"
+          content="2023년 2월 12일 일요일 오후 6시에 결혼합니다. 
+                   신라호텔 다이너스티홀 (서울 중구 동호로 249)"
         />
         <meta
           property="og:image"
