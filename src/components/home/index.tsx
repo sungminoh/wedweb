@@ -554,17 +554,20 @@ const Home = () => {
       
       <SectionHr />
 
-      <SectionHeader>결혼합니다.</SectionHeader>
+      /* <SectionHeader>결혼합니다.</SectionHeader> */
+      
       <GreetingP>
-        저희 두 사람, 부부의 연을 맺게 되었습니다.
+        만날 때의 설렘보다
         <br />
-        앞으로도 서로 아껴주고 이해하며,
+        집 앞에서 헤어질 때의 아쉬움이 커질 무렵
         <br />
-        서로 사랑하며 살도록 하겠습니다.
+        새로운 설렘으로 시작하려 합니다.
         <br />
-        저희 두 사람의 앞날을 축복해 주시면
+        아름다운 시작을 위해 가까이에서 축복해 주시면
         <br />
-        더없는 기쁨으로 간직하겠습니다.
+        변함없는 믿음과 사랑으로
+        <br />
+        하루하루 감동하며 살겠습니다.
       </GreetingP>
       <GreetingP>
         최갑현 · 이영희의 장남 태준
@@ -589,7 +592,7 @@ const Home = () => {
       </CallWrap>
       <SectionHr />
       <PhotoGrid>
-        {Array.from(Array(14), (_, i) => i).map((i) => (
+        {Array.from(Array(15), (_, i) => i).map((i) => (
           <li key={i}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
