@@ -458,11 +458,11 @@ const TalkBubble = ({
         {selected && talk.party === "GROOM" && <> {editBtn}</>}
         <div className="bubble-info-wrap">
           <p onClick={handleBubbleClick}>{talk.msg}</p>
-          {/* <small>
+           <small>
             {!talk.published
               ? "검수중"
               : timeDiffFormat(new Date(talk.created))}
-          </small> */}
+          </small> 
         </div>
       </div>
     </TalkBubbleWrap>
