@@ -554,7 +554,8 @@ const Home = () => {
       
       <SectionHr />
 
-         
+      <SectionHeader>결혼합니다.</SectionHeader> 
+      
       <GreetingP>
         만날 때의 설렘보다
         <br />
@@ -567,12 +568,15 @@ const Home = () => {
         변함없는 믿음과 사랑으로
         <br />
         하루하루 감동하며 살겠습니다.
+         <br />
       </GreetingP>
+      
       <GreetingP>
         최갑현 · 이영희의 장남 태준
         <br />
         이희봉 · 김재락의 장녀 슬이
       </GreetingP>
+      
       <CallWrap>
         <a href="tel:01093310848">
           <CallButton
