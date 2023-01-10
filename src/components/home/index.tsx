@@ -554,8 +554,7 @@ const Home = () => {
       
       <SectionHr />
 
-      /* <SectionHeader>결혼합니다.</SectionHeader> */
-      
+         
       <GreetingP>
         만날 때의 설렘보다
         <br />
