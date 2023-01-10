@@ -10,7 +10,7 @@ const HomePage = () => {
         <title>최태준 ♡ 이슬이</title>
         <meta
           name="description"
-          content="최태준 ♡ 이슬이 2월 12일에 결혼합니다."
+          content="최태준 ♡ 이슬이 2023년 2월 12일에 결혼합니다."
         />
         <meta
           name="viewport"
@@ -20,7 +20,8 @@ const HomePage = () => {
         <meta property="og:title" content="최태준 ♡ 이슬이 청첩장" />
         <meta
           property="og:description"
-          content="2월 12일 18시에 결혼합니다."
+          content="2023년 2월 12일 일요일 오후 6시에 결혼합니다. 
+                   신라호텔 다이너스티홀 (서울 중구 동호로 249)"
         />
         <meta
           property="og:image"
