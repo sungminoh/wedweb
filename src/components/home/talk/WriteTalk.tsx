@@ -110,7 +110,7 @@ const WriteTalk = ({ onWrite }: Props) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           ...data,
-          created: new Date.now(),
+          created: new Date(),
         }),
       });
       const { id } = (await resp.json()) as PostTalkResponse;
