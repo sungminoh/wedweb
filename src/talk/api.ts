@@ -58,7 +58,7 @@ const deserializeTalk = (r: GoogleSpreadsheetRow) => {
     color: r.color as string,
     party: r.party as Party,
     msg: r.msg as string,
-    created: new Date(r.created + " GMT+0900").getTime(),
+    created: new Date(r.created + "GMT+0900").getTime(),
     password: r.password,
     published: r.published === "TRUE",
   };
