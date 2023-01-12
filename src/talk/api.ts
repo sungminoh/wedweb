@@ -58,7 +58,7 @@ const deserializeTalk = (r: GoogleSpreadsheetRow) => {
     color: r.color as string,
     party: r.party as Party,
     msg: r.msg as string,
-    created: new Date(r.created + "GMT+0900").getTime(),
+    created: Date.parse(r.created),
     password: r.password,
     published: r.published === "TRUE",
   };
@@ -69,8 +69,7 @@ const serializeTalk = (talk: SheetTalk) => {
   return {
     ...talk,
     created: new Date(talk.created)
-      .toLocaleString("en", { timeZone: "Asia/Seoul" })
-      .replace(/,/g, ""),
+      .toLocaleString("en")
   };
 };
 
