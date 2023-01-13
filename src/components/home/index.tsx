@@ -26,7 +26,7 @@ import {
   SectionHeader,
   SectionHr,
   TextSansStyle,
-} from "./styles";
+} from "./styles"; 
 import WriteTalk from "./talk/WriteTalk";
 import EditTalk from "./talk/EditTalk";
 import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom";
