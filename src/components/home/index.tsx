@@ -646,7 +646,7 @@ const Home = () => {
         ● 지하철 이용시 <br />
         &nbsp&nbsp지하철3호선 동대입구역 5번출구 <br />
         <br />
-        <p text-align="center
+        <p text-align="center">
       </p>
       
       <MapButton href="https://place.map.kakao.com/10527133">
