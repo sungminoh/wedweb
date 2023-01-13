@@ -639,7 +639,6 @@ const Home = () => {
    
       <MapWrapA> 
            <br/>자가용 이용시<br/>
-      </MapWrapA> 
         
       <MapWrapB> 
        <p>
@@ -649,9 +648,7 @@ const Home = () => {
        </p>
       </MapWrapB>
      
-      <MapWrapA> 
          <br/>버스 이용시<br/>
-      </MapWrapA> 
       
       <MapWrapB> 
        <p>
@@ -659,9 +656,7 @@ const Home = () => {
        </p>
       </MapWrapB>
       
-      <MapWrapA> 
          <br/>지하철 이용시<br/>
-      </MapWrapA> 
         
       <MapWrapB> 
          <p>
@@ -669,16 +664,15 @@ const Home = () => {
          </p> 
       </MapWrapB>
       
-      <MapWrapA> 
          <br/>서울신라호텔 셔틀버스 이용시 <br/>
-      </MapWrapA> 
         
       <MapWrapB> 
          <p>
           관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
          </p>
       </MapWrapB>      
-        
+      </MapWrapA> 
+      
       <br />
       
       <MapButton href="https://place.map.kakao.com/10527133">
