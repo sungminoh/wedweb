@@ -640,12 +640,12 @@ const Home = () => {
         <br />
       </p>
    
-      <MapWrapA>
+      <GiveWrap>
         <p>
           <strong>자가용 이용시</strong>
           <br /> 
         </p> 
-      </MapWrapA>
+      </GiveWrap>
       
       <MapWrapB> 
        <p>
