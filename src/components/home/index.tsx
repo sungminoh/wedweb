@@ -655,9 +655,7 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-       <p>
           장충체육관 앞 하차 (※ 노선번호:144,301,7212) <br />
-       </p>
       </MapWrapB>
       
       <MapWrapA> 
@@ -665,9 +663,7 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-       <p>
           지하철3호선 동대입구역 5번출구 <br />
-       </p>
       </MapWrapB>
       
       <MapWrapA> 
@@ -675,15 +671,11 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-       <p>
           관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
-       </p>
       </MapWrapB>  
       
       <br />
       <br />
-      <br />
-      
       
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
