@@ -253,15 +253,13 @@ const GiveWrap = styled.div`
 `;
 
 const MapWrapA = styled.div`
-  display: inline-block;
   text-align: left;
-  line-height: 2;
 `;
 
 const MapWrapB = styled.div`
   display: inline-block;
   text-align: left;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 2;
 `;
 
@@ -641,10 +639,7 @@ const Home = () => {
       </p>
    
       <MapWrapA> 
-        <pre>
           자가용 이용시
-          <br /> 
-        </pre> 
       </MapWrapA> 
       
       <MapWrapB> 
