@@ -642,8 +642,11 @@ const Home = () => {
       </p>
    
       <MapWrapA>
-        <strong>자가용 이용시</strong> <br /> 
+        <p>
+          <strong>자가용 이용시</strong> <br /> 
+        </p> 
       </MapWrapA>
+      
       <MapWrapB> 
        <p>
           분당 방면:한남대교→장충단길→신라호텔 후문→서울신라호텔 <br />
@@ -651,6 +654,7 @@ const Home = () => {
           용산 방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔 <br />
        </p>
       </MapWrapB>
+      
       <br />
       
       
