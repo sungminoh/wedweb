@@ -599,7 +599,7 @@ const Home = () => {
         <a href="tel:01028205242">
           <CallButton
             icon={<EmojiLookLeft />}
-            bgColor="#c2e0a3"
+            bgColor="#F7C8D3"
             label="신부측에 연락하기"
           />
         </a>
@@ -674,7 +674,6 @@ const Home = () => {
       </MapWrapB>      
       </MapWrapA>  
       
-      <br />
       <br />
       
       <MapButton href="https://place.map.kakao.com/10527133">
