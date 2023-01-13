@@ -629,16 +629,16 @@ const Home = () => {
       
      
         
-      <body>
-        <font size = "5">자가용 이용시<br/>
-        </font>
-        
+      <GiveWrap>
+        <strong>자가용 이용시</strong><br/>
+        <pre>
         <font size ="3">
           분당 방면:한남대교→장충단길→신라호텔 후문→서울신라호텔
           강남 방면:동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔
           용산 방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔
         </font>
-      </body>
+        </pre>
+      <GiveWrap>
       
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
@@ -659,7 +659,7 @@ const Home = () => {
           <br />
           <CopyText text="신한은행 000-000-000000" />
         </p>
-      </GiveWrap>
+      <GiveWrap>
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>
