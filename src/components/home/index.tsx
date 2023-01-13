@@ -133,7 +133,7 @@ const PhotoGrid = styled.ul`
   padding: 0 10px;
 
   li {
-    height: 200px;
+    height: 250px;
     flex-grow: 1;
     margin: 4px;
   }
@@ -625,28 +625,13 @@ const Home = () => {
         신라호텔 다이너스티홀
         <br />
         <br />
-      
-      <p text-align="left">
-      <p margin-left: 40px>
-      <p margin-right: 40px>
-      
-        ● 자가용 이용시 <br />
-        &nbsp&nbsp분당방면 : 한남대교→장충단길→신라호텔 후문→서울신라호텔/신라면세점 <br />
-        &nbsp&nbsp강남방면 : 동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔/신라면세점 <br />
-        &nbsp&nbsp용산방면 : 남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔/신라면세점 <br />
-        <br />
-        ● 버스 이용시 <br />
-        &nbsp&nbsp장충체육관 앞 하차 (※ 노선번호:144,301,7212) <br />
-        &nbsp&nbsp서울신라호텔 정문(기와문)에서 호텔 로비와 면세점까지 무료 관내 셔틀 운행 <br />
-        &nbsp&nbsp운행코스 : 서울신라호텔 로비 → 신라면세점 → 호텔 고객 주차장 → 서울신라호텔 정문 <br />
-        &nbsp&nbsp운행시간 : 08:00 ~ 22:00 (수시 운행) <br />
-        &nbsp&nbsp※ 교통상황에 따라 셔틀 운행 시간이 변동될 수 있습니다. <br />
-        &nbsp&nbsp※ 고객 안전을 위하여 정원 초과 시 탑승이 제한될 수 있습니다. <br />
-          <br />
-        ● 지하철 이용시 <br />
-        &nbsp&nbsp지하철3호선 동대입구역 5번출구 <br />
-        <br />
-        <p text-align="center">
+        
+        <GiveWrap>
+          <CopyText text="● 자가용 이용시" />
+          <CopyText text="  분당방면:한남대교→장충단길→신라호텔 후문→서울신라호텔/신라면세점 />
+          <CopyText text="  강남방면:동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔/신라면세점 />
+          <CopyText text="  용산방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔/신라면세점 />
+        </GiveWrap>
       </p>
       
       <MapButton href="https://place.map.kakao.com/10527133">
