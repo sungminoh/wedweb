@@ -640,7 +640,6 @@ const Home = () => {
    
       <MapWrapA> 
           자가용 이용시
-      </MapWrapA> 
       
       <MapWrapB> 
        <p>
@@ -650,9 +649,7 @@ const Home = () => {
        </p>
       </MapWrapB>
    
-      <MapWrapA> 
           버스 이용시
-      </MapWrapA> 
       
       <MapWrapB> 
        <p>
@@ -660,21 +657,18 @@ const Home = () => {
        </p>
       </MapWrapB>
       
-      <MapWrapA> 
           지하철 이용시
-      </MapWrapA> 
-      
+        
       <MapWrapB> 
           지하철3호선 동대입구역 5번출구
       </MapWrapB>
       
-      <MapWrapA> 
           서울신라호텔 셔틀버스 이용시
-      </MapWrapA> 
       
       <MapWrapB> 
           관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문
-      </MapWrapB>  
+      </MapWrapB>      
+      </MapWrapA>  
       
       <br />
       <br />
