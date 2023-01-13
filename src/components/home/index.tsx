@@ -638,7 +638,7 @@ const Home = () => {
           용산 방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔
         </font>
         </pre>
-      <GiveWrap>
+      </GiveWrap>
       
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
@@ -659,7 +659,8 @@ const Home = () => {
           <br />
           <CopyText text="신한은행 000-000-000000" />
         </p>
-      <GiveWrap>
+      </GiveWrap>
+      
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>
