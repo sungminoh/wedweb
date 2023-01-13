@@ -625,14 +625,14 @@ const Home = () => {
         신라호텔 다이너스티홀
         <br />
         <br />
-        
-        <GiveWrap>
-          <CopyText text="● 자가용 이용시" />
-          <CopyText text="  분당방면:한남대교→장충단길→신라호텔 후문→서울신라호텔/신라면세점 />
-          <CopyText text="  강남방면:동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔/신라면세점 />
-          <CopyText text="  용산방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔/신라면세점 />
-        </GiveWrap>
       </p>
+      
+      <GiveWrap>
+        <CopyText text="● 자가용 이용시" />
+        <CopyText text="  분당방면:한남대교→장충단길→신라호텔 후문→서울신라호텔/신라면세점 />
+        <CopyText text="  강남방면:동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔/신라면세점 />
+        <CopyText text="  용산방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔/신라면세점 />
+      </GiveWrap>
       
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
