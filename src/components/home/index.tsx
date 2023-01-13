@@ -626,19 +626,17 @@ const Home = () => {
         <br />
         <br />
       </p>
-              
-  
-        
-        <p>
-          <strong>자가용 이용시</strong> <br />
+   
+       <p>
+          자가용 이용시<br />
           <font size = "3">
           분당 방면:한남대교→장충단길→신라호텔 후문→서울신라호텔 <br />
           강남 방면:동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔 <br />
           용산 방면:남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔 <br />
           </font>
-        </p>
-  
+       </p>
       <br />
+      
       
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
