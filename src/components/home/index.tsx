@@ -655,7 +655,9 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
+       <p>
           장충체육관 앞 하차 (※ 노선번호:144,301,7212)
+       </p>
       </MapWrapB>
       
       <MapWrapA> 
