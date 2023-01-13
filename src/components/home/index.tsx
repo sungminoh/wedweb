@@ -618,7 +618,7 @@ const Home = () => {
       )}
       <SectionHr />
       <SectionHeader>오시는 길</SectionHeader>
-      <Image src={mapPic} width="400px" alt="" />
+      <Image src={mapPic} width="730px" alt="" />
       <p>
         서울 중구 동호로 249
         <br />
