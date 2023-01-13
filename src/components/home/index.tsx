@@ -641,10 +641,10 @@ const Home = () => {
       </p>
    
       <MapWrapA> 
-        <p>
-          <strong>자가용 이용시!</strong>
+        <pre>
+          자가용 이용시
           <br /> 
-        </p> 
+        </pre> 
       </MapWrapA> 
       
       <MapWrapB> 
