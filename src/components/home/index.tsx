@@ -625,9 +625,13 @@ const Home = () => {
         신라호텔 다이너스티홀
         <br />
         <br />
+      </p>
+      
         text-align: left;
         margin-left: 40px;
         margin-right: 40px;
+      
+      <p>
         ● 자가용 이용시 <br />
           분당방면 : 한남대교→장충단길→신라호텔 후문→서울신라호텔/신라면세점 <br />
           강남방면 : 동호대교→장충체육관 앞 사거리에서 비보호 좌회전→서울신라호텔/신라면세점 <br />
@@ -644,8 +648,10 @@ const Home = () => {
         ● 지하철 이용시 <br />
           지하철3호선 동대입구역 5번출구 <br />
         <br />
-        text-align: center;
       </p>
+      
+        text-align: center;
+      
       <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
       </MapButton>
