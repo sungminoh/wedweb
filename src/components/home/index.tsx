@@ -655,7 +655,7 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-          장충체육관 앞 하차 (※ 노선번호:144,301,7212) <br />
+          장충체육관 앞 하차 (※ 노선번호:144,301,7212)
       </MapWrapB>
       
       <MapWrapA> 
@@ -663,7 +663,7 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-          지하철3호선 동대입구역 5번출구 <br />
+          지하철3호선 동대입구역 5번출구
       </MapWrapB>
       
       <MapWrapA> 
@@ -671,7 +671,7 @@ const Home = () => {
       </MapWrapA> 
       
       <MapWrapB> 
-          관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
+          관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문
       </MapWrapB>  
       
       <br />
