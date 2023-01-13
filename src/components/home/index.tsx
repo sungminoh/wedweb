@@ -639,7 +639,7 @@ const Home = () => {
       </p>
    
       <MapWrapA> 
-           <p>자가용 이용시 </p>
+           자가용 이용시
       
       <MapWrapB> 
        <p>
@@ -649,7 +649,7 @@ const Home = () => {
        </p>
       </MapWrapB>
    
-          <p>버스 이용시 </p>
+          버스 이용시
       
       <MapWrapB> 
        <p>
@@ -657,7 +657,7 @@ const Home = () => {
        </p>
       </MapWrapB>
       
-           <p>지하철 이용시 </p>
+           지하철 이용시
         
       <MapWrapB> 
          <p>
@@ -665,7 +665,7 @@ const Home = () => {
          </p> 
       </MapWrapB>
       
-           <p>서울신라호텔 셔틀버스 이용시 </p>
+           서울신라호텔 셔틀버스 이용시
       
       <MapWrapB> 
          <p>
