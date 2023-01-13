@@ -1,4 +1,4 @@
-import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react"; 
+import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react";
 import Image from "next/image";
 import Link from "next/link";
 import React, {
