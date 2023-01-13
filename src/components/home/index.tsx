@@ -665,7 +665,7 @@ const Home = () => {
          </p> 
       </MapWrapB>
       
-           <p>서울신라호텔 셔틀버스 이용시 <.p>
+           <p>서울신라호텔 셔틀버스 이용시 </p>
       
       <MapWrapB> 
          <p>
