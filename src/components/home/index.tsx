@@ -642,7 +642,7 @@ const Home = () => {
    
       <MapWrapA> 
         <p>
-          <strong>자가용 이용시</strong>
+          <strong>자가용 이용시!</strong>
           <br /> 
         </p> 
       </MapWrapA> 
