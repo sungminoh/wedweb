@@ -255,7 +255,6 @@ const GiveWrap = styled.div`
 const MapWrapA = styled.div`
   display: inline-block;
   text-align: left;
-  font-size: 14px;
   line-height: 2;
 `;
 
