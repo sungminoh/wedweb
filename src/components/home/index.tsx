@@ -253,14 +253,15 @@ const GiveWrap = styled.div`
 `;
 
 const MapWrapA = styled.div`
+  margin: 20px 0;
   text-align: left;
 `;
 
 const MapWrapB = styled.div`
-  display: inline-block;
+  margin: 20px 0;
+  /* display: inline-block; */
   text-align: left;
   font-size: 12px;
-  line-height: 2;
 `;
 
 const CopyTextButton = styled.button`
