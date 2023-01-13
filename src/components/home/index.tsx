@@ -649,7 +649,7 @@ const Home = () => {
        </p>
       </MapWrapB>
    
-         버스 이용시<br/>
+         <br/>버스 이용시<br/>
       
       <MapWrapB> 
        <p>
@@ -657,7 +657,7 @@ const Home = () => {
        </p>
       </MapWrapB>
       
-         지하철 이용시<br/>
+         <br/>지하철 이용시<br/>
         
       <MapWrapB> 
          <p>
@@ -665,7 +665,7 @@ const Home = () => {
          </p> 
       </MapWrapB>
       
-         서울신라호텔 셔틀버스 이용시<br/>
+         <br/>서울신라호텔 셔틀버스 이용시<br/>
       
       <MapWrapB> 
          <p>
