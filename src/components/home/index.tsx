@@ -253,13 +253,12 @@ const GiveWrap = styled.div`
 `;
 
 const MapWrapA = styled.div`
-  margin: 0 20px;
+  margin: 0 10px;
   text-align: left;
 `;
 
 const MapWrapB = styled.div`
-  margin: 0 20px;
-  /* display: inline-block; */
+  margin: 0 10px;
   text-align: left;
   font-size: 12px;
 `;
@@ -561,12 +560,12 @@ const Home = () => {
       <p>
         2023년 2월 12일 일요일 오후 6시
         <br />
-        신라호텔 다이너스티홀
+        서울신라호텔 다이너스티홀
       </p>
       
       <SectionHr />
 
-      <SectionHeader>결혼합니다.</SectionHeader> 
+      <SectionHeader>결혼합니다♡</SectionHeader> 
       
       <GreetingP>
         만날 때의 설렘보다
@@ -645,34 +644,34 @@ const Home = () => {
                     
       <MapWrapB> 
         <div>
-          분당 방면: 한남대교→장충단길→신라호텔 후문→서울신라호텔 <br /> 
-          강남 방면: 동호대교→장충체육관 앞 사거리 비보호 좌회전→서울신라호텔 <br /> 
-          용산 방면: 남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔 <br />
+          분당 방면: 한남대교→장충단길→신라호텔 후문→신라호텔 <br /> 
+          강남 방면: 동호대교→장충체육관 앞 사거리 비보호 좌회전→신라호텔 <br /> 
+          용산 방면: 남산2호터널 통과 후 좌회전→신라호텔 후문→신라호텔 <br />
        </div>
       </MapWrapB>
      
          <br/>버스 이용시<br/>
       
       <MapWrapB> 
-       <p>
+       <div>
          장충체육관 앞 하차 (※ 노선번호:144,301,7212) <br />
-       </p>
+       </div>
       </MapWrapB>
       
          <br/>지하철 이용시<br/>
         
       <MapWrapB> 
-         <p>
+         <div>
           지하철3호선 동대입구역 5번출구 <br />
-         </p> 
+         </div> 
       </MapWrapB>
       
          <br/>서울신라호텔 셔틀버스 이용시 <br/>
         
       <MapWrapB> 
-         <p>
+         <div>
           관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
-         </p>
+         </div>
       </MapWrapB>      
       </MapWrapA> 
       
