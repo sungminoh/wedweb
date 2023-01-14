@@ -253,12 +253,12 @@ const GiveWrap = styled.div`
 `;
 
 const MapWrapA = styled.div`
-  margin: 20px 0;
+  margin: 0 20px;
   text-align: left;
 `;
 
 const MapWrapB = styled.div`
-  margin: 20px 0;
+  margin: 0 20px;
   /* display: inline-block; */
   text-align: left;
   font-size: 12px;
@@ -642,9 +642,8 @@ const Home = () => {
            <br/>자가용 이용시<br/>
         
       <MapWrapB> 
-       <div>
-          분당 방면: 한남대교→장충단길→신라호텔 후문→서울신라호텔 <br />
-          강남 방면: 동호대교→장충체육관 앞 사거리 비보호 좌회전→서울신라호텔 <br />
+        <div style ="font-size:15px> 분당 방면: 한남대교→장충단길→신라호텔 후문→서울신라호텔 <br /> </div>
+        <div style ="font-size:12px> 강남 방면: 동호대교→장충체육관 앞 사거리 비보호 좌회전→서울신라호텔 <br /> 
           용산 방면: 남산2호터널 통과 후 좌회전→신라호텔 후문→서울신라호텔 <br />
        </div>
       </MapWrapB>
