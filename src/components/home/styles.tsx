@@ -52,7 +52,7 @@ export const Main = styled.main`
 `;
 
 export const SectionHr = styled.hr`
-  width: 100px;
+  width: 150px;
   margin: 60px auto;
   border: 0;
   border-top: 1px solid #ccc;
