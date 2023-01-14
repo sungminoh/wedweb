@@ -683,6 +683,8 @@ const Home = () => {
       <MapButton href="https://map.naver.com/v5/entry/place/12159697">
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
+      
+      <br />
       <br />
       
       <SectionHr />
