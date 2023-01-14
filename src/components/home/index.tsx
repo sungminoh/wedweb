@@ -253,12 +253,12 @@ const GiveWrap = styled.div`
 `;
 
 const MapWrapA = styled.div`
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   text-align: left;
 `;
 
 const MapWrapB = styled.div`
-  margin: 0 10px;
+  margin: 0 10px 0 0;
   text-align: left;
   font-size: 12px;
 `;
