@@ -640,7 +640,7 @@ const Home = () => {
    
  
       <br/>
-      <div style ="font-size:15px"> 자가용 이용시<br/> </div>
+      <styled.div'font-size:15px'> 자가용 이용시<br/> </div>
       
       <MapWrapA>        
       <MapWrapB> 
