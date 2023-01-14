@@ -639,10 +639,10 @@ const Home = () => {
       </p>
    
  
-      <br/>
-      <styled.div'font-size:15px'> 자가용 이용시<br/> </div>
       
-      <MapWrapA>        
+      <MapWrapA>
+      <br/>자가용 이용시<br/>
+                    
       <MapWrapB> 
         <div>
           분당 방면: 한남대교→장충단길→신라호텔 후문→서울신라호텔 <br /> 
