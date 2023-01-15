@@ -700,7 +700,7 @@ const Home = () => {
         <p>
           <strong>신부측</strong> (이슬이)
           <br />
-          <CopyText text="스탠다드차티드 63220491696" />
+          <CopyText text="스탠다드차타드 63220491696" />
         </p>
       </GiveWrap>
       
