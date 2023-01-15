@@ -24,6 +24,7 @@ import {
   BubbleHeadStyle,
   Main,
   SectionHeader,
+  SectionHeaderA,
   SectionHr,
   TextSansStyle,
 } from "./styles"; 
@@ -558,13 +559,11 @@ const Home = () => {
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
       
-      <SectionHeader>
-      <p>
+      <SectionHeaderA>
         2023년 2월 12일 일요일 오후 6시
         <br />
         서울신라호텔 다이너스티홀
-      </p>
-      </SectionHeader> 
+      </SectionHeaderA> 
       
       <SectionHr />
 
