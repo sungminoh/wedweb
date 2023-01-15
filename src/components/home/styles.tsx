@@ -18,7 +18,7 @@ export const Main = styled.main`
   max-width: 400px;
   margin: 0 auto;
 
-  font-size: 16px;
+  font-size: 15px;
   color: #333;
   text-align: center;
   line-height: 2.5;
