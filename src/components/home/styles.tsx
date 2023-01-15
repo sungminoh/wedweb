@@ -63,6 +63,10 @@ export const SectionHeader = styled.h2`
   font-weight: 500;
 `;
 
+export const SectionHeaderA = styled.h2`
+  font-size: 18px;
+`;
+
 export const BubbleHeadStyle = (party: Party, color: string) => css`
   ${party === "BRIDE"
     ? css`
