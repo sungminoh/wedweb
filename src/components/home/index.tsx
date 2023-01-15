@@ -557,11 +557,14 @@ const Home = () => {
       <CoverPicWrap>
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
+      
+      <SectionHeader>
       <p>
         2023년 2월 12일 일요일 오후 6시
         <br />
         서울신라호텔 다이너스티홀
       </p>
+      </SectionHeader> 
       
       <SectionHr />
 
@@ -693,12 +696,12 @@ const Home = () => {
         <p>
           <strong>신랑측</strong> (최태준)
           <br />
-          <CopyText text="우리은행 0000-000-000000" />
+          <CopyText text="국민은행 758601-00-075254" />
         </p>
         <p>
           <strong>신부측</strong> (이슬이)
           <br />
-          <CopyText text="신한은행 000-000-000000" />
+          <CopyText text="스탠다드차티드 63220491696" />
         </p>
       </GiveWrap>
       
