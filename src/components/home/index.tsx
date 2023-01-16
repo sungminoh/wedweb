@@ -141,7 +141,7 @@ const PhotoGrid = styled.ul`
 
   img {
     max-height: 100%;
-    min-width: 100%;
+    /* min-width: 100%; */
     object-fit: cover;
     object-position: center 10%;
     vertical-align: bottom;
