@@ -149,7 +149,7 @@ const PhotoGrid = styled.ul`
     object-position: center 10%;
     vertical-align: bottom;
     
-    justfy-content: space-around;
+    justfy-content: center;
   }
 `;
 
