@@ -20,7 +20,7 @@ const HomePage = () => {
         <meta property="og:title" content="최태준 ♡ 이슬이 청첩장" />
         <meta
           property="og:description"
-          content="2월 12일(일) 18시 신라호텔 다이너스티홀"
+          content="2월 12일(일) 18시 서울신라호텔 다이너스티홀"
         />
         <meta
           property="og:image"
