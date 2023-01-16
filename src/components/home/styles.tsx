@@ -15,7 +15,7 @@ export const BoxShadowStyle = css`
 export const Main = styled.main`
   ${TextSerifStyle}
 
-  max-width: 400px;
+  max-width: 500px;
   margin: 0 auto;
 
   font-size: 15px;
