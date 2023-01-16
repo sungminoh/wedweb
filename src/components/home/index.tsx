@@ -131,7 +131,7 @@ const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
 const PhotoGrid = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  padding: 0 10px;
+  /* padding: 0 10px; */
 
   li {
     height: 200px;
