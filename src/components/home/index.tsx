@@ -131,7 +131,7 @@ const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
 const PhotoGrid = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  /* padding: 0 10px; */
+  padding: 0 10px;
 
   li {
     height: 200px;
@@ -143,12 +143,11 @@ const PhotoGrid = styled.ul`
     max-height: 100%;
     
     /* min-width: 100%; */
-    max-width: 100%;
+    max-width: 150%;
     
     object-fit: cover;
     object-position: center 10%;
     vertical-align: bottom;
-    
     justfy-content: center;
   }
 `;
