@@ -134,7 +134,7 @@ const PhotoGrid = styled.ul`
   padding: 0 10px;
 
   li {
-    height: 250px;
+    height: 200px;
     flex-grow: 1;
     margin: 4px;
   }
@@ -143,7 +143,8 @@ const PhotoGrid = styled.ul`
     max-height: 100%;
     min-width: 100%;
     object-fit: cover;
-    vertical-align: bottom;
+    /* vertical-align: bottom; */
+    vertical-align: top;
   }
 `;
 
