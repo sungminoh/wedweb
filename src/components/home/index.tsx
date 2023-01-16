@@ -134,7 +134,7 @@ const PhotoGrid = styled.ul`
   padding: 0 10px;
 
   li {
-    height: 200px;
+    height: 250px;
     flex-grow: 1;
     margin: 4px;
   }
