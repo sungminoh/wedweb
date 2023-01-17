@@ -146,7 +146,7 @@ const PhotoGrid = styled.ul`
     /* max-width: 150%; */
     
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 10%;
     vertical-align: bottom;
     /* justfy-content: center; */
   }
