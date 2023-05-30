@@ -18,7 +18,7 @@ export const Main = styled.main`
   max-width: 400px;
   margin: 0 auto;
 
-  font-size: 14px;
+  font-size: 15px;
   color: #333;
   text-align: center;
   line-height: 2.5;
@@ -52,7 +52,7 @@ export const Main = styled.main`
 `;
 
 export const SectionHr = styled.hr`
-  width: 100px;
+  width: 150px;
   margin: 60px auto;
   border: 0;
   border-top: 1px solid #ccc;
@@ -61,6 +61,10 @@ export const SectionHr = styled.hr`
 export const SectionHeader = styled.h2`
   font-size: 18px;
   font-weight: 500;
+`;
+
+export const SectionHeaderA = styled.h2`
+  font-size: 18px;
 `;
 
 export const BubbleHeadStyle = (party: Party, color: string) => css`

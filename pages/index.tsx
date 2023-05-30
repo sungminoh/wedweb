@@ -7,36 +7,25 @@ const HomePage = () => {
   return (
     <>
       <Head>
-        <title>장윤석 ♡ 서보라</title>
+        <title>최태준 ♡ 이슬이</title>
         <meta
           name="description"
-          content="장윤석 ♡ 서보라 2022년 12월 4일에 결혼합니다."
+          content="최태준 ♡ 이슬이 2023년 2월 12일에 결혼합니다."
         />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
-        <meta name="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        
-        <meta property="og:title" content="장윤석 ♡ 서보라 청첩장" />
-        <meta name="twitter:title" content="장윤석 ♡ 서보라 청첩장" />
-            
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="최태준 ♡ 이슬이 청첩장" />
         <meta
           property="og:description"
-          content="장윤석 ♡ 서보라 2022년 12월 4일 12시 20분, 잠실 더컨벤션 아모르홀에서 결혼합니다."
-        />
-        <meta 
-          name="twitter:description"
-          content="장윤석 ♡ 서보라 2022년 12월 4일 12시 20분, 잠실 더컨벤션 아모르홀에서 결혼합니다."
+          content="2월 12일(일) 18시 서울신라호텔 다이너스티홀"
         />
         <meta
           property="og:image"
-          content="https://yunseok-paula-wedding.vercel.app/photos/cover_min.jpg"
-        />
-        <meta
-          name="twitter:image"
-          content="https://yunseok-paula-wedding.vercel.app/photos/cover_min.jpg"
+          content="https://drive.google.com/uc?id=1N8Kx9ac2KtCGgheNP6GDrTAWknU4XlC-"
+                   /* 1Cy4Op1Bqi0NmQetDa8SUjO0oUt3mllNt" */
         />
       </Head>
       <Home />

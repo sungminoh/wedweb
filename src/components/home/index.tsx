@@ -1,8 +1,8 @@
-import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react";
+import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react"; 
 import Image from "next/image";
 import Link from "next/link";
 import React, {
-  MouseEventHandler,
+  MouseEventHandler, 
   useCallback,
   useEffect,
   useRef,
@@ -16,17 +16,18 @@ import useSWR from "swr";
 import Modal from "@/components/common/Modal";
 import timeDiffFormat from "@/common/utils/timeDiffFormat";
 import { useSessionStorage } from "@/common/hooks/useStorage";
-import coverPic from "@/public/photos/cover.jpg";
-import mapPic from "@/public/photos/map.jpg";
+import coverPic from "@/public/photos/cover_min.jpg";
+import mapPic from "@/public/photos/map.gif";
 import { GetTalkListResponse, Party, Talk } from "@/talk/types";
 import {
   BoxShadowStyle,
   BubbleHeadStyle,
   Main,
   SectionHeader,
+  SectionHeaderA,
   SectionHr,
   TextSansStyle,
-} from "./styles";
+} from "./styles"; 
 import WriteTalk from "./talk/WriteTalk";
 import EditTalk from "./talk/EditTalk";
 import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom";
@@ -36,7 +37,7 @@ const Header = styled.h1`
   margin: 40px 0;
 
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 500;
   line-height: 2.5;
 
   hr {
@@ -56,8 +57,6 @@ const CoverPicWrap = styled.div`
   line-height: 0;
 `;
 
-const imageSize = 14;
-
 const LiveButton = styled.button`
   padding: 8px 16px;
   border: 0;
@@ -65,7 +64,7 @@ const LiveButton = styled.button`
   margin: 12px 10px;
   color: white;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: bold;
   background: rgba(255, 136, 170);
 
   animation: color-change 1s infinite;
@@ -142,9 +141,14 @@ const PhotoGrid = styled.ul`
 
   img {
     max-height: 100%;
+    
     min-width: 100%;
+    /* max-width: 150%; */
+    
     object-fit: cover;
+    object-position: center 20%;
     vertical-align: bottom;
+    /* justfy-content: center; */
   }
 `;
 
@@ -217,9 +221,9 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
         arrows={false}
         dots={false}
       >
-        {Array.from(Array(imageSize), (_, i) => i + 1).map((i) => (
+        {Array.from(Array(15), (_, i) => i + 1).map((i) => (
           <div key={i}>
-            <PinchPhoto onZoom={setZoomed} src={`/photos/f${i}.jpg`} />
+            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpg`} />
           </div>
         ))}
       </Slider>
@@ -252,6 +256,17 @@ const GiveWrap = styled.div`
   display: inline-block;
   text-align: left;
   line-height: 2;
+`;
+
+const MapWrapA = styled.div`
+  margin: 0 0 0 10px;
+  text-align: left;
+`;
+
+const MapWrapB = styled.div`
+  margin: 0 0 0 10px;
+  text-align: left;
+  font-size: 12px;
 `;
 
 const CopyTextButton = styled.button`
@@ -328,7 +343,7 @@ const WriteButton = styled.button<{ visible: boolean }>`
 
   color: white;
   font-size: 16px;
-  font-weight: 900;
+  font-weight: bold;
   background: rgba(255, 136, 170, 0.9);
 
   ${BoxShadowStyle}
@@ -460,11 +475,12 @@ const TalkBubble = ({
         {selected && talk.party === "GROOM" && <> {editBtn}</>}
         <div className="bubble-info-wrap">
           <p onClick={handleBubbleClick}>{talk.msg}</p>
-          <small>
+           <small>
             {!talk.published
               ? "검수중"
-              : timeDiffFormat(new Date(talk.created))}
-          </small>
+              : timeDiffFormat(new Date(talk.created)) 
+            }
+          </small> 
         </div>
       </div>
     </TalkBubbleWrap>
@@ -540,63 +556,69 @@ const Home = () => {
   return (
     <Main>
       <Header>
-        장윤석
+        최태준
         <hr />
-        서보라
+        이슬이
       </Header>
       <CoverPicWrap>
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
-      <p>
-        2022년 12월 4일 일요일 오후 12시 20분
+      
+      <SectionHeaderA>
+        2023년 2월 12일 일요일 오후 6시
         <br />
-        더컨벤션 잠실 (교통회관) 3층 아모르홀
-      </p>
-
-
+        서울신라호텔 다이너스티홀
+      </SectionHeaderA> 
+      
       <SectionHr />
 
-      <SectionHeader>아름다운 날. <br/>소중한 분을 초대합니다.</SectionHeader>
+      <SectionHeader>결혼합니다♡</SectionHeader> 
+      
       <GreetingP>
-        저희 둘 소중한 만남으로
+        만날 때의 설렘보다
         <br />
-        축복 속에서 한 가정을 이루려고 합니다.
+        집 앞에서 헤어질 때의 아쉬움이 커질 무렵
         <br />
-        서로 존중하고 신뢰를 쌓으며
+        새로운 설렘으로 시작하려 합니다.
         <br />
-        사랑을 키워나갈 수 있도록
+        아름다운 시작을 위해 가까이에서 축복해 주시면
         <br />
-        오셔서 자리를 빛내주시면 감사하겠습니다.
+        변함없는 믿음과 사랑으로
+        <br />
+        하루하루 감동하며 살겠습니다.
+         <br />
       </GreetingP>
+      
       <GreetingP>
-        장문수 · 한은희의 장남 윤석
+        최갑현 · 이영희의 장남 태준
         <br />
-        서영거 · 김애영의 차녀 보라
+        이희봉 · 김재락의 장녀 슬이
       </GreetingP>
+      
       <CallWrap>
-        <a href="tel:01030071430">
+        <a href="tel:01093310848">
           <CallButton
             icon={<EmojiLookRight />}
             bgColor="#abdaab"
             label="신랑측에 연락하기"
           />
         </a>
-        <a href="tel:01097484110">
+        <a href="tel:01028205242">
           <CallButton
             icon={<EmojiLookLeft />}
-            bgColor="#c2e0a3"
+            bgColor="#F7C8D3"
             label="신부측에 연락하기"
           />
         </a>
       </CallWrap>
       <SectionHr />
       <PhotoGrid>
-        {Array.from(Array(imageSize), (_, i) => i).map((i) => (
+        {Array.from(Array(15), (_, i) => i).map((i) => (
           <li key={i}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               role="button"
-              src={`/photos/g${i + 1}.jpg`}
+              src={`/photos/p${i + 1}.jpg`}
               onClick={() => handlePhotoClick(i)}
               loading="lazy"
               alt=""
@@ -613,62 +635,80 @@ const Home = () => {
         </Modal>
       )}
       <SectionHr />
-      <SectionHeader>🧭 오시는 길</SectionHeader>
-      <Image src={mapPic} width="395px" height="250px" alt="" />
+      <SectionHeader>오시는 길</SectionHeader>
+      <Image src={mapPic} width="650px" alt="" />
       <p>
-        서울 송파구 올림픽로 319 (신천동 11-7)
+        서울 중구 동호로 249
         <br />
-        (잠실역 9번 출구 바로 앞 위치)
+        서울신라호텔 다이너스티홀
         <br />
-        더컨벤션 잠실 (교통회관) 3층 아모르홀
       </p>
-      <MapButton href="https://place.map.kakao.com/17651361">
+   
+ 
+      
+      <MapWrapA>
+      <br/>자가용 이용시<br/>
+                    
+      <MapWrapB> 
+        <div>
+          분당 방면: 한남대교→장충단길→서울신라호텔 <br /> 
+          강남 방면: 동호대교→장충체육관 앞 사거리에서 좌회전→서울신라호텔 <br /> 
+          용산 방면: 남산2호터널 통과 후 좌회전→서울신라호텔 <br />
+       </div>
+      </MapWrapB>
+     
+         <br/>버스 이용시<br/>
+      
+      <MapWrapB> 
+       <div>
+         장충체육관 앞 하차 (노선번호:144, 301, 7212) <br />
+       </div>
+      </MapWrapB>
+      
+         <br/>지하철 이용시<br/>
+        
+      <MapWrapB> 
+         <div>
+          지하철3호선 동대입구역 5번출구 <br />
+         </div> 
+      </MapWrapB>
+      
+         <br/>서울신라호텔 셔틀버스 이용시 <br/>
+        
+      <MapWrapB> 
+         <div>
+          관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
+         </div>
+      </MapWrapB>     
+      </MapWrapA> 
+      
+      <br />
+      
+      <MapButton href="https://place.map.kakao.com/10527133">
         <PinAlt color="#1199EE" /> 카카오맵
       </MapButton>
-      <MapButton href="https://naver.me/xC61fokj">
+      <MapButton href="https://map.naver.com/v5/entry/place/12159697">
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
-
-
-      <p>
-        <br/>
-        주차 이용 시간은 2시간 입니다.
-        <br />
-        당일 혼잡할 가능성이 있사오니
-        <br />
-        가급적 대중교통 이용 부탁드립니다.
-      </p>
-
-      <SectionHr />
-
-      <p>
-        축하로 보내주시는 화환 대신 쌀드리미 화환으로 보내주시면
-        <br />
-        좋은 날 소외받는 이웃과 함께 사랑의 쌀을 나누겠습니다.
-        <br />
-        문의처: 쌀화환 드리米 / <a href="tel:0215448489">1544-8489</a> / <a href="https://dreame.co.kr">dreame.co.kr</a>
-      </p>
-
+      
+      <br />
+      <br />
+      
       <SectionHr />
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>
-          <strong>🤵 신랑측</strong>
+          <strong>신랑측</strong> (최태준)
           <br />
-          <CopyText text="예시1" />
-          <br />
-          <CopyText text="예시2" />
-
+          <CopyText text="국민은행 758601-00-075254" />
         </p>
         <p>
-          <strong>👰 신부측</strong>
+          <strong>신부측</strong> (이슬이)
           <br />
-          <CopyText text="예시3" />
-          <br />
-          <CopyText text="예시4" />
+          <CopyText text="스탠다드차타드 632-20-491696" />
         </p>
       </GiveWrap>
-
+      
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>
