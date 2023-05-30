@@ -184,7 +184,7 @@ const TalkBubble = ({
   );
   return (
     <TalkBubbleWrap party={talk.party} color={talk.color} selected={selected}>
-      {talk.party === "BRIDE" ? <EmojiLookLeft fr/> : <EmojiLookRight fr/>}
+      {talk.party === "BRIDE" ? <EmojiLookLeft fr='bride_emoji'/> : <EmojiLookRight fr='groom_emoji'/>}
       <div onClick={handleBubbleOutsideClick}>
         {selected && talk.party === "BRIDE" && <>{editBtn} </>}
         {talk.author}

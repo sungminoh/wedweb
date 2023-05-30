@@ -324,7 +324,7 @@ const CopyText = ({ text }: { text: string }) => {
     <>
       {text}
       <CopyTextButton onClick={handleCopyText} aria-label="복사">
-        <Copy />
+        <Copy fr='copy'/>
       </CopyTextButton>
     </>
   );
@@ -378,14 +378,14 @@ const Home = () => {
       <CallWrap>
         <a href={`tel:${GROOM_TEL}`}>
           <CallButton
-            icon={<EmojiLookRight />}
+            icon={<EmojiLookRight fr='groom_emoji'/>}
             bgColor="#abdaab"
             label="신랑측에 연락하기"
           />
         </a>
         <a href={`tel:${BRIDE_TEL}`}>
           <CallButton
-            icon={<EmojiLookLeft />}
+            icon={<EmojiLookLeft fr='bride_emoji'/>}
             bgColor="#F7C8D3"
             label="신부측에 연락하기"
           />
@@ -419,7 +419,7 @@ const Home = () => {
       </Link>
       <SectionHr />
       <SectionHeader>오시는 길</SectionHeader>
-      <Image src={mapPic} width="650px" alt="" />
+      <Image src={mapPic} alt="" layout="responsive" objectFit="contain"/>
       <p style={{ whiteSpace: 'pre-line' }}>
         {WEDDING_VANUE_ADDRESS}
       </p>
@@ -444,10 +444,10 @@ const Home = () => {
       <br />
 
       <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
-        <PinAlt color="#1199EE" /> 카카오맵
+        <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
       </MapButton>
       <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
-        <PinAlt color="#66BB66" /> 네이버지도
+        <PinAlt fr='naver_map' color="#66BB66" /> 네이버지도
       </MapButton>
 
       <br />

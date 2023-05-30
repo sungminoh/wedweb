@@ -178,9 +178,9 @@ const WriteTalk = ({ onWrite }: Props) => {
           <>
             <BubbleWrap party={party} color={color}>
               {party === "BRIDE" ? (
-                <EmojiLookLeft onClick={handleHeadClick} />
+                <EmojiLookLeft fr='bride_emoji' onClick={handleHeadClick} />
               ) : (
-                <EmojiLookRight onClick={handleHeadClick} />
+                <EmojiLookRight fr='groom_emoji' onClick={handleHeadClick} />
               )}
               <div>
                 <AuthorInput
