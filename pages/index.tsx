@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <Head>
-        <title>{GROOM_NAME} ♡ {BRIDE_NAME}</title>
+        <title>{`${GROOM_NAME} ♡ ${BRIDE_NAME}`}</title>
         <meta
           name="description"
           content={`${GROOM_NAME} ♡ ${BRIDE_NAME} ${toDateString(WEDDING_DATE, "%Y년 %m월 %d일")}에 결혼합니다.`}

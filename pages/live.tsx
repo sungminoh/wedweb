@@ -9,7 +9,7 @@ const LivePage = () => {
   return (
     <>
       <Head>
-        <title>{GROOM_NAME} ♡ {BRIDE_NAME} 결혼식 중계</title>
+        <title>{`${GROOM_NAME} ♡ ${BRIDE_NAME} 결혼식 중계`}</title>
         <meta
           name="description"
           content={`${GROOM_NAME} ♡ ${BRIDE_NAME} ${toDateString(WEDDING_DATE, "%Y월 %일")}에 결혼합니다.`}
