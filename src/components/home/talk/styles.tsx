@@ -48,7 +48,7 @@ export const Wrap = styled.div`
 
   input,
   label,
-  div[contenteditable="true"] {
+  div[contentEditable="true"] {
     appearance: none;
     transition: 0.3s;
   }
