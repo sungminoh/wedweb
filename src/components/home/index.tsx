@@ -53,6 +53,7 @@ import {
   WEDDING_VANUE_NAVER_LINK
 } from "@/config";
 import { getData, toDateString } from "@/common/utils";
+import { UpdateAction } from "react-quick-pinch-zoom/esm/PinchZoom/types";
 
 const Header = styled.h1`
   display: inline-block;
@@ -215,7 +216,7 @@ const PinchPhoto = ({ src, onZoom }: PinchPhotoProps) => {
   const imgRef = useRef<HTMLImageElement>(null);
   const pz = useRef<QuickPinchZoom>(null);
   const handleUpdate = useCallback(
-    ({ x, y, scale }) => {
+    ({ x, y, scale }: UpdateAction) => {
       if (!imgRef.current) return;
       const value = make3dTransformValue({ x, y, scale });
       imgRef.current.style.setProperty("transform", value);
@@ -235,15 +236,16 @@ const PinchPhoto = ({ src, onZoom }: PinchPhotoProps) => {
 type PhotoGalleryProps = { initialSlide?: number; onClose: () => void };
 const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
   const [isZoomed, setZoomed] = useState(false);
+  const settings = {
+    initialSlide: initialSlide || 0,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots: false,
+  }
   return (
     <SliderWrap isZoomed={isZoomed} onClick={onClose}>
-      <Slider
-        initialSlide={initialSlide || 0}
-        slidesToShow={1}
-        slidesToScroll={1}
-        arrows={false}
-        dots={false}
-      >
+      <Slider {...settings}>
         {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1)
           .map((i) => (
             <div key={i}>
