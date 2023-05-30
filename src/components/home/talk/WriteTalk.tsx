@@ -1,5 +1,5 @@
 import { useSessionStorage } from "@/common/hooks/useStorage";
-import randomInt from "@/common/utils/randomInt";
+import { randomInt } from "@/common/utils";
 import { EmojiLookLeft, EmojiLookRight } from "iconoir-react";
 import React, {
   FormEventHandler,
@@ -26,6 +26,11 @@ import {
   TalkHeadColors,
   Wrap,
 } from "./styles";
+import {
+  MESSAGE_MAX_CONTENT_LENGTH,
+  MESSAGE_MAX_NAME_LENGTH,
+  MESSAGE_MIN_CONTENT_LENGTH
+} from "@/config";
 
 type FormData = PostTalkRequest;
 
@@ -55,13 +60,22 @@ const WriteTalk = ({ onWrite }: Props) => {
   useEffect(() => {
     register("author", {
       required: "이름을 입력해주세요.",
-      maxLength: { value: 10, message: "이름이 너무 길어요." },
+      maxLength: {
+        value: MESSAGE_MAX_NAME_LENGTH,
+        message: `이름이 너무 길어요 (${MESSAGE_MAX_NAME_LENGTH}자 이하)`
+      },
       value: cachedAuthor || "",
     });
     register("msg", {
       required: "내용을 입력해주세요.",
-      minLength: { value: 5, message: "내용이 너무 짧아요 (5자 이상)" },
-      maxLength: { value: 100, message: "내용이 너무 길어요 (100자 이하)" },
+      minLength: {
+        value: MESSAGE_MIN_CONTENT_LENGTH,
+        message: `내용이 너무 짧아요 (${MESSAGE_MIN_CONTENT_LENGTH}자 이상)`
+      },
+      maxLength: {
+        value: MESSAGE_MAX_CONTENT_LENGTH,
+        message: `내용이 너무 길어요 (${MESSAGE_MAX_CONTENT_LENGTH}자 이하)`
+      },
       value: cachedMsg || "",
     });
     register("color", {

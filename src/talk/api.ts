@@ -24,11 +24,12 @@ type SheetTalk = Talk & { password: string };
 const SHEET_TALK_HEADER: (keyof SheetTalk)[] = [
   "id",
   "author",
+  "color",
   "party",
   "msg",
   "created",
-  "password",
   "published",
+  "password",
 ];
 
 let sheet: GoogleSpreadsheetWorksheet | undefined = undefined;

@@ -14,10 +14,10 @@ import styled, { css } from "styled-components";
 import useSWR from "swr";
 
 import Modal from "@/components/common/Modal";
-import timeDiffFormat from "@/common/utils/timeDiffFormat";
+import { timeDiffFormat } from "@/common/utils";
 import { useSessionStorage } from "@/common/hooks/useStorage";
-import coverPic from "@/public/photos/cover_min.jpg";
-import mapPic from "@/public/photos/map.gif";
+import coverPic from "@/public/photos/cover.jpg";
+import mapPic from "@/public/photos/map.png";
 import { GetTalkListResponse, Party, Talk } from "@/talk/types";
 import {
   BoxShadowStyle,
@@ -31,6 +31,28 @@ import {
 import WriteTalk from "./talk/WriteTalk";
 import EditTalk from "./talk/EditTalk";
 import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom";
+import {
+  BRIDE_BANK,
+  BRIDE_BANK_HOLDER,
+  BRIDE_DESC,
+  BRIDE_NAME,
+  BRIDE_TEL,
+  GREETING,
+  GROOM_BANK,
+  GROOM_BANK_HOLDER,
+  GROOM_DESC,
+  GROOM_NAME,
+  GROOM_TEL,
+  IMAGE_COUNT,
+  TITLE,
+  WEDDING_DATE,
+  WEDDING_VANUE,
+  WEDDING_VANUE_ADDRESS,
+  WEDDING_VANUE_DIRECTION,
+  WEDDING_VANUE_KAKAO_LINK,
+  WEDDING_VANUE_NAVER_LINK
+} from "@/config";
+import { getData, toDateString } from "@/common/utils";
 
 const Header = styled.h1`
   display: inline-block;
@@ -84,6 +106,7 @@ const LiveButton = styled.button`
 
 const GreetingP = styled.p`
   margin: 30px 0;
+  white-space: pre-line;
 `;
 
 const CallWrap = styled.div`
@@ -221,11 +244,12 @@ const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
         arrows={false}
         dots={false}
       >
-        {Array.from(Array(15), (_, i) => i + 1).map((i) => (
-          <div key={i}>
-            <PinchPhoto onZoom={setZoomed} src={`/photos/p${i}.jpg`} />
-          </div>
-        ))}
+        {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1)
+          .map((i) => (
+            <div key={i}>
+              <PinchPhoto onZoom={setZoomed} src={`/photos/gallery/${i}.jpg`} />
+            </div>
+          ))}
       </Slider>
     </SliderWrap>
   );
@@ -267,6 +291,11 @@ const MapWrapB = styled.div`
   margin: 0 0 0 10px;
   text-align: left;
   font-size: 12px;
+`;
+
+const MapWrapBFooter = styled.span`
+  font-size: 10px;
+  font-weight: bold;
 `;
 
 const CopyTextButton = styled.button`
@@ -540,10 +569,7 @@ const Home = () => {
   };
   const handleWriteTalkModalClose = () => setShowWriteTalkModal(false);
 
-  const handleTalkEditClick = (id: string) => {
-    const talk = talkListResp?.talks?.find((t) => t.id === id);
-    if (!talk) return;
-    setShowEditTalkModal(talk);
+  const handleTalkEditClick = (id: string) => { const talk = talkListResp?.talks?.find((t) => t.id === id); if (!talk) return; setShowEditTalkModal(talk);
     setSelectedTalkId(undefined);
   };
   const handleEditTalk = (_: string) => {
@@ -556,54 +582,43 @@ const Home = () => {
   return (
     <Main>
       <Header>
-        최태준
+        {GROOM_NAME}
         <hr />
-        이슬이
+        {BRIDE_NAME}
       </Header>
       <CoverPicWrap>
         <Image src={coverPic} priority={true} placeholder="blur" alt="" />
       </CoverPicWrap>
-      
+
       <SectionHeaderA>
-        2023년 2월 12일 일요일 오후 6시
+        {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %p %H시")}
         <br />
-        서울신라호텔 다이너스티홀
-      </SectionHeaderA> 
-      
+        {WEDDING_VANUE}
+      </SectionHeaderA>
+
       <SectionHr />
 
-      <SectionHeader>결혼합니다♡</SectionHeader> 
-      
+      <SectionHeader>{TITLE}</SectionHeader>
+
       <GreetingP>
-        만날 때의 설렘보다
-        <br />
-        집 앞에서 헤어질 때의 아쉬움이 커질 무렵
-        <br />
-        새로운 설렘으로 시작하려 합니다.
-        <br />
-        아름다운 시작을 위해 가까이에서 축복해 주시면
-        <br />
-        변함없는 믿음과 사랑으로
-        <br />
-        하루하루 감동하며 살겠습니다.
-         <br />
+        {GREETING}
       </GreetingP>
-      
+
       <GreetingP>
-        최갑현 · 이영희의 장남 태준
+        {GROOM_DESC}
         <br />
-        이희봉 · 김재락의 장녀 슬이
+        {BRIDE_DESC}
       </GreetingP>
-      
+
       <CallWrap>
-        <a href="tel:01093310848">
+        <a href={`tel:${GROOM_TEL}`}>
           <CallButton
             icon={<EmojiLookRight />}
             bgColor="#abdaab"
             label="신랑측에 연락하기"
           />
         </a>
-        <a href="tel:01028205242">
+        <a href={`tel:${BRIDE_TEL}`}>
           <CallButton
             icon={<EmojiLookLeft />}
             bgColor="#F7C8D3"
@@ -613,12 +628,12 @@ const Home = () => {
       </CallWrap>
       <SectionHr />
       <PhotoGrid>
-        {Array.from(Array(15), (_, i) => i).map((i) => (
+        {Array.from(Array(15), (_, i) => i + 1).map((i) => (
           <li key={i}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               role="button"
-              src={`/photos/p${i + 1}.jpg`}
+              src={`/photos/gallery/${i}.jpg`}
               onClick={() => handlePhotoClick(i)}
               loading="lazy"
               alt=""
@@ -634,81 +649,63 @@ const Home = () => {
           />
         </Modal>
       )}
+      <Link href="/live" passHref>
+        <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>
+      </Link>
       <SectionHr />
       <SectionHeader>오시는 길</SectionHeader>
       <Image src={mapPic} width="650px" alt="" />
-      <p>
-        서울 중구 동호로 249
-        <br />
-        서울신라호텔 다이너스티홀
-        <br />
+      <p style={{ whiteSpace: 'pre-line' }}>
+        {WEDDING_VANUE_ADDRESS}
       </p>
-   
- 
-      
+
       <MapWrapA>
-      <br/>자가용 이용시<br/>
-                    
-      <MapWrapB> 
-        <div>
-          분당 방면: 한남대교→장충단길→서울신라호텔 <br /> 
-          강남 방면: 동호대교→장충체육관 앞 사거리에서 좌회전→서울신라호텔 <br /> 
-          용산 방면: 남산2호터널 통과 후 좌회전→서울신라호텔 <br />
-       </div>
-      </MapWrapB>
-     
-         <br/>버스 이용시<br/>
-      
-      <MapWrapB> 
-       <div>
-         장충체육관 앞 하차 (노선번호:144, 301, 7212) <br />
-       </div>
-      </MapWrapB>
-      
-         <br/>지하철 이용시<br/>
-        
-      <MapWrapB> 
-         <div>
-          지하철3호선 동대입구역 5번출구 <br />
-         </div> 
-      </MapWrapB>
-      
-         <br/>서울신라호텔 셔틀버스 이용시 <br/>
-        
-      <MapWrapB> 
-         <div>
-          관내 셔틀: 호텔 로비→신라 면세점→호텔 고객 주차장→ 호텔 정문 <br />
-         </div>
-      </MapWrapB>     
-      </MapWrapA> 
-      
+        {Object.entries(WEDDING_VANUE_DIRECTION)
+          .map(([title, [body, footer]]) => {
+            return <div key={title}>
+              <br/>{title}<br/>
+              <MapWrapB>
+                <ul>
+                  {
+                    body.map((content) => <li key={content}>{content}</li>)
+                  }
+                </ul>
+                {
+                  footer == null ? null
+                    : <MapWrapBFooter>{footer}</MapWrapBFooter>
+                }
+              </MapWrapB>
+            </div>
+        })}
+      </MapWrapA>
+
       <br />
-      
-      <MapButton href="https://place.map.kakao.com/10527133">
+
+      <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
         <PinAlt color="#1199EE" /> 카카오맵
       </MapButton>
-      <MapButton href="https://map.naver.com/v5/entry/place/12159697">
+      <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
         <PinAlt color="#66BB66" /> 네이버지도
       </MapButton>
-      
+
       <br />
       <br />
-      
+
       <SectionHr />
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>
-          <strong>신랑측</strong> (최태준)
+          <strong>신랑측</strong> ({GROOM_BANK_HOLDER})
           <br />
-          <CopyText text="국민은행 758601-00-075254" />
+          <CopyText text={GROOM_BANK} />
         </p>
         <p>
-          <strong>신부측</strong> (이슬이)
+          <strong>신부측</strong> ({BRIDE_BANK_HOLDER})
           <br />
-          <CopyText text="스탠다드차타드 632-20-491696" />
+          <CopyText text={BRIDE_BANK} />
         </p>
       </GiveWrap>
-      
+
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <WriteSectionSubHeader>
