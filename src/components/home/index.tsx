@@ -48,7 +48,7 @@ import {
   WEDDING_DATE,
   WEDDING_VANUE,
   WEDDING_VANUE_ADDRESS,
-  WEDDING_VANUE_DIRECTION,
+  WEDDING_VANUE_DIRECTIONS,
   WEDDING_VANUE_KAKAO_LINK,
   WEDDING_VANUE_NAVER_LINK
 } from "@/config";
@@ -660,19 +660,19 @@ const Home = () => {
       </p>
 
       <MapWrapA>
-        {Object.entries(WEDDING_VANUE_DIRECTION)
-          .map(([title, [body, footer]]) => {
-            return <div key={title}>
-              <br/>{title}<br/>
+        {WEDDING_VANUE_DIRECTIONS
+          .map((direction, i) => {
+            return <div key={`direction-${i}`}>
+              <br/>{direction.method}<br/>
               <MapWrapB>
                 <ul>
                   {
-                    body.map((content) => <li key={content}>{content}</li>)
+                    direction.ways.map((way, j) => <li key={`way-${i}-${j}`}>{way}</li>)
                   }
                 </ul>
                 {
-                  footer == null ? null
-                    : <MapWrapBFooter>{footer}</MapWrapBFooter>
+                  direction.footer == null ? null
+                    : <MapWrapBFooter>{direction.footer}</MapWrapBFooter>
                 }
               </MapWrapB>
             </div>
