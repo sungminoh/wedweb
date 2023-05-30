@@ -12,7 +12,7 @@ export const toDateString = (date: Date, format: String) => {
 }
 
 
-let dataCache = { data: null, when: 0 };
+let dataCache = { data: {live: {url: ''}}, when: 0 };
 export const getData = async () => {
   if (dataCache.when < Date.now() - 10000) {
     const data = await fetch(DATA_LINK)

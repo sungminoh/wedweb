@@ -36,7 +36,7 @@ export default LivePage;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const data = await getData();
-  if (data.live.url.startsWith("http")) {
+  if (data?.live?.url.startsWith("http")) {
     return {
       redirect: {
         destination: data.live.url,
