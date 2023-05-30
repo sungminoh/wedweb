@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Link from "next/link";
 
 import { Main } from "./styles";
+import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE } from "@/config";
+import { toDateString } from "@/common/utils";
 
 const Header = styled.h1`
   display: inline-block;
@@ -41,15 +43,15 @@ const Live = () => {
   return (
     <Main>
       <Header>
-        최태준
+        {GROOM_NAME}
         <hr />
-        이슬이
+        {BRIDE_NAME}
       </Header>
 
       <p>
         결혼식 생중계 준비중 입니다.
         <br />
-        <Highlight>2/12 18시</Highlight>에 다시 방문해주세요 💕
+        <Highlight>{`${toDateString(WEDDING_DATE, "%m/%d %H시")}`}</Highlight>에 다시 방문해주세요 💕
       </p>
       <LinkWrap>
         <Link href="/">

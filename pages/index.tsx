@@ -1,31 +1,32 @@
 import Head from "next/head";
 import React from "react";
 
+import { GROOM_NAME, BRIDE_NAME, WEDDING_VANUE, WEDDING_DATE, OG_IMAGE } from "@/config";
+import { toDateString } from "@/common/utils";
 import Home from "@/components/home";
 
 const HomePage = () => {
   return (
     <>
       <Head>
-        <title>최태준 ♡ 이슬이</title>
+        <title>{GROOM_NAME} ♡ {BRIDE_NAME}</title>
         <meta
           name="description"
-          content="최태준 ♡ 이슬이 2023년 2월 12일에 결혼합니다."
+          content={`${GROOM_NAME} ♡ ${BRIDE_NAME} ${toDateString(WEDDING_DATE, "%Y년 %m월 %d일")}에 결혼합니다.`}
         />
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1"
         />
         <meta property="og:type" content="article" />
-        <meta property="og:title" content="최태준 ♡ 이슬이 청첩장" />
+        <meta property="og:title" content={`${GROOM_NAME} ♡ ${BRIDE_NAME} 청첩장`} />
         <meta
           property="og:description"
-          content="2월 12일(일) 18시 서울신라호텔 다이너스티홀"
+          content={`${toDateString(WEDDING_DATE, "%m월 %d일(%a) %H시")} ${WEDDING_VANUE}`}
         />
         <meta
           property="og:image"
-          content="https://drive.google.com/uc?id=1N8Kx9ac2KtCGgheNP6GDrTAWknU4XlC-"
-                   /* 1Cy4Op1Bqi0NmQetDa8SUjO0oUt3mllNt" */
+          content={OG_IMAGE}
         />
       </Head>
       <Home />
