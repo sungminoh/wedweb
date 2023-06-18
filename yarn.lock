@@ -2139,6 +2139,11 @@ path-type@^4.0.0:
   resolved "https://registry.npmjs.org/path-type/-/path-type-4.0.0.tgz"
   integrity sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==
 
+photoswipe@^5.3.7, "photoswipe@>= 5.2.2":
+  version "5.3.7"
+  resolved "https://registry.npmjs.org/photoswipe/-/photoswipe-5.3.7.tgz"
+  integrity sha512-zsyLsTTLFrj0XR1m4/hO7qNooboFKUrDy+Zt5i2d6qjFPAtBjzaj/Xtydso4uxzcXpcqbTmyxDibb3BcSISseg==
+
 picocolors@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/picocolors/-/picocolors-1.0.0.tgz"
@@ -2191,7 +2196,7 @@ progress@^2.0.0:
   resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-prop-types@^15.8.1:
+prop-types@^15.8.1, "prop-types@>= 15.7.0":
   version "15.8.1"
   resolved "https://registry.npmjs.org/prop-types/-/prop-types-15.8.1.tgz"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -2237,6 +2242,11 @@ rc@^1.2.7:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
+react-grid-gallery@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/react-grid-gallery/-/react-grid-gallery-1.0.0.tgz"
+  integrity sha512-S1gr6WXBlPFVrE0x2BHuu7jhyaB61mabcMQyx+8KCgAyKzGza0WF67AfAnS9Q00aurFEq4IP8eqb2Bk5F4RAmQ==
+
 react-hook-form@^7.12.2:
   version "7.44.2"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.44.2.tgz"
@@ -2257,12 +2267,22 @@ react-is@^16.7.0:
   resolved "https://registry.npmjs.org/react-is/-/react-is-18.2.0.tgz"
   integrity sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==
 
+react-photoswipe-gallery@^2.2.7:
+  version "2.2.7"
+  resolved "https://registry.npmjs.org/react-photoswipe-gallery/-/react-photoswipe-gallery-2.2.7.tgz"
+  integrity sha512-AEYNoL4/IIRosIUonn4haaFQNn1ui4vdVgAY9LHd/imVamNCkqUcyWeT6317UILp/yJI2gohsd3lWmcJEbjCag==
+
 react-quick-pinch-zoom@^4.0.2:
   version "4.9.0"
   resolved "https://registry.npmjs.org/react-quick-pinch-zoom/-/react-quick-pinch-zoom-4.9.0.tgz"
   integrity sha512-gCPnZu5+rkYDNvewi/d7A2wgLs7izQNMuC6kjt+KLC1qqHnRU27Ed8AgcEcnWAZKdMr3ZKoKhSvjlZSVZI0fuw==
   dependencies:
     tslib ">=2.0.0"
+
+react-responsive-masonry@^2.1.7:
+  version "2.1.7"
+  resolved "https://registry.npmjs.org/react-responsive-masonry/-/react-responsive-masonry-2.1.7.tgz"
+  integrity sha512-/jOqnTVNtO8zRJMTl6ZXBex7EFYEIFBLVlkIFjiCT7omfm0CgNF2z4ST8RIr0v2ut15NWAQs7Q3kJJPhMoe3Ew==
 
 react-slick@^0.28.1:
   version "0.28.1"
@@ -2275,7 +2295,7 @@ react-slick@^0.28.1:
     lodash.debounce "^4.0.8"
     resize-observer-polyfill "^1.5.0"
 
-"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react@^16.11.0 || ^17.0.0", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.6 || ^17 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.4.0, react@17.0.2:
+"react@^0.14.0 || ^15.0.1 || ^16.0.0 || ^17.0.0", "react@^16.11.0 || ^17.0.0", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.8.6 || ^17 || ^18", "react@^17.0.2 || ^18.0.0-0", "react@>= 16.8.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16.14.0, react@>=16.4.0, react@17.0.2:
   version "17.0.2"
   resolved "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==

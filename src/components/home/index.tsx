@@ -20,7 +20,6 @@ import {
   SectionHr,
   TextSansStyle,
 } from "./styles";
-import QuickPinchZoom, { make3dTransformValue } from "react-quick-pinch-zoom";
 import {
   BRIDE_BANK,
   BRIDE_BANK_HOLDER,
@@ -33,7 +32,6 @@ import {
   GROOM_DESC,
   GROOM_NAME,
   GROOM_TEL,
-  IMAGE_COUNT,
   TITLE,
   WEDDING_DATE,
   WEDDING_VANUE,
@@ -43,8 +41,9 @@ import {
   WEDDING_VANUE_NAVER_LINK
 } from "@/config";
 import { toDateString } from "@/common/utils";
-import { UpdateAction } from "react-quick-pinch-zoom/esm/PinchZoom/types";
 import Chat from "@/components/home/talk/Chat";
+import MyGallery from "./gallery";
+import Cover from "@/components/home/cover";
 
 const Header = styled.h1`
   display: inline-block;
@@ -143,111 +142,6 @@ const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
   </>
 );
 
-const PhotoGrid = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 10px;
-
-  li {
-    height: 200px;
-    flex-grow: 1;
-    margin: 4px;
-  }
-
-  img {
-    max-height: 100%;
-    
-    min-width: 100%;
-    /* max-width: 150%; */
-    
-    object-fit: cover;
-    object-position: center 20%;
-    vertical-align: bottom;
-    /* justfy-content: center; */
-  }
-`;
-
-const SliderWrap = styled.div<{ isZoomed: boolean }>`
-  height: 100%;
-  ${({ isZoomed }) =>
-    isZoomed &&
-    css`
-      * {
-        overflow: visible !important;
-      }
-    `}
-  .slick-track {
-    display: flex;
-  }
-  .slick-track .slick-slide {
-    display: flex;
-
-    ${({ isZoomed }) =>
-      isZoomed &&
-      css`
-        &:not(.slick-active) {
-          visibility: hidden;
-        }
-      `}
-
-    height: auto;
-    align-items: center;
-    justify-content: center;
-    div {
-      outline: none;
-    }
-    img {
-      width: 100%;
-    }
-  }
-`;
-
-type PinchPhotoProps = { src: string; onZoom: (isZoomed: boolean) => void };
-const PinchPhoto = ({ src, onZoom }: PinchPhotoProps) => {
-  const imgRef = useRef<HTMLImageElement>(null);
-  const pz = useRef<QuickPinchZoom>(null);
-  const handleUpdate = useCallback(
-    ({ x, y, scale }: UpdateAction) => {
-      if (!imgRef.current) return;
-      const value = make3dTransformValue({ x, y, scale });
-      imgRef.current.style.setProperty("transform", value);
-      onZoom(scale > 1);
-    },
-    [onZoom]
-  );
-
-  return (
-    <QuickPinchZoom ref={pz} onUpdate={handleUpdate} draggableUnZoomed={false}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img ref={imgRef} src={src} alt="" />
-    </QuickPinchZoom>
-  );
-};
-
-type PhotoGalleryProps = { initialSlide?: number; onClose: () => void };
-const PhotoGallery = ({ initialSlide, onClose }: PhotoGalleryProps) => {
-  const [isZoomed, setZoomed] = useState(false);
-  const settings = {
-    initialSlide: initialSlide || 0,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    dots: false,
-  }
-  return (
-    <SliderWrap isZoomed={isZoomed} onClick={onClose}>
-      <Slider {...settings}>
-        {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1)
-          .map((i) => (
-            <div key={i}>
-              <PinchPhoto onZoom={setZoomed} src={`/photos/gallery/${i}.jpg`} />
-            </div>
-          ))}
-      </Slider>
-    </SliderWrap>
-  );
-};
-
 const MapButton = styled.a`
   ${TextSansStyle}
   display: inline-block;
@@ -332,18 +226,6 @@ const CopyText = ({ text }: { text: string }) => {
 
 
 const Home = () => {
-
-  const [showGalleryModal, setShowGalleryModal] = useState(false);
-  const [lastClickedGalleryItem, setLastClickedGalleryItem] =
-    useState<number>();
-
-  const handlePhotoClick = (i: number) => {
-    setLastClickedGalleryItem(i);
-    setShowGalleryModal(true);
-  };
-
-  const handleGalleryModalClose = () => setShowGalleryModal(false);
-
   return (
     <Main>
       <Header>
@@ -391,29 +273,11 @@ const Home = () => {
           />
         </a>
       </CallWrap>
+
       <SectionHr />
-      <PhotoGrid>
-        {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1).map((i) => (
-          <li key={i}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              role="button"
-              src={`/photos/gallery/${i}.jpg`}
-              onClick={() => handlePhotoClick(i)}
-              loading="lazy"
-              alt=""
-            />
-          </li>
-        ))}
-      </PhotoGrid>
-      {showGalleryModal && (
-        <Modal handleClose={handleGalleryModalClose}>
-          <PhotoGallery
-            initialSlide={lastClickedGalleryItem}
-            onClose={handleGalleryModalClose}
-          />
-        </Modal>
-      )}
+
+      <MyGallery/>
+
       <Link href="/live" passHref>
         <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>
       </Link>
