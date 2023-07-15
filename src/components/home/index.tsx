@@ -43,7 +43,7 @@ import {
 import { toDateString } from "@/common/utils";
 import Chat from "@/components/home/talk/Chat";
 import MyGallery from "./gallery";
-import Cover from "@/components/home/cover";
+// import Cover from "@/components/home/cover";
 
 const Header = styled.h1`
   display: inline-block;

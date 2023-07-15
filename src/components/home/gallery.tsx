@@ -49,10 +49,11 @@ const MyGallery = () => {
     bgOpacity: 0.8,
   }
 
+
   return <PhotoGrid>
     <Gallery options={options}>
       {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1).map((i) => (
-          <li>
+          <li key={i}>
             <Item
               key={i}
               original={`/photos/gallery/${i}.jpg`}
@@ -70,7 +71,7 @@ const MyGallery = () => {
             >
               {({ ref, open }) => (
                 <img
-                  ref={ref}
+                  ref={ref as React.MutableRefObject<HTMLImageElement>}
                   role="button"
                   onClick={open}
                   src={`/photos/gallery/${i}.jpg`}
