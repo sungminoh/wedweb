@@ -2,16 +2,11 @@ import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react";
 import Image from "next/image"
 import Link from "next/link";
 import React, {
-  useCallback,
-  useRef,
   useState,
 } from "react";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import Modal from "@/components/common/Modal";
-import coverPic from "@/public/photos/cover.jpg";
 import mapPic from "@/public/photos/map.png";
 import {
   Main,
@@ -23,14 +18,12 @@ import {
 import {
   BRIDE_BANK,
   BRIDE_BANK_HOLDER,
-  BRIDE_DESC,
-  BRIDE_NAME,
+  BRIDE_DESC, BRIDE_NAME, BRIDE_PARENTS, BRIDE_RELATION, BRIDE_SHORT_NAME,
   BRIDE_TEL,
   GREETING,
   GROOM_BANK,
   GROOM_BANK_HOLDER,
-  GROOM_DESC,
-  GROOM_NAME,
+  GROOM_DESC, GROOM_NAME, GROOM_PARENTS, GROOM_RELATION, GROOM_SHORT_NAME,
   GROOM_TEL,
   TITLE,
   WEDDING_DATE,
@@ -43,32 +36,11 @@ import {
 import { toDateString } from "@/common/utils";
 import Chat from "@/components/home/talk/Chat";
 import MyGallery from "./gallery";
-// import Cover from "@/components/home/cover";
+import Cover from "@/components/home/cover";
+import { Contact } from "@/components/home/Contact";
 
-const Header = styled.h1`
-  display: inline-block;
-  margin: 40px 0;
 
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 2.5;
 
-  hr {
-    width: 70%;
-    margin: 0 auto;
-    border: 0;
-    border-top: 1px solid #ccc;
-  }
-`;
-
-const CoverPicWrap = styled.div`
-  width: 90%;
-  margin: 0 auto;
-  margin-bottom: 40px;
-  border-radius: 30px;
-  overflow: hidden;
-  line-height: 0;
-`;
 
 const LiveButton = styled.button`
   padding: 8px 16px;
@@ -96,51 +68,13 @@ const LiveButton = styled.button`
 `;
 
 const GreetingP = styled.p`
+  @media screen and (max-width: 400px) {
+      letter-spacing: -1px;
+  }
   margin: 30px 0;
   white-space: pre-line;
 `;
 
-const CallWrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin: 40px 0;
-  > * {
-    margin: 0 15px;
-  }
-`;
-
-const CallButtonWrap = styled.div<{ bgColor: string }>`
-  ${TextSansStyle}
-  font-size: 13px;
-
-  svg {
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 4px;
-    width: 60px;
-    height: 60px;
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    background-color: ${({ bgColor }) => bgColor};
-  }
-`;
-
-type CallButtonProps = {
-  icon: React.ReactNode;
-  bgColor: string;
-  label: string;
-};
-
-const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
-  <>
-    <CallButtonWrap bgColor={bgColor}>
-      {icon}
-      {label}
-    </CallButtonWrap>
-  </>
-);
 
 const MapButton = styled.a`
   ${TextSansStyle}
@@ -225,23 +159,57 @@ const CopyText = ({ text }: { text: string }) => {
 };
 
 
+const Header = styled.h1`
+  margin-top: 20px;
+  font-size: 18px;
+`;
+
+const ParentSection = styled.section`
+    line-height: 2.0;
+    text-align: center;
+    margin-bottom: 50px;
+
+    .text {
+        // small width [375px] may overflow
+        letter-spacing: -1px;
+
+        @include media-query(400px) {
+            font-size: 14px;
+        }
+    }
+
+    .parents {
+        letter-spacing: -1px;
+        i {  // 아들, 딸
+            font-style: normal;
+            text-align: center;
+            display: inline-block;
+            width: 2.7em;
+        }
+        span {
+            font-weight: bold;
+            display: inline-block;
+            width: 8em;
+            text-align: right;
+        }
+        b {
+            font-weight: bold;
+        }
+        
+    }
+
+`;
+
 const Home = () => {
   return (
     <Main>
-      <Header>
-        {GROOM_NAME}
-        <hr />
-        {BRIDE_NAME}
-      </Header>
-      <CoverPicWrap>
-        <Image src={coverPic} priority={true} placeholder="blur" alt="" />
-      </CoverPicWrap>
+      <Cover/>
 
-      <SectionHeaderA>
+      <Header>
         {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %p %H시")}
         <br />
         {WEDDING_VANUE}
-      </SectionHeaderA>
+      </Header>
 
       <SectionHr />
 
@@ -251,36 +219,24 @@ const Home = () => {
         {GREETING}
       </GreetingP>
 
-      <GreetingP>
-        {GROOM_DESC}
-        <br />
-        {BRIDE_DESC}
-      </GreetingP>
+      <ParentSection>
+        <div className="row">
+          <div className="parents text">
+            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>
+            <br/>
+            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>
+          </div>
+        </div>
+      </ParentSection>
 
-      <CallWrap>
-        <a href={`tel:${GROOM_TEL}`}>
-          <CallButton
-            icon={<EmojiLookRight fr='groom_emoji'/>}
-            bgColor="#abdaab"
-            label="신랑측에 연락하기"
-          />
-        </a>
-        <a href={`tel:${BRIDE_TEL}`}>
-          <CallButton
-            icon={<EmojiLookLeft fr='bride_emoji'/>}
-            bgColor="#F7C8D3"
-            label="신부측에 연락하기"
-          />
-        </a>
-      </CallWrap>
-
+      <Contact/>
       <SectionHr />
 
       <MyGallery/>
 
-      <Link href="/live" passHref>
-        <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>
-      </Link>
+      {/*<Link href="/live" passHref>*/}
+      {/*  <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>*/}
+      {/*</Link>*/}
       <SectionHr />
       <SectionHeader>오시는 길</SectionHeader>
       <Image src={mapPic} alt="" layout="responsive" objectFit="contain"/>

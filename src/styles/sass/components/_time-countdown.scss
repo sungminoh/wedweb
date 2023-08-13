@@ -1,0 +1,78 @@
+/**** time-countdown ****/
+.clock-grids {
+  .react-countdown {
+    overflow: hidden;
+    text-align: center;
+    display: inline-block;
+    margin-top: 20px;
+
+    @media(max-width:767px) {
+      margin-top: 0;
+    }
+
+    >.time-section {
+      width: 140px;
+      height: 100px;
+      float: left;
+      display: table;
+
+      @include media-query(1199px) {
+        width: 80px;
+        height: 40px;
+      }
+
+      @include media-query(991px) {
+        width: 60px;
+        height: 50px;
+      }
+    }
+
+    >.time-section+.time-section {
+      margin-left: 20px;
+
+      @include media-query(991px) {
+        margin-left: 20px;
+      }
+
+      @include media-query(767px) {
+        margin-left: 10px;
+      }
+    }
+
+    $time-font-size: 100px;
+    .time {
+      //font-family: $heading-font;
+      font-family: 'Cormorant';
+      font-style: italic;
+      font-size: $time-font-size;
+      line-height: 1em;
+      padding-top: 15px;
+      //color: $theme-primary-color;
+      color: $couple-heading-color;
+      margin-bottom: 10px;
+      font-weight: 400;
+
+      @include media-query(1200px) {
+        font-size: $time-font-size * 0.7;
+      }
+
+      @include media-query(991px) {
+        font-size: $time-font-size * 0.5;
+      }
+
+      @include media-query(575px) {
+        font-size: $time-font-size * 0.35;
+      }
+    }
+
+    .time-text {
+      // color: #365872;
+      color: $couple-heading-color;
+      font-family: Muli, sans-serif;
+      font-style: normal;
+      font-size: 9pt;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+  }
+}

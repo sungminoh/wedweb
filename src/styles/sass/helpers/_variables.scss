@@ -1,0 +1,66 @@
+/*---------------------------
+    Fonts
+----------------------------*/
+@font-face {
+  font-family: "Anjel Script";
+  src: url(https://fonts.cdnfonts.com/css/anjel-script) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/cormorant/v21/H4c2BXOCl9bbnla_nHIA47NMUjsNbCVrFhFTc7Nq7S-r0Yr5dA.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/muli/v28/7Auwp_0qiz-afTLGLQjUwkQ.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+// fonts
+$base-font-size: 15;
+$base-font: 'Jost', 'Noto Serif KR', sans-serif;
+$heading-font: 'monallesia', 'Noto Serif KR', serif;
+
+// color
+$dark-gray: #323232;
+//$body-color: #848892;
+$body-color: #111;
+$white: #fff;
+$light: #8188a9;
+$black: #000;
+$small-black: #333;
+$cyan: #848892;
+
+$tropical-peach: rgb(255, 197, 178);
+$peach-echo: rgb(248, 120, 107);   // #f8786b
+$peach-amber: rgb(250, 160, 148);  // #faa094
+$peach-blossom: #DE8286;
+$irish-green: rgb(64, 197, 117);  // #40c575
+
+
+$theme-primary-color: #D4B0A5;
+//$theme-primary-color-s2: rgb(222, 92, 162);  # #de5ca2
+//$theme-primary-color-s2: $irish-green;
+//$theme-primary-color-s2: $peach-echo;
+$theme-primary-color-s2: $peach-blossom;
+
+$body-bg-color: #fff;
+$section-bg-color: #edf3f8;
+$section-bg-color-s2: #FDFDFD;
+$text-color: #525252;
+$text-light-color: #7b7b7b;
+$heading-color: $dark-gray;
+$border-color: #F3ECE9;
+$border-color-s2: #e4ebf2;
+
+// Custom. Heading
+$couple-heading-size: 180px;
+$couple-heading-color: #e9ecef;

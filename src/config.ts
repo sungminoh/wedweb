@@ -4,7 +4,7 @@ export const BRIDE_NAME = "어희재"
 export const WEDDING_DATE = new Date("2023-12-16T11:00:00.000")
 export const WEDDING_DATE_TZ = new Date("2023-12-16T11:00:00.000+09:00")
 
-export const WEDDING_VANUE = "서울대학교 공대예식장"
+export const WEDDING_VANUE = "서울대학교 이라운지 (구. 라쿠치나)"
 export const WEDDING_VANUE_KAKAO_LINK = "https://place.map.kakao.com/12544261"
 export const WEDDING_VANUE_NAVER_LINK = "https://map.naver.com/v5/entry/place/18720631"
 export const WEDDING_VANUE_ADDRESS = `
@@ -38,22 +38,28 @@ export const WEDDING_VANUE_DIRECTIONS: VanueDirection[] = [
 
 
 export const GREETING = `
-만날 때의 설렘보다
-집 앞에서 헤어질 때의 아쉬움이 커질 무렵
-새로운 설렘으로 시작하려 합니다.
-아름다운 시작을 위해 가까이에서 축복해 주시면
-변함없는 믿음과 사랑으로
-하루하루 감동하며 살겠습니다.
+함께 있을 때 가장 나다운 모습이 되고, 
+함께 있을 때 미래를 꿈꾸게 하는 사람을 만나
+함께 맞는 겨울, 결혼합니다. 
+지금처럼 서로의 가장 친한 친구가 되어 
+예쁘고 행복하게 잘 살겠습니다. 
+저희의 새로운 시작을 함께 축복해주세요. 
 `.trim()
 
 export const TITLE = '결혼합니다♡'
-export const GROOM_DESC = '성지영의 장남 오성민'
-export const BRIDE_DESC = '어하준 · 임경원의 장녀 어희재'
+export const GROOM_PARENTS = '(고) 오행식 · 성지영'
+export const GROOM_SHORT_NAME = '성민'
+export const GROOM_RELATION = '장남'
+export const BRIDE_PARENTS = '어하준 · 임경원'
+export const BRIDE_SHORT_NAME = '희재'
+export const BRIDE_RELATION = '장녀'
 
-export const GROOM_TEL = ''
-export const BRIDE_TEL = ''
+export const GROOM_TEL = '010-4391-1948'
+export const GROOM_KAKAO = 'http://qr.kakao.com/talk/3PfY2KNvrgJYDz9tUf4f.OIMkaw-'
+export const BRIDE_TEL = '010-3307-4308'
+export const BRIDE_KAKAO = ''
 
-export const IMAGE_COUNT = 11
+export const IMAGE_COUNT = 17
 export const OG_IMAGE = "https://drive.google.com/uc?id=1uGRWP6JZlmaQLTEx1tiM1xjXVtG8FpU2"
 
 export const GROOM_BANK = "aa은행 123-456-789"

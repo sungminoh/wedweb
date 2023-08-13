@@ -7,7 +7,8 @@ export const toDateString = (date: Date, format: String) => {
     .replace("%m", (date.getMonth()+1).toString())
     .replace("%d", date.getDate().toString())
     .replace("%a", '일월화수목금토'[date.getDay()])
-    .replace("%H", date.getHours().toString())
+    .replace("%H", date.getHours().toString().padStart(2, '0'))
+    .replace("%M", date.getMinutes().toString().padStart(2, '0'))
     .replace("%p", ['오전', '오후'][date.getHours() < 12 ? 0 : 1])
 }
 
