@@ -3,55 +3,70 @@
 --------------------------------------------------------------*/
 
 /*3.1 wpo-hero-slider*/
-.wpo-hero-slider {
+.cover-slider {
   width: 100%;
   height: 900px;
   display: flex;
   position: relative;
   z-index: 0;
 
-  @include media-query(991px) {
-    height: 800px;
-  }
+  .cover-text-wrapper {
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    top: calc(min(40vh, 40%));
+    transform: translateX(-50%);
 
-  @include media-query(767px) {
-    height: 500px;
-  }
+    z-index: 2;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 
-  .swiper-slide {
-    overflow: hidden;
-  }
+    .cover-text {
+      width: 100%;
+      display: table-cell;
+      vertical-align: middle;
 
-  .swiper-slide.responsive-portrait .slide-bg-image {
-    img {
-      top: +0%;
-      /* >= 1.666, wide screen including 16:9 */
-      @media screen and (min-aspect-ratio: 16000/9000) {
-        top: +70%;
+      h2 {
+        font-family: $heading-font;
+        font-size: $couple-heading-size;
+        color: $couple-heading-color;
+        font-variant-ligatures: none;
+
+        //font-size: 70px;
+        font-weight: 500;
+        line-height: 100px;
+        text-align: center;
+        margin-bottom: 40px;
       }
-      /* [1.333 <= x <= 1.666], wide */
-      @media screen and (min-aspect-ratio: 12000/9000) and (max-aspect-ratio: 15999/9000) {
-        top: +50%;
+
+      h3 {  /* date */
+        font-family: "Muli", "Anjel Script", $heading-font;
+        font-size: $couple-heading-size * 0.10;
+        font-weight: 100;
+        letter-spacing: .10em;
+        color: $couple-heading-color;
       }
-      /* [1.10 <= x <= 1.333], near square */
-      @media screen and (min-aspect-ratio: 11000/10000) and (max-aspect-ratio: 11999/9000) {
-        top: +35%;
-      }
-      /* [0.85 <= x <= 1.10 ] */
-      @media screen and (min-aspect-ratio: 8500/10000) and (max-aspect-ratio: 10999/10000) {
-        top: +20%;
-      }
-      /* [0.86 <= x <= 0.85 ] */
-      @media screen and (min-aspect-ratio: 6667/10000) and (max-aspect-ratio: 8499/10000) {
-        top: +15%;
+
+      p {
+        font-weight: 400;
+        font-size: 25px;
+        line-height: 36px;
+        text-align: center;
+        color: $dark-gray;
       }
     }
   }
 
   .swiper-slide .slide-bg-image {
+    //z-index: 11;
+    //background-position: 50%;
+    //background-size: cover;
+
     overflow: hidden;
     position: relative;
-    img {
+    div {
       object-fit: cover;
       min-height: 100%;
       width: 100%;
@@ -59,6 +74,9 @@
 
       -webkit-animation: kenburn 5s 0s alternate infinite;
       -animation: kenburn 5s 0s alternate infinite;
+      img {
+        position: absolute;;
+      }
     }
 
     /* image: add a little bit of black overlay */
@@ -78,8 +96,7 @@
     }
   }
 
-  .swiper-container,
-  .hero-container {
+  .swiper-container {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -87,8 +104,7 @@
     top: 0;
   }
 
-  .slide-inner,
-  .hero-inner {
+  .slide-inner {
     width: 100%;
     height: 100%;
     position: absolute;
@@ -97,7 +113,7 @@
     z-index: 1;
     background-size: cover;
     background-position: center;
-    //display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
@@ -112,6 +128,7 @@
       content: "";
       opacity: .25;
       z-index: -1;
+      display: none;
     }
   }
 
@@ -167,150 +184,17 @@
   }
 
 
-
   .swiper-container-horizontal>.swiper-pagination-bullets,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
     bottom: 30px;
   }
-
   .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 8px;
   }
 }
 
-
-.wpo-hero-slider {
-
-  @include media-query(1199px) {
-    height: 680px;
-  }
-
-  @include media-query(991px) {
-    height: 600px;
-  }
-
-  @include media-query(767px) {
-    height: 500px;
-  }
-
-
-  .gradient-overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 10;
-    opacity: .6;
-  }
-
-  .gradient-overlay+.container {
-    position: relative;
-    z-index: 11;
-  }
-
-  .swiper-slide {
-    position: relative;
-    z-index: 11;
-    background-position: 50%;
-    background-size: cover;
-    overflow: hidden;
-  }
-
-  .wpo-hero-title-top {
-    span {
-      font-size: 22px;
-      color: #e4e4e4;
-      font-family: $heading-font;
-
-      @include media-query(767px) {
-        font-size: 15px;
-      }
-
-    }
-  }
-
-  .slide-title {
-    h2 {
-      font-size: 100px;
-      font-weight: 500;
-      line-height: 60px;
-      margin: 10px 0 35px;
-      color: $white;
-      text-transform: uppercase;
-
-      @include media-query(1199px) {
-        font-size: 50px;
-      }
-
-      @include media-query(991px) {
-        font-size: 40px;
-        line-height: 55px;
-        margin-bottom: 20px;
-      }
-
-      @include media-query(767px) {
-        font-size: 30px;
-        line-height: 36px;
-      }
-    }
-  }
-
-  .slide-text {
-
-    p {
-      font-size: 30px;
-      color: $white;
-      line-height: 45px;
-      color: $white;
-      margin: 0 auto;
-      margin-bottom: 30px;
-
-
-      @include media-query(991px) {
-        font-size: 18px;
-        line-height: 30px;
-        margin-bottom: 25px;
-      }
-
-      @include media-query(767px) {
-        font-size: 16px;
-        line-height: 22px;
-        margin-bottom: 30px;
-      }
-    }
-  }
-
-
-  .slide-btns {
-
-    .theme-btn {
-      border-radius: 0;
-      font-weight: 600;
-      font-size: 18px;
-
-      &:after {
-        border-radius: 0;
-      }
-    }
-  }
-
-
-  .slide-btns .hero-video-btn {
-    margin-left: 40px;
-
-    @include media-query(767px) {
-      margin-left: 20px;
-    }
-  }
-}
-
-
-// wpo-hero-style-2
-
-.wpo-hero-style-2 {
-  position: relative;
+.cover-slider-media {
   $slider-height: 800px;
   height: calc(max($slider-height, 100vh));
 
@@ -338,59 +222,44 @@
   }
 
   @include media-query(450px) {
-    //background-color: red !important; // debug
     height: calc(max($slider-height * 0.50, 70vh));
     max-height: 450px * 1.2;
   }
 
-  .slide-inner:before {
-    display: none;
+  @include media-query(360px) {
+    height: calc(min($slider-height * 0.50, 70vh));
+    max-height: 450px * 1.2;
   }
 
-  .wedding-announcement {
-    position: absolute;
-    left: 50%;
-    width: 100%;
-    top: calc(min(40vh, 40%));
-    transform: translateX(-50%);
 
-    z-index: 2;
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-
-    .couple-text {
-      width: 100%;
-      display: table-cell;
-      vertical-align: middle;
-
-      h2 {
-        font-family: $heading-font;
-        font-size: $couple-heading-size;
-        color: $couple-heading-color;
-        font-variant-ligatures: none;
-
-        //font-size: 70px;
-        font-weight: 500;
-        line-height: 100px;
-        text-align: center;
-        margin-bottom: 40px;
+  .responsive-portrait {
+    img {
+      top: +0%;
+      /* >= 1.666, wide screen including 16:9 */
+      @media screen and (min-aspect-ratio: 16000/9000) {
+        top: -70%;
       }
-      h2 > img {  /* svg */
-        width: 85%;
-        visibility: visible;
-        filter: invert(100%);
+      /* [1.333 <= x <= 1.666], wide */
+      @media screen and (min-aspect-ratio: 12000/9000) and (max-aspect-ratio: 15999/9000) {
+        top: -50%;
       }
-
-      h3 {  /* date */
-        font-family: "Muli", "Anjel Script", $heading-font;
-        font-size: $couple-heading-size * 0.10;
-        font-weight: 100;
-        letter-spacing: .10em;
-        color: $couple-heading-color;
+      /* [1.10 <= x <= 1.333], near square */
+      @media screen and (min-aspect-ratio: 11000/10000) and (max-aspect-ratio: 11999/9000) {
+        top: -35%;
       }
+      /* [0.85 <= x <= 1.10 ] */
+      @media screen and (min-aspect-ratio: 8500/10000) and (max-aspect-ratio: 10999/10000) {
+        top: -20%;
+      }
+      /* [0.86 <= x <= 0.85 ] */
+      @media screen and (min-aspect-ratio: 6667/10000) and (max-aspect-ratio: 8499/10000) {
+        top: -15%;
+      }
+    }
+  }
 
+  .cover-text-wrapper {
+    .cover-text {
       @media(max-width:1700px) {
         h2 {
           font-size: $couple-heading-size * 0.85;
@@ -441,23 +310,6 @@
       @media(max-width:450px) {  /* phone */
         h2 {
           font-size: $couple-heading-size * 0.22;
-        }
-      }
-
-      p {
-        font-weight: 400;
-        font-size: 25px;
-        line-height: 36px;
-        text-align: center;
-        color: $dark-gray;
-
-        @media(max-width:1399px) {
-          font-size: 18px;
-        }
-
-        @media(max-width:767px) {
-          font-size: 14px;
-          line-height: 22px;
         }
       }
     }

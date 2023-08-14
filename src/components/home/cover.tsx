@@ -5,7 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
 import Image from "next-image-export-optimizer";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 // import styles bundle
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper';
@@ -46,17 +46,52 @@ const CoverPicWrap = styled.div`
   line-height: 0;
 `;
 
+const SlideInner = styled.div<{
+  offsets: number[]
+}>`
+${({offsets}) => offsets != null
+  ? css`
+  div > img {
+    top: -${offsets[5]}%;
+    /* >= 1.666, wide screen including 16:9 */
+    @media screen and (min-aspect-ratio: 16000/9000) {
+      top: -${offsets[0]}%;
+    }
+    /* [1.333 <= x < 1.666], wide */
+    @media screen and (min-aspect-ratio: 12000/9000) and (max-aspect-ratio: 15999/9000) {
+      top: -${offsets[1]}%;
+    }
+    /* [1.10 <= x < 1.333], near square */
+    @media screen and (min-aspect-ratio: 11000/10000) and (max-aspect-ratio: 11999/9000) {
+      top: -${offsets[2]}%;
+    }
+    /* [0.85 <= x < 1.10 ] */
+    @media screen and (min-aspect-ratio: 8500/10000) and (max-aspect-ratio: 10999/10000) {
+      top: -${offsets[3]}%;
+    }
+    /* [0.66 <= x < 0.85 ] */
+    @media screen and (min-aspect-ratio: 6667/10000) and (max-aspect-ratio: 8499/10000) {
+      top: -${offsets[4]}%;
+    }
+    }
+  `
+  : ''
+  }
+`
+
 
 const SlideImage = (props) => {
   const img = props.src;
   return (
     <div className="swiper-slide">
-      <div className="slide-inner slide-bg-image">
+      <SlideInner className="slide-inner slide-bg-image" offsets={props.offsets}>
+        <div>
         <Image
           src={img} alt=""
           priority layout="responsive"
           style={props.style} />
-      </div>
+        </div>
+      </SlideInner>
     </div>
   );
 }
@@ -64,10 +99,10 @@ const SlideImage = (props) => {
 const Cover = () => {
   return (
     <>
-      <section className="wpo-hero-slider wpo-hero-style-2">
+      <section className="cover-slider cover-slider-media">
 
-        <div className="wedding-announcement">
-          <div className="couple-text">
+        <div className="cover-text-wrapper">
+          <div className="cover-text">
             <Slide direction="up" cascade>
               <h2>
                 {`${GROOM_NAME} & ${BRIDE_NAME}`}
@@ -104,16 +139,16 @@ const Cover = () => {
                 <SlideImage src={cover1} style={{}} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover2} style={{}} />
+                <SlideImage src={cover2} style={{}} offsets={[30,25,15,10,5, 0]}/>
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover3} style={{}} />
+                <SlideImage src={cover3} style={{}} offsets={[90,75,45,45,30, 10]} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover4} style={{}} />
+                <SlideImage src={cover4} style={{}} offsets={[100,75,50,50,45, 10]} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover5} style={{}} />
+                <SlideImage src={cover5} style={{}} offsets={[135,100,70,75,50, 10]} />
               </SwiperSlide>
             </Swiper>
           </div>
