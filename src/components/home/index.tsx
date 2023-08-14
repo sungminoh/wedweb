@@ -1,8 +1,6 @@
-import { Copy, EmojiLookLeft, EmojiLookRight, PinAlt } from "iconoir-react";
+import { Copy, PinAlt } from "iconoir-react";
 import Image from "next/image"
-import Link from "next/link";
 import React, {
-  useState,
 } from "react";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
@@ -11,20 +9,17 @@ import mapPic from "@/public/photos/map.png";
 import {
   Main,
   SectionHeader,
-  SectionHeaderA,
   SectionHr,
   TextSansStyle,
 } from "./styles";
 import {
   BRIDE_BANK,
   BRIDE_BANK_HOLDER,
-  BRIDE_DESC, BRIDE_NAME, BRIDE_PARENTS, BRIDE_RELATION, BRIDE_SHORT_NAME,
-  BRIDE_TEL,
+  BRIDE_PARENTS, BRIDE_RELATION, BRIDE_SHORT_NAME,
   GREETING,
   GROOM_BANK,
   GROOM_BANK_HOLDER,
-  GROOM_DESC, GROOM_NAME, GROOM_PARENTS, GROOM_RELATION, GROOM_SHORT_NAME,
-  GROOM_TEL,
+  GROOM_PARENTS, GROOM_RELATION, GROOM_SHORT_NAME,
   TITLE,
   WEDDING_DATE,
   WEDDING_VANUE,

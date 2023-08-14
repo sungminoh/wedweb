@@ -47,7 +47,7 @@ const CoverPicWrap = styled.div`
 `;
 
 const SlideInner = styled.div<{
-  offsets: number[]
+  offsets?: number[]
 }>`
 ${({offsets}) => offsets != null
   ? css`
@@ -80,7 +80,7 @@ ${({offsets}) => offsets != null
 `
 
 
-const SlideImage = (props) => {
+const SlideImage = (props: {src: any, offsets?: number[]}) => {
   const img = props.src;
   return (
     <div className="swiper-slide">
@@ -89,7 +89,7 @@ const SlideImage = (props) => {
         <Image
           src={img} alt=""
           priority layout="responsive"
-          style={props.style} />
+          />
         </div>
       </SlideInner>
     </div>
@@ -136,19 +136,19 @@ const Cover = () => {
               // navigation
             >
               <SwiperSlide data-desc="">
-                <SlideImage src={cover1} style={{}} />
+                <SlideImage src={cover1} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover2} style={{}} offsets={[30,25,15,10,5, 0]}/>
+                <SlideImage src={cover2} offsets={[30,25,15,10,5, 0]} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover3} style={{}} offsets={[90,75,45,45,30, 10]} />
+                <SlideImage src={cover3} offsets={[90,75,45,45,30, 10]} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover4} style={{}} offsets={[100,75,50,50,45, 10]} />
+                <SlideImage src={cover4} offsets={[100,75,50,50,45, 10]} />
               </SwiperSlide>
               <SwiperSlide data-desc="">
-                <SlideImage src={cover5} style={{}} offsets={[135,100,70,75,50, 10]} />
+                <SlideImage src={cover5} offsets={[135,100,70,75,50, 10]} />
               </SwiperSlide>
             </Swiper>
           </div>
