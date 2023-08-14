@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Image from "next/image"
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -46,10 +46,12 @@ const CoverPicWrap = styled.div`
   line-height: 0;
 `;
 
+
 const SlideInner = styled.div<{
   offsets?: number[]
+  aspectRatio?: number
 }>`
-${({offsets}) => offsets != null
+${({offsets, aspectRatio}) => offsets != null && aspectRatio != null
   ? css`
   img {
     /* >= 1.666, wide screen including 16:9 */
@@ -84,22 +86,65 @@ ${({offsets}) => offsets != null
 `
 
 
-const SlideImage = (props: {src: any, offsets?: number[]}) => {
-  const img = props.src;
+const SlideImage = (props: {src: any, offsets?: number[], aspectRatio?: number}) => {
+  const {
+    offsets,
+    aspectRatio
+  } = props
+  let style = {}
+  if (offsets != null && aspectRatio != null) {
+    let offset = 0;
+    if (aspectRatio >= 16/9) {
+      offset = offsets[0]
+    } else if (aspectRatio >= 12/9) {
+      offset = offsets[1]
+    } else if (aspectRatio >= 11/10) {
+      offset = offsets[2]
+    } else if (aspectRatio >= 85/100) {
+      offset = offsets[3]
+    } else if (aspectRatio >= 2/3) {
+      offset = offsets[4]
+    }
+    if (offset != 0) {
+      style['position'] = 'absolute';
+      style['top'] = `${offset}%`;
+    }
+  }
+  console.log(style)
+
   return (
-    <SlideInner className="my-slide-inner" offsets={props.offsets}>
+    <div className="my-slide-inner">
       <Image
-        src={img} alt=""
+          style={style}
+        src={props.src} alt=""
         priority layout="responsive"
         />
-    </SlideInner>
+    </div>
   );
 }
 
 const Cover = () => {
+  const [parentAspectRatio, setParentAspectRatio] = useState(1); // 초기 가로세로 비율
+
+  const updateAspectRatio = () => {
+    const parentWidth = document.getElementById('cover').offsetWidth;
+    const parentHeight = document.getElementById('cover').offsetHeight;
+    const newAspectRatio = parentWidth / parentHeight;
+    setParentAspectRatio(newAspectRatio);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', updateAspectRatio);
+    updateAspectRatio(); // 초기화
+
+    return () => {
+      window.removeEventListener('resize', updateAspectRatio);
+    };
+  }, []);
+
   return (
     <>
-      <section className="cover-slider cover-slider-media">
+      <section id="cover" className="cover-slider cover-slider-media">
 
         <div className="cover-text-wrapper">
           <div className="cover-text">
@@ -134,19 +179,19 @@ const Cover = () => {
           // navigation
         >
           <SwiperSlide data-desc="">
-            <SlideImage src={cover1} offsets={[-30,-25,-15,-10,-5]} />
+            <SlideImage src={cover1} offsets={[-1, -1, -1, -1, 0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover2} offsets={[30,25,15,10,5]} />
+            <SlideImage src={cover2} offsets={[-30,-25,-10,-10,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover3} offsets={[90,75,45,45,30]} />
+            <SlideImage src={cover3} offsets={[-90,-70,-55,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover4} offsets={[100,75,50,50,45]} />
+            <SlideImage src={cover4} offsets={[-100,-80,-60,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover5} offsets={[135,100,70,75,50]} />
+            <SlideImage src={cover5} offsets={[-135,-100,-60,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
         </Swiper>
       </section>
