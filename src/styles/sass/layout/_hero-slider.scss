@@ -70,6 +70,9 @@
   .swiper-slide {
     min-height: 100%;
     min-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     /* image: add a little bit of black overlay */
     &:after {
@@ -98,14 +101,14 @@
     //background-size: cover;
     //background-position: center;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
 
     -webkit-animation: kenburn 5s 0s alternate infinite;
     -animation: kenburn 5s 0s alternate infinite;
+    overflow: hidden;
     img {
-      position: absolute;
+      width: 100%;
+      height: 100%;
+      //position: absolute;
       object-fit: cover;
     }
   }

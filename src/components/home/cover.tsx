@@ -52,25 +52,29 @@ const SlideInner = styled.div<{
 ${({offsets}) => offsets != null
   ? css`
   img {
-    top: -${offsets[5]}%;
     /* >= 1.666, wide screen including 16:9 */
     @media screen and (min-aspect-ratio: 16000/9000) {
+      position: absolute;
       top: -${offsets[0]}%;
     }
     /* [1.333 <= x < 1.666], wide */
     @media screen and (min-aspect-ratio: 12000/9000) and (max-aspect-ratio: 15999/9000) {
+      position: absolute;
       top: -${offsets[1]}%;
     }
     /* [1.10 <= x < 1.333], near square */
     @media screen and (min-aspect-ratio: 11000/10000) and (max-aspect-ratio: 11999/9000) {
+      position: absolute;
       top: -${offsets[2]}%;
     }
     /* [0.85 <= x < 1.10 ] */
     @media screen and (min-aspect-ratio: 8500/10000) and (max-aspect-ratio: 10999/10000) {
+      position: absolute;
       top: -${offsets[3]}%;
     }
     /* [0.66 <= x < 0.85 ] */
     @media screen and (min-aspect-ratio: 6667/10000) and (max-aspect-ratio: 8499/10000) {
+      position: absolute;
       top: -${offsets[4]}%;
     }
   }
@@ -130,19 +134,19 @@ const Cover = () => {
           // navigation
         >
           <SwiperSlide data-desc="">
-            <SlideImage src={cover1} offsets={[-30,-25,-15,-10,-5, 0]} />
+            <SlideImage src={cover1} offsets={[-30,-25,-15,-10,-5]} />
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover2} offsets={[30,25,15,10,5, 0]} />
+            <SlideImage src={cover2} offsets={[30,25,15,10,5]} />
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover3} offsets={[90,75,45,45,30, 10]} />
+            <SlideImage src={cover3} offsets={[90,75,45,45,30]} />
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover4} offsets={[100,75,50,50,45, 10]} />
+            <SlideImage src={cover4} offsets={[100,75,50,50,45]} />
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover5} offsets={[135,100,70,75,50, 10]} />
+            <SlideImage src={cover5} offsets={[135,100,70,75,50]} />
           </SwiperSlide>
         </Swiper>
       </section>
