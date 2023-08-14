@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 // import Image from "next/image"
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -91,7 +91,7 @@ const SlideImage = (props: {src: any, offsets?: number[], aspectRatio?: number})
     offsets,
     aspectRatio
   } = props
-  let style = {}
+  let style: CSSProperties = {};
   if (offsets != null && aspectRatio != null) {
     let offset = 0;
     if (aspectRatio >= 16/9) {
@@ -127,10 +127,13 @@ const Cover = () => {
   const [parentAspectRatio, setParentAspectRatio] = useState(1); // 초기 가로세로 비율
 
   const updateAspectRatio = () => {
-    const parentWidth = document.getElementById('cover').offsetWidth;
-    const parentHeight = document.getElementById('cover').offsetHeight;
-    const newAspectRatio = parentWidth / parentHeight;
-    setParentAspectRatio(newAspectRatio);
+    const dom = document.getElementById('cover');
+    if (dom != null) {
+      const parentWidth = dom.offsetWidth;
+      const parentHeight = dom.offsetHeight;
+      const newAspectRatio = parentWidth / parentHeight;
+      setParentAspectRatio(newAspectRatio);
+    }
   };
 
   useEffect(() => {
