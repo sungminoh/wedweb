@@ -51,7 +51,7 @@ const SlideInner = styled.div<{
 }>`
 ${({offsets}) => offsets != null
   ? css`
-  div > img {
+  img {
     top: -${offsets[5]}%;
     /* >= 1.666, wide screen including 16:9 */
     @media screen and (min-aspect-ratio: 16000/9000) {
@@ -73,7 +73,7 @@ ${({offsets}) => offsets != null
     @media screen and (min-aspect-ratio: 6667/10000) and (max-aspect-ratio: 8499/10000) {
       top: -${offsets[4]}%;
     }
-    }
+  }
   `
   : ''
   }
@@ -83,16 +83,12 @@ ${({offsets}) => offsets != null
 const SlideImage = (props: {src: any, offsets?: number[]}) => {
   const img = props.src;
   return (
-    <div className="swiper-slide">
-      <SlideInner className="slide-inner slide-bg-image" offsets={props.offsets}>
-        <div>
-        <Image
-          src={img} alt=""
-          priority layout="responsive"
-          />
-        </div>
-      </SlideInner>
-    </div>
+    <SlideInner className="my-slide-inner" offsets={props.offsets}>
+      <Image
+        src={img} alt=""
+        priority layout="responsive"
+        />
+    </SlideInner>
   );
 }
 
@@ -116,43 +112,39 @@ const Cover = () => {
           </div>
         </div>
 
-        <div className="swiper-container">
-          <div className="swiper-wrapper">
-            <Swiper
-              // install Swiper modules
-              modules={[Navigation, Pagination, A11y, Autoplay]}
-              spaceBetween={0}
-              slidesPerView={1}
-              loop={true}
-              autoplay={{
-                delay: 4000,
-                disableOnInteraction: true,
-              }}
-              speed={200}   // transition speed, 200: smooth, 1: instant
-              // effect={"fade"}   // buggy
-              // fadeEffect={{ crossFade: true }}
-              parallax={true}
-              pagination={{ clickable: true }}
-              // navigation
-            >
-              <SwiperSlide data-desc="">
-                <SlideImage src={cover1} />
-              </SwiperSlide>
-              <SwiperSlide data-desc="">
-                <SlideImage src={cover2} offsets={[30,25,15,10,5, 0]} />
-              </SwiperSlide>
-              <SwiperSlide data-desc="">
-                <SlideImage src={cover3} offsets={[90,75,45,45,30, 10]} />
-              </SwiperSlide>
-              <SwiperSlide data-desc="">
-                <SlideImage src={cover4} offsets={[100,75,50,50,45, 10]} />
-              </SwiperSlide>
-              <SwiperSlide data-desc="">
-                <SlideImage src={cover5} offsets={[135,100,70,75,50, 10]} />
-              </SwiperSlide>
-            </Swiper>
-          </div>
-        </div>
+        <Swiper
+          // install Swiper modules
+          modules={[Navigation, Pagination, A11y, Autoplay]}
+          spaceBetween={0}
+          slidesPerView={1}
+          loop={true}
+          autoplay={{
+            delay: 4000,
+            disableOnInteraction: true,
+          }}
+          speed={1}   // transition speed, 200: smooth, 1: instant
+          // effect={"fade"}   // buggy
+          // fadeEffect={{ crossFade: true }}
+          parallax={true}
+          pagination={{ clickable: true }}
+          // navigation
+        >
+          <SwiperSlide data-desc="">
+            <SlideImage src={cover1} offsets={[-30,-25,-15,-10,-5, 0]} />
+          </SwiperSlide>
+          <SwiperSlide data-desc="">
+            <SlideImage src={cover2} offsets={[30,25,15,10,5, 0]} />
+          </SwiperSlide>
+          <SwiperSlide data-desc="">
+            <SlideImage src={cover3} offsets={[90,75,45,45,30, 10]} />
+          </SwiperSlide>
+          <SwiperSlide data-desc="">
+            <SlideImage src={cover4} offsets={[100,75,50,50,45, 10]} />
+          </SwiperSlide>
+          <SwiperSlide data-desc="">
+            <SlideImage src={cover5} offsets={[135,100,70,75,50, 10]} />
+          </SwiperSlide>
+        </Swiper>
       </section>
     </>
   )

@@ -58,26 +58,18 @@
       }
     }
   }
+  .swiper {
+    min-height: 100%;
+    min-width: 100%;
+  }
 
-  .swiper-slide .slide-bg-image {
-    //z-index: 11;
-    //background-position: 50%;
-    //background-size: cover;
+  .swiper-slide-active {
+    z-index: 3;
+  }
 
-    overflow: hidden;
-    position: relative;
-    div {
-      object-fit: cover;
-      min-height: 100%;
-      width: 100%;
-      position: relative;
-
-      -webkit-animation: kenburn 5s 0s alternate infinite;
-      -animation: kenburn 5s 0s alternate infinite;
-      img {
-        position: absolute;;
-      }
-    }
+  .swiper-slide {
+    min-height: 100%;
+    min-width: 100%;
 
     /* image: add a little bit of black overlay */
     &:after {
@@ -89,46 +81,32 @@
       left: 0;
       content: '';
       background-color: black;
-      opacity: 0.2;
+      opacity: 0.4;
       -webkit-transition: opacity .2s ease-in-out;
       -moz-transition: opacity .2s ease-in-out;
       transition: opacity .2s ease-in-out;
     }
   }
 
-  .swiper-container {
+  .my-slide-inner {
     width: 100%;
     height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-  }
-
-  .slide-inner {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 1;
-    background-size: cover;
-    background-position: center;
+    //overflow: hidden;
+    //position: absolute;
+    //left: 0;
+    //top: 0;
+    //background-size: cover;
+    //background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: left;
 
-    &:before {
+    -webkit-animation: kenburn 5s 0s alternate infinite;
+    -animation: kenburn 5s 0s alternate infinite;
+    img {
       position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background: #00315f;
-      content: "";
-      opacity: .25;
-      z-index: -1;
-      display: none;
+      object-fit: cover;
     }
   }
 
