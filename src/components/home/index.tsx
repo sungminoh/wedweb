@@ -165,16 +165,17 @@ const ParentSection = styled.section`
     margin-bottom: 50px;
 
     .text {
+
+    }
+
+    .parents {
         // small width [375px] may overflow
         letter-spacing: -1px;
 
         @include media-query(400px) {
             font-size: 14px;
         }
-    }
-
-    .parents {
-        letter-spacing: -1px;
+        
         i {  // 아들, 딸
             font-style: normal;
             text-align: center;
@@ -184,8 +185,9 @@ const ParentSection = styled.section`
         span {
             font-weight: bold;
             display: inline-block;
-            width: 8em;
+            width: 10em;
             text-align: right;
+            white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }
         b {
             font-weight: bold;

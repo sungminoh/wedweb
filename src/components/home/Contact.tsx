@@ -89,13 +89,14 @@ const ContactLinks = styled.div<{
 
 const ContactButton = styled.a<{ bgColor: string}>`
   ${TextSansStyle}
-  overflow: hidden;
-  text-wrap: nowrap;
-  
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   
   padding: 4px 8px 4px 5px;
   border: 0;
@@ -144,10 +145,11 @@ export const Contact = () => {
           <ul>
             <li>
               <ContactButton
-                bgColor="rgba(255, 232, 18, .5)"
+                // bgColor="rgba(255, 232, 18, .5)"
+                bgColor="rgba(162, 218, 162, .5)"
                 href={GROOM_KAKAO}
                 target='_blank'>
-                <img src="/images/kakaotalk-logo.svg" />
+                <img src="/images/kakao.svg" />
                 카카오톡
               </ContactButton>
             </li>
@@ -166,10 +168,11 @@ export const Contact = () => {
           <ul>
             <li>
               <ContactButton
-                bgColor="rgba(255, 232, 18, .5)"
+                // bgColor="rgba(255, 232, 18, .5)"
+                bgColor="rgba(247, 200, 211, .5)"
                 href={BRIDE_KAKAO}
                 target='_blank'>
-                <img src="/images/kakaotalk-logo.svg" />
+                <img src="/images/kakao.svg" />
                 카카오톡
               </ContactButton>
             </li>
