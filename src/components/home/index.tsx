@@ -24,7 +24,6 @@ import {
   WEDDING_DATE,
   WEDDING_VANUE,
   WEDDING_VANUE_ADDRESS,
-  WEDDING_VANUE_DIRECTIONS,
   WEDDING_VANUE_KAKAO_LINK,
   WEDDING_VANUE_NAVER_LINK
 } from "@/config";
@@ -181,10 +180,11 @@ const MyGallery = dynamic(
   { ssr: false }
 );
 
+
 const Home = () => {
   return (
     <Main>
-      <Cover/>
+      <Cover />
 
       <Header>
         {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %H:%M AM")}
@@ -203,17 +203,18 @@ const Home = () => {
       <ParentSection>
         <div className="row">
           <div className="parents text">
-            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>
-            <br/>
-            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>
+            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small>
+            <b>{GROOM_SHORT_NAME}</b>
+            <br />
+            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small>
+            <b>{BRIDE_SHORT_NAME}</b>
           </div>
         </div>
       </ParentSection>
 
-      <Contact/>
-      {/*<SectionHr />*/}
-
-      <MyGallery/>
+      <Contact />
+      <SectionHr />
+      <MyGallery />
 
       <SectionHr />
       <Direction />
