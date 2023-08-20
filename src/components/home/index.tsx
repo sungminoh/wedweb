@@ -213,7 +213,7 @@ const Home = () => {
       <Contact/>
       {/*<SectionHr />*/}
 
-      {/*<MyGallery/>*/}
+      <MyGallery/>
 
       <SectionHr />
       <Direction />
