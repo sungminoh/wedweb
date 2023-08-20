@@ -10,7 +10,7 @@ import { Container as MapDiv, Marker, NaverMap, NavermapsProvider, useNavermaps 
 import { SectionHeader, TextSansStyle } from "@/components/home/styles";
 import mapPic from "@/public/photos/map.png";
 import styled from "styled-components";
-import { PinAlt } from "iconoir-react";
+import { PinAlt, Position } from "iconoir-react";
 
 
 
@@ -52,19 +52,50 @@ const MapButton = styled.a`
 `;
 
 
+const NaverMapButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  width: 80px;
+  height: 35px;
+  border: none;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  zIndex: 1000;
+`;
+
+
 const DirectionInner = () => {
   const navermaps = useNavermaps()
-  const map = (
+  const venueLatLng = new navermaps.LatLng(37.448653424410544, 126.95093702548472)
+  const [map, setMap] = useState(null);
+  const mapDom = (
     // <MapWrapper>
     <div className='map-wrapper'>
       <div>
+
       <MapDiv style={{width: '100%', height: '100%'}}>
         <NaverMap
-          defaultCenter={new navermaps.LatLng(37.448653424410544, 126.95093702548472)}
+          defaultCenter={venueLatLng }
           defaultZoom={16}
+          ref={setMap}
         >
+            <NaverMapButton
+              onClick={(e) => {
+                e.preventDefault()
+                if (map) {
+                  map.setCenter(venueLatLng)
+                }
+              }}
+            >
+              <Position/> 원위치
+            </NaverMapButton>
           <Marker
-            defaultPosition={new navermaps.LatLng(37.448653424410544, 126.95093702548472)}
+            defaultPosition={venueLatLng}
           />
         </NaverMap>
       </MapDiv>
@@ -77,7 +108,7 @@ const DirectionInner = () => {
     <>
       <SectionHeader>오시는 길</SectionHeader>
 
-      {map}
+      {mapDom}
 
       <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
         <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
