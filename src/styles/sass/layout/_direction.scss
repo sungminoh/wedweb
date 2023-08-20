@@ -1,0 +1,48 @@
+.map-wrapper {
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  position: center;
+  div {
+    $slider-height: 500px;
+    height: calc(min($slider-height, 100vh));
+    width: 100%;
+    max-width: 800px;
+    display: inline-block;
+    padding: 0 20px;
+
+    @media (max-aspect-ratio: 1100/1600) {
+      max-height: 800px; // if viewport too long, images will not span
+    }
+
+    @include media-query(1399px) {
+      height: calc(min($slider-height * 0.72, 100vh));
+    }
+
+    @include media-query(1199px) {
+      height: calc(min($slider-height * 0.68, 80vh));
+      max-height: 1199px;
+    }
+
+    @include media-query(991px) {
+      height: calc(min($slider-height * 0.60, 70vh));
+      max-height: 991px * 1.1;
+    }
+
+    @include media-query(767px) {
+      height: calc(min($slider-height * 0.60, 70vh));
+      max-height: 767px * 1.2;
+    }
+
+    @include media-query(450px) {
+      height: calc(min($slider-height * 0.50, 70vh));
+      max-height: 450px * 1.2;
+    }
+
+    @include media-query(360px) {
+      height: calc(min($slider-height * 0.50, 70vh));
+      max-height: 360px * 1.2;
+    }
+  }
+}

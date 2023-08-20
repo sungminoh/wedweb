@@ -52,31 +52,24 @@ const MapButton = styled.a`
 `;
 
 
-const MapWrapper = styled.div`
-display: flex;
-div {
-width: 70%;
-margin: 10px;
-}
-`
-
-
-
-
 const DirectionInner = () => {
   const navermaps = useNavermaps()
   const map = (
     // <MapWrapper>
-      <MapDiv>
+    <div className='map-wrapper'>
+      <div>
+      <MapDiv style={{width: '100%', height: '100%'}}>
         <NaverMap
-          defaultCenter={new navermaps.LatLng(37.3595704, 127.105399)}
-          defaultZoom={15}
+          defaultCenter={new navermaps.LatLng(37.448653424410544, 126.95093702548472)}
+          defaultZoom={16}
         >
           <Marker
-            defaultPosition={new navermaps.LatLng(37.3595704, 127.105399)}
+            defaultPosition={new navermaps.LatLng(37.448653424410544, 126.95093702548472)}
           />
         </NaverMap>
       </MapDiv>
+        </div>
+    </div>
     // </MapWrapper>
   )
 
@@ -85,6 +78,14 @@ const DirectionInner = () => {
       <SectionHeader>오시는 길</SectionHeader>
 
       {map}
+
+      <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
+        <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
+      </MapButton>
+      <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
+        <PinAlt fr='naver_map' color="#66BB66" /> 네이버지도
+      </MapButton>
+
 
       <p style={{ whiteSpace: 'pre-line' }}>
         {WEDDING_VANUE_ADDRESS}
@@ -108,13 +109,6 @@ const DirectionInner = () => {
       </MapWrapA>
 
       <br />
-
-      <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
-        <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
-      </MapButton>
-      <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
-        <PinAlt fr='naver_map' color="#66BB66" /> 네이버지도
-      </MapButton>
 
       <br />
       <br />

@@ -184,33 +184,33 @@ const MyGallery = dynamic(
 const Home = () => {
   return (
     <Main>
-      {/*<Cover/>*/}
+      <Cover/>
 
-      {/*<Header>*/}
-      {/*  {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %H:%M AM")}*/}
-      {/*  <br />*/}
-      {/*  {WEDDING_VANUE}*/}
-      {/*</Header>*/}
+      <Header>
+        {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %H:%M AM")}
+        <br />
+        {WEDDING_VANUE}
+      </Header>
 
-      {/*<SectionHr />*/}
+      <SectionHr />
 
-      {/*<SectionHeader>{TITLE}</SectionHeader>*/}
+      <SectionHeader>{TITLE}</SectionHeader>
 
-      {/*<GreetingP>*/}
-      {/*  {GREETING}*/}
-      {/*</GreetingP>*/}
+      <GreetingP>
+        {GREETING}
+      </GreetingP>
 
-      {/*<ParentSection>*/}
-      {/*  <div className="row">*/}
-      {/*    <div className="parents text">*/}
-      {/*      <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>*/}
-      {/*      <br/>*/}
-      {/*      <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</ParentSection>*/}
+      <ParentSection>
+        <div className="row">
+          <div className="parents text">
+            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>
+            <br/>
+            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>
+          </div>
+        </div>
+      </ParentSection>
 
-      {/*<Contact/>*/}
+      <Contact/>
       {/*<SectionHr />*/}
 
       {/*<MyGallery/>*/}
