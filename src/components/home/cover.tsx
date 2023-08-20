@@ -110,7 +110,6 @@ const SlideImage = (props: {src: any, offsets?: number[], aspectRatio?: number})
       style['top'] = `${offset}%`;
     }
   }
-  console.log(style)
 
   return (
     <div className="my-slide-inner">

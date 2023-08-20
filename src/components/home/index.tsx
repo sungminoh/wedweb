@@ -30,9 +30,11 @@ import {
 } from "@/config";
 import { toDateString } from "@/common/utils";
 import Chat from "@/components/home/talk/Chat";
-import MyGallery from "./gallery";
+// import MyGallery from "./gallery";
 import Cover from "@/components/home/cover";
 import { Contact } from "@/components/home/Contact";
+// import Direction from "@/components/home/direction";
+import dynamic from "next/dynamic";
 
 
 
@@ -71,48 +73,12 @@ const GreetingP = styled.p`
 `;
 
 
-const MapButton = styled.a`
-  ${TextSansStyle}
-  display: inline-block;
-  padding: 8px 16px 8px 10px;
-  border: 0;
-  border-radius: 18px;
-  margin: 0 10px;
-  color: #666;
-  font-size: 13px;
-  text-decoration: none;
-  background: #f3f3f3;
-  line-height: 1.3;
-  > svg {
-    display: inline-block;
-    width: 18px;
-    height: 18px;
-    margin: -4px 0;
-    margin-right: 4px;
-  }
-`;
-
 const GiveWrap = styled.div`
   display: inline-block;
   text-align: left;
   line-height: 2;
 `;
 
-const MapWrapA = styled.div`
-  margin: 0 0 0 10px;
-  text-align: left;
-`;
-
-const MapWrapB = styled.div`
-  margin: 0 0 0 10px;
-  text-align: left;
-  font-size: 12px;
-`;
-
-const MapWrapBFooter = styled.span`
-  font-size: 10px;
-  font-weight: bold;
-`;
 
 const CopyTextButton = styled.button`
   padding: 0;
@@ -127,6 +93,8 @@ const CopyTextButton = styled.button`
     vertical-align: sub;
   }
 `;
+
+
 const CopyText = ({ text }: { text: string }) => {
   const handleCopyText = () => {
     const fallbackCopyClipboard = (value: string) => {
@@ -157,6 +125,7 @@ const CopyText = ({ text }: { text: string }) => {
 const Header = styled.h1`
   margin-top: 20px;
   font-size: 18px;
+  white-space: pre-line;
 `;
 
 const ParentSection = styled.section`
@@ -197,80 +166,59 @@ const ParentSection = styled.section`
 
 `;
 
+
+const Direction = dynamic(
+  () => {
+    return import("@/components/home/direction");
+  },
+  { ssr: false }
+);
+
+const MyGallery = dynamic(
+  () => {
+    return import("@/components/home/gallery");
+  },
+  { ssr: false }
+);
+
 const Home = () => {
   return (
     <Main>
-      <Cover/>
+      {/*<Cover/>*/}
 
-      <Header>
-        {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %p %H시")}
-        <br />
-        {WEDDING_VANUE}
-      </Header>
+      {/*<Header>*/}
+      {/*  {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %H:%M AM")}*/}
+      {/*  <br />*/}
+      {/*  {WEDDING_VANUE}*/}
+      {/*</Header>*/}
 
-      <SectionHr />
+      {/*<SectionHr />*/}
 
-      <SectionHeader>{TITLE}</SectionHeader>
+      {/*<SectionHeader>{TITLE}</SectionHeader>*/}
 
-      <GreetingP>
-        {GREETING}
-      </GreetingP>
+      {/*<GreetingP>*/}
+      {/*  {GREETING}*/}
+      {/*</GreetingP>*/}
 
-      <ParentSection>
-        <div className="row">
-          <div className="parents text">
-            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>
-            <br/>
-            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>
-          </div>
-        </div>
-      </ParentSection>
+      {/*<ParentSection>*/}
+      {/*  <div className="row">*/}
+      {/*    <div className="parents text">*/}
+      {/*      <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small> <b>{GROOM_SHORT_NAME}</b>*/}
+      {/*      <br/>*/}
+      {/*      <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small> <b>{BRIDE_SHORT_NAME}</b>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*</ParentSection>*/}
 
-      <Contact/>
-      <SectionHr />
+      {/*<Contact/>*/}
+      {/*<SectionHr />*/}
 
-      <MyGallery/>
-
-      {/*<Link href="/live" passHref>*/}
-      {/*  <LiveButton>📹 결혼식 생중계 보러가기</LiveButton>*/}
-      {/*</Link>*/}
-      <SectionHr />
-      <SectionHeader>오시는 길</SectionHeader>
-      <Image src={mapPic} alt="" layout="responsive" objectFit="contain"/>
-      <p style={{ whiteSpace: 'pre-line' }}>
-        {WEDDING_VANUE_ADDRESS}
-      </p>
-
-      <MapWrapA>
-        {WEDDING_VANUE_DIRECTIONS
-          .map((direction, i) => {
-            return <div key={`direction-${i}`}>
-              <br/>{direction.method}<br/>
-              <MapWrapB>
-                <ul>
-                  {
-                    direction.ways.map((way, j) => <li key={`way-${i}-${j}`}>{way}</li>)
-                  }
-                </ul>
-                <MapWrapBFooter>{direction.footer}</MapWrapBFooter>
-              </MapWrapB>
-            </div>
-        })}
-      </MapWrapA>
-
-      <br />
-
-      <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
-        <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
-      </MapButton>
-      <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
-        <PinAlt fr='naver_map' color="#66BB66" /> 네이버지도
-      </MapButton>
-
-      <br />
-      <br />
+      {/*<MyGallery/>*/}
 
       <SectionHr />
+      <Direction />
+      <SectionHr />
+
       <SectionHeader>💸 마음 전하실 곳</SectionHeader>
       <GiveWrap>
         <p>

@@ -4,7 +4,10 @@ export const BRIDE_NAME = "어희재"
 export const WEDDING_DATE = new Date("2023-12-16T11:00:00.000")
 export const WEDDING_DATE_TZ = new Date("2023-12-16T11:00:00.000+09:00")
 
-export const WEDDING_VANUE = "서울대학교 이라운지 (구. 라쿠치나)"
+export const WEDDING_VANUE = `
+서울대학교 이라운지
+(구. 라쿠치나)
+`.trim()
 export const WEDDING_VANUE_KAKAO_LINK = "https://place.map.kakao.com/12544261"
 export const WEDDING_VANUE_NAVER_LINK = "https://map.naver.com/v5/entry/place/18720631"
 export const WEDDING_VANUE_ADDRESS = `
@@ -59,7 +62,7 @@ export const GROOM_KAKAO = 'http://qr.kakao.com/talk/3PfY2KNvrgJYDz9tUf4f.OIMkaw
 export const BRIDE_TEL = '010-3307-4308'
 export const BRIDE_KAKAO = ''
 
-export const IMAGE_COUNT = 17
+export const IMAGE_COUNT = 1
 export const OG_IMAGE = "https://drive.google.com/uc?id=1uGRWP6JZlmaQLTEx1tiM1xjXVtG8FpU2"
 
 export const GROOM_BANK = "aa은행 123-456-789"
@@ -76,6 +79,9 @@ export const DATA_LINK = "https://docs.google.com/document/export?format=txt&id=
 export const MESSAGE_MAX_NAME_LENGTH = 20
 export const MESSAGE_MIN_CONTENT_LENGTH = 5
 export const MESSAGE_MAX_CONTENT_LENGTH = 200
+
+
+export const NAVER_API_CLIENT_ID = "iqzth67per"
 
 /**
  * NODE_ENV
