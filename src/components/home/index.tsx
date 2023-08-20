@@ -34,6 +34,7 @@ import Cover from "@/components/home/cover";
 import { Contact } from "@/components/home/Contact";
 // import Direction from "@/components/home/direction";
 import dynamic from "next/dynamic";
+import { Gift } from "@/components/home/Gift";
 
 
 
@@ -72,53 +73,8 @@ const GreetingP = styled.p`
 `;
 
 
-const GiveWrap = styled.div`
-  display: inline-block;
-  text-align: left;
-  line-height: 2;
-`;
 
 
-const CopyTextButton = styled.button`
-  padding: 0;
-  border: none;
-  background: none;
-
-  svg {
-    width: 20px;
-    height: 20px;
-    padding: 2px;
-    color: #999;
-    vertical-align: sub;
-  }
-`;
-
-
-const CopyText = ({ text }: { text: string }) => {
-  const handleCopyText = () => {
-    const fallbackCopyClipboard = (value: string) => {
-      const $text = document.createElement("textarea");
-      document.body.appendChild($text);
-      $text.value = value;
-      $text.select();
-      document.execCommand("copy");
-      document.body.removeChild($text);
-    };
-
-    navigator.clipboard
-      .writeText(text)
-      .catch(() => fallbackCopyClipboard(text))
-      .then(() => alert("계좌번호가 복사 되었습니다."));
-  };
-  return (
-    <>
-      {text}
-      <CopyTextButton onClick={handleCopyText} aria-label="복사">
-        <Copy fr='copy'/>
-      </CopyTextButton>
-    </>
-  );
-};
 
 
 const Header = styled.h1`
@@ -220,20 +176,7 @@ const Home = () => {
       <Direction />
       <SectionHr />
 
-      <SectionHeader>💸 마음 전하실 곳</SectionHeader>
-      <GiveWrap>
-        <p>
-          <strong>신랑측</strong> ({GROOM_BANK_HOLDER})
-          <br />
-          <CopyText text={GROOM_BANK} />
-        </p>
-        <p>
-          <strong>신부측</strong> ({BRIDE_BANK_HOLDER})
-          <br />
-          <CopyText text={BRIDE_BANK} />
-        </p>
-      </GiveWrap>
-
+      <Gift />
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <Chat />
