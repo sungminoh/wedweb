@@ -117,7 +117,7 @@ const NaverMapButton = styled.button`
 const DirectionInner = () => {
   const navermaps = useNavermaps()
   const venueLatLng = new navermaps.LatLng(37.448653424410544, 126.95093702548472)
-  const [map, setMap] = useState(null);
+  const [map, setMap] = useState<>(null);
   const mapDom = (
     // <MapWrapper>
     <div className='map-wrapper'>
@@ -134,6 +134,7 @@ const DirectionInner = () => {
                 e.preventDefault()
                 if (map) {
                   map.setCenter(venueLatLng)
+                  map.setZoom(16, true)
                 }
               }}
             >
