@@ -25,8 +25,8 @@ const PhotoSlide = styled.div`
   height: 100%;
   
   img {
-    max-height: 100%;
-    max-width: 100%;
+    max-height: 100% !important;
+    max-width: 100% !important;
   }
 `
 
