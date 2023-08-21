@@ -5,14 +5,21 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
 import { IMAGE_COUNT } from "@/config";
 
 
-const PhotoGrid = styled.ul`
-  padding: 10px;
-  li {
-    display: flex;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
+const PhotoGrid = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .gallery-wrapper {
+    width: 800px;
+    max-width: 800px;
+    padding: 10px;
+    div {
+      display: flex;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 `;
 
@@ -44,43 +51,45 @@ const MyGallery = () => {
     // secondaryZoomLevel: 'fit',
   }
   return <PhotoGrid>
-    <Gallery options={options}>
-    <ResponsiveMasonry columnsCountBreakPoints={{ 500: 2, 1200: 3 }}>
-      <Masonry columnsCount={2} gutter="8px">
-        {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1).map((i) => (
-          <li key={`li-${i}`}>
-             <Item
-               key={`img-${i}`}
-               // original={`/photos/gallery/${i}.jpg`}
-               // thumbnail={`/photos/gallery/${i}.jpg`}
-               content={
-                 <PhotoSlide>
-                   <img
-                     role="button"
-                     src={`/photos/gallery/${i}.jpg`}
-                     loading="lazy"
-                     alt=""
-                   />
-                 </PhotoSlide>
-               }
-             >
-               {({ ref, open }) => (
-                 <img
-                   ref={ref as React.MutableRefObject<HTMLImageElement>}
-                   role="button"
-                   onClick={open}
-                   src={`/photos/gallery/${i}.jpg`}
-                   loading="lazy"
-                   alt=""
-                 />
-               )}
-             </Item>
-           </li>
-         )
-       )}
-      </Masonry>
-    </ResponsiveMasonry>
-  </Gallery>
+    <div className={'gallery-wrapper'}>
+      <Gallery options={options}>
+        <ResponsiveMasonry columnsCountBreakPoints={{ 500: 2, 800: 3 }}>
+          <Masonry columnsCount={2} gutter="8px">
+            {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1).map((i) => (
+                <div key={`li-${i}`}>
+                  <Item
+                    key={`img-${i}`}
+                    // original={`/photos/gallery/${i}.jpg`}
+                    // thumbnail={`/photos/gallery/${i}.jpg`}
+                    content={
+                      <PhotoSlide>
+                        <img
+                          role="button"
+                          src={`/photos/gallery/${i}.jpg`}
+                          loading="lazy"
+                          alt=""
+                        />
+                      </PhotoSlide>
+                    }
+                  >
+                    {({ ref, open }) => (
+                      <img
+                        ref={ref as React.MutableRefObject<HTMLImageElement>}
+                        role="button"
+                        onClick={open}
+                        src={`/photos/gallery/${i}.jpg`}
+                        loading="lazy"
+                        alt=""
+                      />
+                    )}
+                  </Item>
+                </div>
+              )
+            )}
+          </Masonry>
+        </ResponsiveMasonry>
+      </Gallery>
+    </div>
   </PhotoGrid>
 }
 
