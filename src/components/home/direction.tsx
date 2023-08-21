@@ -30,39 +30,67 @@ const DirectionSection = styled.section`
 `;
 
 const DirectionWrapper = styled.div`
-  min-width: 340px;
+  width: 380px;
   max-width: 400px;
   margin: 0 10px 0 10px;
+  div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
 `
 
 const DirectionSteps = styled.div`
   span {
     margin-right: 10px
   }
+  h3 {
+    margin-bottom: 10px;
+  }
+  @media screen and (max-width: 400px) {
+    letter-spacing: -1px;
+    font-size: 12px;
+  }
   ul {
     li {
-      @media screen and (max-width: 400px) {
-        letter-spacing: -1px;
+      span {
+        height: 14px;
       }
-      margin: 0 0 0 0;
+      margin: 0 0 10px 0;
       font-size: 14px;
+      line-height: 1.3;
       display: flex;
       align-items: center;
+      @media screen and (max-width: 400px) {
+        letter-spacing: -1px;
+        font-size: 12px;
+        span {
+          height: 12px;
+        }
+      }
     }
   }
 `;
 
-const DirectionFooter = styled.span`
-  font-size: 10px;
-  font-weight: bold;
-  @media screen and (max-width: 778px) {
-  }
+export const HSpace = styled.hr<{
+  height?: number
+}>`
+  width: 100%;
+  margin: ${({height}) => `${height}px 0 0 0`};
+  border: 0;
+  // border-top: 1px solid #ccc;
 `;
 
-const DummyDirectionFooter = styled.span`
+const DirectionFooter = styled.p`
   font-size: 10px;
-  font-weight: bold;
-  @media screen and (max-width: 777px) {
+  // font-weight: bold;
+  line-height: 1.5;
+`;
+
+const DummyDirectionFooter = styled.p`
+  font-size: 10px;
+  // font-weight: bold;
+  line-height: 1.5;
+  @media screen and (max-width: 839px) {
     display: none;
   }
 `;
@@ -103,6 +131,7 @@ const NaverMapButton = styled.button`
   justify-content: center;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.2);
+  color: black;
   border-radius: 20px;
   width: 80px;
   height: 35px;
@@ -121,14 +150,13 @@ const DirectionInner = () => {
   const mapDom = (
     // <MapWrapper>
     <div className='map-wrapper'>
-      <div>
-
-      <MapDiv style={{width: '100%', height: '100%'}}>
-        <NaverMap
-          defaultCenter={venueLatLng }
-          defaultZoom={16}
-          ref={setMap}
-        >
+      <div className='map-container'>
+        <MapDiv style={{width: '100%', height: '100%'}}>
+          <NaverMap
+            defaultCenter={venueLatLng }
+            defaultZoom={16}
+            ref={setMap}
+          >
             <NaverMapButton
               onClick={(e) => {
                 e.preventDefault()
@@ -142,12 +170,12 @@ const DirectionInner = () => {
             >
               <Position/> 원위치
             </NaverMapButton>
-          <Marker
-            defaultPosition={venueLatLng}
-          />
-        </NaverMap>
-      </MapDiv>
-        </div>
+            <Marker
+              defaultPosition={venueLatLng}
+            />
+          </NaverMap>
+        </MapDiv>
+      </div>
     </div>
     // </MapWrapper>
   )
@@ -191,7 +219,6 @@ const DirectionInner = () => {
               </li>
             </ul>
           </DirectionSteps>
-          <br/>
           <DirectionSteps>
             <h3>{'남부순환로나 신림동 방면에서 진입'}</h3>
             <ul>
@@ -238,7 +265,6 @@ const DirectionInner = () => {
               </li>
             </ul>
           </DirectionSteps>
-          <br/>
           <DirectionSteps>
             <h3>
               {'2호선 서울대입구역'}
