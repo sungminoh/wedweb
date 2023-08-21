@@ -210,7 +210,8 @@ const Chat = () => {
     data,
     error,
     mutate,
-  } = useSWR<GetTalkListResponse>("/api/talk/list");
+  } = useSWR<GetTalkListResponse>(
+    "/api/talk/list", url => fetch(url).then(r => r.json()));
   const talkListResp = data
 
   const writeButtonTriggerRef = useRef<HTMLDivElement>(null);
