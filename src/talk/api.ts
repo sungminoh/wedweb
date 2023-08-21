@@ -38,7 +38,7 @@ const getSheet = async () => {
     const doc = new GoogleSpreadsheet(process.env.GUESTBOOK_SHEET_ID);
     await doc.useServiceAccountAuth({
       client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL as string,
-      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/NEW_LINE/g, '\n') as string,
+      private_key: (process.env.GOOGLE_PRIVATE_KEY as string || '').replace(/NEW_LINE/g, '\n'),
     });
     await doc.loadInfo();
     sheet = doc.sheetsByIndex[0];
