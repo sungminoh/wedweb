@@ -33,8 +33,12 @@ const AccountDiv = styled.div`
   
 `
 
-
-const Account = ({ owner, bank, account}) => {
+interface AccountPropType {
+  owner: string;
+  bank: string;
+  account: string;
+}
+const Account = ({owner, bank, account}: AccountPropType) => {
   const [isCopied, setIsCopied] = useState(false);
   const copytext = account;
 
@@ -73,9 +77,9 @@ const Account = ({ owner, bank, account}) => {
 
 
 const CollapsibleContainer = styled.div<{
-  height: number;
   show: boolean,
   seconds: number,
+  height: string;
 }>`
   overflow: hidden;
   height: ${({ height, show }) => (show? `${height}` : '0')};
@@ -83,7 +87,12 @@ const CollapsibleContainer = styled.div<{
   transition: height ${({seconds}) => `${seconds}s ease`}, opacity ${({seconds}) => `${seconds}s ease`};
 `
 
-const Collapsible = ({title, children}) => {
+
+interface CollasiblePropType {
+  title: string;
+  children: any;
+}
+const Collapsible = ({title, children}: CollasiblePropType) => {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => { setOpen(!open); };
 
@@ -102,7 +111,7 @@ const Collapsible = ({title, children}) => {
 
 const Groom = () => {
   return (
-    <Collapsible className="for-groom" title="🤵 신랑측">
+    <Collapsible title="🤵 신랑측">
       <Account owner="오성민" bank="신한은행" account="110-284-329679" />
       <Account owner="(母) 성지영" bank="농협" account="166-12-100991" />
     </Collapsible>
@@ -110,7 +119,7 @@ const Groom = () => {
 };
 const Bride = () => {
   return (
-    <Collapsible className="for-bride" title="👰 신부측">
+    <Collapsible title="👰 신부측">
       <Account owner="어희재" bank="aa은행" account ="123-456-7890" />
       <Account owner="(父) 어하준" bank="aa은행" account ="123-456-7890" />
       <Account owner="(母) 임경원" bank="aa은행" account ="123-456-7890" />

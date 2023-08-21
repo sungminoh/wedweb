@@ -47,5 +47,8 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "devDependencies": {
+    "@types/react-responsive-masonry": "^2.1.0"
   }
 }
