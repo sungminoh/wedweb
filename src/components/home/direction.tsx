@@ -214,7 +214,7 @@ const DirectionInner = () => {
         </DirectionWrapper>
 
 
-        <DirectionWrapper key={1}>
+        <DirectionWrapper key={2}>
           <DirectionHeader>{'지하철 이용시'}</DirectionHeader>
           <DummyDirectionFooter>&nbsp;</DummyDirectionFooter>
           <DirectionSteps>
