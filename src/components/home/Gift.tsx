@@ -12,7 +12,7 @@ const GiveWrap = styled.div`
 
 
 const AccountDiv = styled.div`
-  width: 340px;
+  max-width: 340px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,10 +27,26 @@ const AccountDiv = styled.div`
     width: 80px;
   }
   .account {
-  width: 110px;
+    width: 110px;
     text-align: right;
   }
   
+  @media screen and (max-width: 350px) {
+    letter-spacing: -1px;
+    font-size: 12px;
+    .owner {
+      width: 60px;
+    }
+    a {
+      height: 16px;
+    }
+    .bank {
+      width: 60px;
+    }
+    .account {
+      width: 80px;
+    }
+  }
 `
 
 interface AccountPropType {

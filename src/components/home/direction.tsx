@@ -46,7 +46,7 @@ const DirectionSteps = styled.div`
   h3 {
     margin-bottom: 10px;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 350px) {
     letter-spacing: -1px;
     font-size: 12px;
   }
@@ -60,7 +60,7 @@ const DirectionSteps = styled.div`
       line-height: 1.3;
       display: flex;
       align-items: center;
-      @media screen and (max-width: 400px) {
+      @media screen and (max-width: 350px) {
         letter-spacing: -1px;
         font-size: 12px;
         span {
