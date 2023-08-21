@@ -35,6 +35,7 @@ import { Contact } from "@/components/home/Contact";
 // import Direction from "@/components/home/direction";
 import dynamic from "next/dynamic";
 import { Gift } from "@/components/home/Gift";
+import Snow from "@/components/common/Snow";
 
 
 
@@ -140,6 +141,7 @@ const MyGallery = dynamic(
 const Home = () => {
   return (
     <Main>
+      <Snow/>
       <Cover />
 
       <Header>
