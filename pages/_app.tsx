@@ -5,6 +5,7 @@ import "../global.css";
 import { HOSTNAME, NAVER_API_CLIENT_ID } from "@/config";
 import '../src/styles/sass/style.scss';
 import Script from "next/script";
+import { setIsBride } from "@/utils";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -12,6 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (typeof window === "undefined") return;
 
     if (window.location.hostname.indexOf(HOSTNAME) < 0) return;
+    if (window.location.hostname.match(/^heejae/)) {
+      setIsBride()
+    }
   }, []);
 
   return (

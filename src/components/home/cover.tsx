@@ -19,6 +19,7 @@ import cover2 from "@/public/photos/cover/2.jpg";
 import cover3 from "@/public/photos/cover/3.jpg";
 import cover4 from "@/public/photos/cover/4.jpg";
 import cover5 from "@/public/photos/cover/5.jpg";
+import { isBride } from "@/utils";
 
 
 const Header = styled.h1`
@@ -114,7 +115,7 @@ const SlideImage = (props: {src: any, offsets?: number[], aspectRatio?: number})
   return (
     <div className="my-slide-inner">
       <Image
-          style={style}
+        style={style}
         src={props.src} alt=""
         priority layout="responsive"
         />
@@ -152,7 +153,7 @@ const Cover = () => {
           <div className="cover-text">
             <Slide direction="up" cascade>
               <h2>
-                {`${GROOM_NAME} & ${BRIDE_NAME}`}
+                {isBride() ? `${BRIDE_NAME} & ${GROOM_NAME}` : `${GROOM_NAME} & ${BRIDE_NAME}` }
                 {/*<Image src={coverPic} priority={true} placeholder="blur" alt="" />*/}
               </h2>
               <h3>{toDateString(WEDDING_DATE, "%Y. %m. %d (%a) %H:%M")}</h3>

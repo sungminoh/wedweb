@@ -27,7 +27,7 @@ const AccountDiv = styled.div`
     width: 80px;
   }
   .account {
-    width: 110px;
+    width: 130px;
     text-align: right;
   }
   

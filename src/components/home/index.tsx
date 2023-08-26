@@ -78,10 +78,14 @@ const GreetingP = styled.p`
 
 
 
-const Header = styled.h1`
-  margin-top: 20px;
-  font-size: 18px;
-  white-space: pre-line;
+const Header = styled.div`
+  h1 {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  h2 {
+    white-space: pre-line;
+  }
 `;
 
 const ParentSection = styled.section`
@@ -145,9 +149,8 @@ const Home = () => {
       <Cover />
 
       <Header>
-        {toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 %H:%M AM")}
-        <br />
-        {WEDDING_VANUE}
+        <h1>{toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 오전 %H시")}</h1>
+        <h2>{WEDDING_VANUE}</h2>
       </Header>
 
       <SectionHr />
