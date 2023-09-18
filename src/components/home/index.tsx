@@ -115,7 +115,7 @@ const ParentSection = styled.section`
         span {
             font-weight: bold;
             display: inline-block;
-            width: 8em;
+            width: 8.5em;
             text-align: right;
             white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }

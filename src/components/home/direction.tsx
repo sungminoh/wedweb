@@ -212,7 +212,7 @@ const DirectionInner = () => {
       <DirectionSection>
         <DirectionWrapper key={1}>
           <DirectionHeader>{'자가용 이용시'}</DirectionHeader>
-          <DirectionFooter>{'※ 주차는 예식장 앞 마당에 충분한 공간이 있으며 4시간 무료주차 제공됩니다.'}</DirectionFooter>
+          <DirectionFooter>{'※ 주차는 예식장 앞에 충분한 공간이 있으며 4시간 무료주차 제공됩니다.'}</DirectionFooter>
           <DirectionSteps>
             <h4>{'남부순환로에서 낙성대 방면으로 진입'}</h4>
             <ul>

@@ -60,7 +60,7 @@ export const GREETING = `
 `.trim()
 
 export const TITLE = '결혼합니다♡'
-export const GROOM_PARENTS = '(고) 오행식 · 성지영'
+export const GROOM_PARENTS = '(고)오행식 · 성지영'
 export const GROOM_SHORT_NAME = '성민'
 export const GROOM_RELATION = '장남'
 export const BRIDE_PARENTS = '어하준 · 임경원'
