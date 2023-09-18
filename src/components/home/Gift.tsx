@@ -136,7 +136,7 @@ const Groom = () => {
 const Bride = () => {
   return (
     <Collapsible title="👰 신부측">
-      <Account owner="어희재" bank="aa은행" account ="123-456-7890" />
+      <Account owner="어희재" bank="신한은행" account ="110-247-285527" />
       <Account owner="(父) 어하준" bank="aa은행" account ="123-456-7890" />
       <Account owner="(母) 임경원" bank="aa은행" account ="123-456-7890" />
     </Collapsible>

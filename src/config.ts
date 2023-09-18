@@ -70,7 +70,7 @@ export const BRIDE_RELATION = '장녀'
 export const GROOM_TEL = '010-4391-1948'
 export const GROOM_KAKAO = 'http://qr.kakao.com/talk/3PfY2KNvrgJYDz9tUf4f.OIMkaw-'
 export const BRIDE_TEL = '010-3307-4308'
-export const BRIDE_KAKAO = ''
+export const BRIDE_KAKAO = 'http://qr.kakao.com/talk/wN4OT62.cpJ9MwS9uc20KN7hfSI-'
 
 export const IMAGE_COUNT = 17
 export const OG_IMAGE = "https://drive.google.com/uc?id=1uGRWP6JZlmaQLTEx1tiM1xjXVtG8FpU2"
