@@ -77,7 +77,7 @@ const MyGallery = () => {
                         ref={ref as React.MutableRefObject<HTMLImageElement>}
                         role="button"
                         onClick={open}
-                        src={`/photos/gallery/${i}.jpg`}
+                        src={`/photos/thumbnail/${i}.jpg`}
                         loading="lazy"
                         alt=""
                       />
