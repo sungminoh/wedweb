@@ -96,7 +96,8 @@ const DummyDirectionFooter = styled.p`
 `;
 
 
-const DirectionHeader = styled.h1`
+const DirectionHeader = styled.h3`
+  font-family: "HallymGothic-Regular";
   text-align: center;
   font-size: 18px;
   margin-top: 20px;
@@ -130,7 +131,7 @@ const NaverMapButton = styled.button`
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba();
   color: black;
   border-radius: 20px;
   width: 80px;
@@ -141,6 +142,16 @@ const NaverMapButton = styled.button`
   margin: 10px;
   zIndex: 1000;
 `;
+
+const Venue = styled.div`
+  white-space: pre-line;
+  margin-bottom: 20px;
+  line-height: 25px;
+  span {
+    font-weight: bold;
+    font-size: 20px;
+  }
+`
 
 
 const DirectionInner = () => {
@@ -184,6 +195,10 @@ const DirectionInner = () => {
     <>
       <SectionHeader>오시는 길</SectionHeader>
 
+      <Venue>
+        <span>{WEDDING_VANUE_ADDRESS}</span>
+      </Venue>
+
       {mapDom}
 
       <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
@@ -194,16 +209,12 @@ const DirectionInner = () => {
       </MapButton>
 
 
-      <p style={{ whiteSpace: 'pre-line' }}>
-        {WEDDING_VANUE_ADDRESS}
-      </p>
-
       <DirectionSection>
         <DirectionWrapper key={1}>
           <DirectionHeader>{'자가용 이용시'}</DirectionHeader>
           <DirectionFooter>{'※ 주차는 예식장 앞 마당에 충분한 공간이 있으며 4시간 무료주차 제공됩니다.'}</DirectionFooter>
           <DirectionSteps>
-            <h3>{'남부순환로에서 낙성대 방면으로 진입'}</h3>
+            <h4>{'남부순환로에서 낙성대 방면으로 진입'}</h4>
             <ul>
               <li>
                 <span><IconBoomGateUpOutline style={{color: 'grey'}}/></span>
@@ -220,7 +231,7 @@ const DirectionInner = () => {
             </ul>
           </DirectionSteps>
           <DirectionSteps>
-            <h3>{'남부순환로나 신림동 방면에서 진입'}</h3>
+            <h4>{'남부순환로나 신림동 방면에서 진입'}</h4>
             <ul>
               <li>
                 <span><IconBoomGateUpOutline style={{color: 'grey'}}/></span>
@@ -247,9 +258,9 @@ const DirectionInner = () => {
           <DirectionHeader>{'지하철 이용시'}</DirectionHeader>
           <DummyDirectionFooter>&nbsp;</DummyDirectionFooter>
           <DirectionSteps>
-            <h3>
+            <h4>
               {'2호선 낙성대역'}
-             </h3>
+             </h4>
             <ul>
               <li>
                 <span><Icon4Square style={{color: 'green'}}/></span>
@@ -266,9 +277,9 @@ const DirectionInner = () => {
             </ul>
           </DirectionSteps>
           <DirectionSteps>
-            <h3>
+            <h4>
               {'2호선 서울대입구역'}
-            </h3>
+            </h4>
             <ul>
               <li>
                 <span><Icon3Square style={{color: 'green'}}/></span>

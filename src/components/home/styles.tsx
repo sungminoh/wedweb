@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { Party } from "@/talk/types";
 
 export const TextSerifStyle = css`
-  font-family: "Noto Serif KR", serif;
+  font-family: "GowunBatang-Regular", "MapoFlowerIsland", "Noto Serif KR", serif;
 `;
 export const TextSansStyle = css`
   font-family: sans-serif;
@@ -36,13 +36,19 @@ export const Main = styled.main`
       cursor: pointer;
     }
   }
+  
+  h1 {
+  }
 
   h2 {
     margin-bottom: 30px;
   }
+  
+  h3, h4 {
+    ${TextSansStyle}
+  }
 
   p {
-    margin-bottom: 20px;
     font-weight: 500;
   }
 
@@ -59,8 +65,9 @@ export const SectionHr = styled.hr`
 `;
 
 export const SectionHeader = styled.h2`
+  font-family: "HallymGothic-Regular", sans-serif;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 800;
 `;
 
 export const SectionHeaderA = styled.h2`

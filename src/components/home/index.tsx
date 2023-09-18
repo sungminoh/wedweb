@@ -1,16 +1,12 @@
-import { Copy, PinAlt } from "iconoir-react";
-import Image from "next/image"
 import React, {
 } from "react";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
 
-import mapPic from "@/public/photos/map.png";
 import {
   Main,
   SectionHeader,
-  SectionHr,
-  TextSansStyle,
+  SectionHr, TextSansStyle,
 } from "./styles";
 import {
   BRIDE_BANK,
@@ -79,12 +75,17 @@ const GreetingP = styled.p`
 
 
 const Header = styled.div`
-  h1 {
-    margin-top: 20px;
-    font-size: 18px;
-  }
+  font-weight: bold;
   h2 {
+    letter-spacing: -1px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size: 20px;
+  }
+  h1 {
     white-space: pre-line;
+    font-size: 22px;
+    line-height: 30px;
   }
 `;
 
@@ -114,7 +115,7 @@ const ParentSection = styled.section`
         span {
             font-weight: bold;
             display: inline-block;
-            width: 10em;
+            width: 8em;
             text-align: right;
             white-space: nowrap; /* 텍스트 줄바꿈 방지 */
         }
@@ -149,13 +150,13 @@ const Home = () => {
       <Cover />
 
       <Header>
-        <h1>{toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 오전 %H시")}</h1>
-        <h2>{WEDDING_VANUE}</h2>
+        <h2>{toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 오전 %H시")}</h2>
+        <h1>{WEDDING_VANUE}</h1>
       </Header>
 
-      <SectionHr />
+      {/*<SectionHr />*/}
 
-      <SectionHeader>{TITLE}</SectionHeader>
+      {/*<SectionHeader>{TITLE}</SectionHeader>*/}
 
       <GreetingP>
         {GREETING}
