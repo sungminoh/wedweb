@@ -144,7 +144,7 @@ const MyGallery = dynamic(
 
 const Chat = dynamic(
   () => {
-    return import("@/components/home/talk/chat");
+    return import("@/components/home/talk/Chat");
   },
   { ssr: false }
 );
