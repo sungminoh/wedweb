@@ -24,7 +24,7 @@ import {
   WEDDING_VANUE_NAVER_LINK
 } from "@/config";
 import { toDateString } from "@/common/utils";
-import Chat from "@/components/home/talk/Chat";
+// import Chat from "@/components/home/talk/Chat";
 // import MyGallery from "./gallery";
 import Cover from "@/components/home/cover";
 import { Contact } from "@/components/home/Contact";
@@ -138,6 +138,13 @@ const Direction = dynamic(
 const MyGallery = dynamic(
   () => {
     return import("@/components/home/gallery");
+  },
+  { ssr: false }
+);
+
+const Chat = dynamic(
+  () => {
+    return import("@/components/home/talk/chat");
   },
   { ssr: false }
 );

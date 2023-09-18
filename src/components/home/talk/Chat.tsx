@@ -151,6 +151,7 @@ const TalkBubbleWrap = styled.div<{
       font-size: 0.9em;
       color: #999;
       text-decoration: underline;
+      margin: 5px;
     }
   }
 `;
@@ -186,12 +187,12 @@ const TalkBubble = ({
     <TalkBubbleWrap party={talk.party} color={talk.color} selected={selected}>
       {talk.party === "BRIDE" ? <EmojiLookLeft fr='bride_emoji'/> : <EmojiLookRight fr='groom_emoji'/>}
       <div onClick={handleBubbleOutsideClick}>
-        {selected && talk.party === "BRIDE" && <>{editBtn} </>}
+        {selected && talk.party === "BRIDE" && <>{editBtn}</>}
         {talk.author}
-        {selected && talk.party === "GROOM" && <> {editBtn}</>}
+        {selected && talk.party === "GROOM" && <>{editBtn}</>}
         <div className="bubble-info-wrap">
           <p onClick={handleBubbleClick}>{talk.msg}</p>
-           <small>
+          <small>
             {!talk.published
               ? "검수중"
               : timeDiffFormat(new Date(talk.created))
@@ -254,44 +255,43 @@ const Chat = () => {
   };
   const handleEditTalkModalClose = () => setShowEditTalkModal(undefined);
 
-
   return <>
     <WriteSectionSubHeader>
-        <p>신랑측</p>
-        <p>신부측</p>
-      </WriteSectionSubHeader>
-      <div style={{ clear: "both" }} />
-      <TalkWrap>
-        <WriteButtonTrigger ref={writeButtonTriggerRef} />
-        {talkListResp?.talks?.map((talk) => (
-          <TalkBubble
-            key={talk.id}
-            talk={talk}
-            selected={talk.id === selectedTalkId}
-            onBubbleClick={handleTalkBubbleClick}
-            onEditClick={handleTalkEditClick}
-          />
-        ))}
-      </TalkWrap>
-      <ThankYou>{`${writeDone ? "감사합니다." : ""}`}</ThankYou>
-      {!writeDone && (
-        <WriteButton
-          visible={isWriteButtonShown}
-          onClick={handleWriteButtonClick}
-        >
-          😍 나도 한마디
-        </WriteButton>
-      )}
-      {showWriteTalkModal && (
-        <Modal handleClose={handleWriteTalkModalClose}>
-          <WriteTalk onWrite={handleWriteTalk} />
-        </Modal>
-      )}
-      {showEditTalkModal && (
-        <Modal handleClose={handleEditTalkModalClose}>
-          <EditTalk talk={showEditTalkModal} onEdit={handleEditTalk} />
-        </Modal>
-      )}
+      <p>신랑측</p>
+      <p>신부측</p>
+    </WriteSectionSubHeader>
+    <div style={{ clear: "both" }} />
+    <TalkWrap>
+      <WriteButtonTrigger ref={writeButtonTriggerRef} />
+      {talkListResp?.talks?.map((talk) => (
+        <TalkBubble
+          key={talk.id}
+          talk={talk}
+          selected={talk.id === selectedTalkId}
+          onBubbleClick={handleTalkBubbleClick}
+          onEditClick={handleTalkEditClick}
+        />
+      ))}
+    </TalkWrap>
+    <ThankYou>{`${writeDone ? "감사합니다." : ""}`}</ThankYou>
+    {!writeDone && (
+      <WriteButton
+        visible={isWriteButtonShown}
+        onClick={handleWriteButtonClick}
+      >
+        😍 나도 한마디
+      </WriteButton>
+    )}
+    {showWriteTalkModal && (
+      <Modal handleClose={handleWriteTalkModalClose}>
+        <WriteTalk onWrite={handleWriteTalk} />
+      </Modal>
+    )}
+    {showEditTalkModal && (
+      <Modal handleClose={handleEditTalkModalClose}>
+        <EditTalk talk={showEditTalkModal} onEdit={handleEditTalk} />
+      </Modal>
+    )}
   </>
 }
 

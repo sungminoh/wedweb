@@ -37,7 +37,7 @@ type FormData = PostTalkRequest;
 type Props = { onWrite: (id: string) => void };
 
 const WriteTalk = ({ onWrite }: Props) => {
-  const { register, handleSubmit, setValue, watch, formState } =
+  const { register, handleSubmit, setValue, watch, formState, setFocus } =
     useForm<FormData>();
   const { isValid, dirtyFields, errors } = formState;
 
@@ -140,12 +140,11 @@ const WriteTalk = ({ onWrite }: Props) => {
   const step3 = showPasswordInput;
 
   const authorInputRef = useRef<HTMLDivElement>(null);
-  const passwordInputRef = useRef<HTMLInputElement>(null);
   useEffect(() => {
     authorInputRef.current?.focus();
   }, [step2]);
   useEffect(() => {
-    passwordInputRef.current?.focus();
+    setFocus('password');
   }, [step3]);
 
   return (
@@ -216,7 +215,6 @@ const WriteTalk = ({ onWrite }: Props) => {
                   message: "암호가 너무 짧아요 (4자 이상)",
                 },
               })}
-              ref={passwordInputRef}
               id="password"
               type="password"
             />
