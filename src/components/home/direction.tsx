@@ -193,8 +193,6 @@ const DirectionInner = () => {
 
   return (
     <>
-      <SectionHeader>오시는 길</SectionHeader>
-
       <Venue>
         <span>{WEDDING_VANUE_ADDRESS}</span>
       </Venue>

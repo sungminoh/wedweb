@@ -32,6 +32,7 @@ import { Contact } from "@/components/home/Contact";
 import dynamic from "next/dynamic";
 import { Gift } from "@/components/home/Gift";
 import Snow from "@/components/common/Snow";
+import { PreviewCollapsible } from "@/components/common/PreviewCollapsible";
 
 
 
@@ -162,7 +163,6 @@ const Home = () => {
       </Header>
 
       {/*<SectionHr />*/}
-
       {/*<SectionHeader>{TITLE}</SectionHeader>*/}
 
       <GreetingP>
@@ -172,10 +172,10 @@ const Home = () => {
       <ParentSection>
         <div className="row">
           <div className="parents text">
-            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i></small>
+            <span>{GROOM_PARENTS}</span> <small>의 <i>{GROOM_RELATION}</i> </small>
             <b>{GROOM_SHORT_NAME}</b>
             <br />
-            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i></small>
+            <span>{BRIDE_PARENTS}</span> <small>의 <i>{BRIDE_RELATION}</i> </small>
             <b>{BRIDE_SHORT_NAME}</b>
           </div>
         </div>
@@ -183,13 +183,17 @@ const Home = () => {
 
       <Contact />
       <SectionHr />
-      <MyGallery />
+      <SectionHeader>사진첩</SectionHeader>
+      <PreviewCollapsible><MyGallery /></PreviewCollapsible>
 
       <SectionHr />
+      <SectionHeader>오시는 길</SectionHeader>
       <Direction />
-      <SectionHr />
 
+      <SectionHr />
+      <SectionHeader>마음 전하실 곳</SectionHeader>
       <Gift />
+
       <SectionHr />
       <SectionHeader>축하의 한마디</SectionHeader>
       <Chat />
