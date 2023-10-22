@@ -2,7 +2,7 @@ import 'photoswipe/dist/photoswipe.css'
 import { Gallery, Item } from 'react-photoswipe-gallery'
 import styled from "styled-components";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry"
-import { IMAGE_COUNT } from "@/config";
+import { GALLERY_IMAGES } from "@/config";
 
 
 const PhotoGrid = styled.div`
@@ -55,7 +55,7 @@ const MyGallery = () => {
       <Gallery options={options}>
         <ResponsiveMasonry columnsCountBreakPoints={{ 500: 2, 800: 3 }}>
           <Masonry columnsCount={2} gutter="8px">
-            {Array.from(Array(IMAGE_COUNT), (_, i) => i + 1).map((i) => (
+            {GALLERY_IMAGES.map((i) => (
                 <div key={`li-${i}`}>
                   <Item
                     key={`img-${i}`}

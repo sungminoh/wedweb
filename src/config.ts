@@ -72,7 +72,7 @@ export const GROOM_KAKAO = 'http://qr.kakao.com/talk/3PfY2KNvrgJYDz9tUf4f.OIMkaw
 export const BRIDE_TEL = '010-3307-4308'
 export const BRIDE_KAKAO = 'http://qr.kakao.com/talk/wN4OT62.cpJ9MwS9uc20KN7hfSI-'
 
-export const IMAGE_COUNT = 17
+export const GALLERY_IMAGES = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
 export const OG_IMAGE = "https://drive.google.com/uc?id=1uGRWP6JZlmaQLTEx1tiM1xjXVtG8FpU2"
 
 export const GROOM_BANK = "aa은행 123-456-789"
