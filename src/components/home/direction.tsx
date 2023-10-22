@@ -3,7 +3,7 @@ import Image from "next/image"
 import {
   NAVER_API_CLIENT_ID,
   WEDDING_VANUE_ADDRESS,
-  WEDDING_VANUE_KAKAO_LINK, WEDDING_VANUE_NAVER_LINK
+  WEDDING_VANUE_KAKAO_LINK, WEDDING_VANUE_NAVER_LINK, WEDDING_VANUE_TMAP_LINK
 } from "@/config";
 import { Container as MapDiv, Marker, NaverMap, NavermapsProvider, useNavermaps } from 'react-naver-maps';
 import { SectionHeader, SectionHeaderA, TextSansStyle } from "@/components/home/styles";
@@ -203,7 +203,10 @@ const DirectionInner = () => {
         <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
       </MapButton>
       <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
-        <PinAlt fr='naver_map' color="#66BB66" /> 네이버지도
+        <PinAlt fr='naver_map' color="#2DB400" /> 네이버지도
+      </MapButton>
+      <MapButton href={WEDDING_VANUE_TMAP_LINK} target='_blank'>
+        <PinAlt fr='naver_map' color="#FF46B4" /> 티맵
       </MapButton>
 
 

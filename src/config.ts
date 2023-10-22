@@ -10,6 +10,8 @@ export const WEDDING_VANUE = `
 `.trim()
 export const WEDDING_VANUE_KAKAO_LINK = "https://place.map.kakao.com/12544261"
 export const WEDDING_VANUE_NAVER_LINK = "https://map.naver.com/v5/entry/place/18720631"
+export const WEDDING_VANUE_TMAP_LINK = "https://surl.tmobiapi.com/a843c773"
+
 export const WEDDING_VANUE_ADDRESS = `
 서울대학교 관악캠퍼스
 엔지니어하우스
