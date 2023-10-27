@@ -1,13 +1,17 @@
-import React, { useEffect, useState, CSSProperties } from "react";
-import Image from "next/image"
+import React, { useState } from "react";
 import {
   NAVER_API_CLIENT_ID,
   WEDDING_VANUE_ADDRESS,
   WEDDING_VANUE_KAKAO_LINK, WEDDING_VANUE_NAVER_LINK, WEDDING_VANUE_TMAP_LINK
 } from "@/config";
-import { Container as MapDiv, Marker, NaverMap, NavermapsProvider, useNavermaps } from 'react-naver-maps';
-import { SectionHeader, SectionHeaderA, TextSansStyle } from "@/components/home/styles";
-import mapPic from "@/public/photos/map.png";
+import {
+  Container as MapDiv,
+  Marker,
+  NaverMap,
+  NavermapsProvider,
+  useNavermaps
+} from 'react-naver-maps';
+import { TextSansStyle } from "@/components/home/styles";
 import styled from "styled-components";
 import { PinAlt, Position } from "iconoir-react";
 import {
@@ -116,32 +120,38 @@ const MapButton = styled.a`
   text-decoration: none;
   background: #f3f3f3;
   line-height: 1.3;
-  > svg {
+  > svg, img {
     display: inline-block;
     width: 18px;
     height: 18px;
     margin: -4px 0;
     margin-right: 4px;
+    border-radius: 9px;
   }
 `;
 
 
-const NaverMapButton = styled.button`
+const NaverMapController = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: absolute;
-  background-color: rgba();
-  color: black;
-  border-radius: 20px;
-  width: 80px;
-  height: 35px;
-  border: none;
   top: 0;
   right: 0;
-  margin: 10px;
-  zIndex: 1000;
-`;
+  > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba();
+    padding: 2px;
+    margin: 5px;
+    zIndex: 1000;
+    > svg, img {
+      margin: 0px auto;
+    }
+  }
+`
 
 const Venue = styled.div`
   white-space: pre-line;
@@ -153,11 +163,49 @@ const Venue = styled.div`
   }
 `
 
+const MapIcon = styled.img`
+  margin: 0 auto;
+  border-radius: 30px;
+`
+
 
 const DirectionInner = () => {
   const navermaps = useNavermaps()
   const venueLatLng = new navermaps.LatLng(37.448653424410544, 126.95093702548472)
   const [map, setMap] = useState(null);
+  const controller = (
+    <NaverMapController>
+      <button
+        onClick={(e) => {
+          e.preventDefault()
+          if (map) {
+            // @ts-ignore: Type error
+            map.setCenter(venueLatLng)
+            // @ts-ignore: Type error
+            map.setZoom(16, true)
+          }
+        }}
+      >
+        <PinAlt />
+      </button>
+      <button
+        onClick={(e) => {
+          e.preventDefault()
+          if (map) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+              const currentLatLng = new navermaps.LatLng(position.coords.latitude, position.coords.longitude)
+              // @ts-ignore: Type error
+              map.setCenter(currentLatLng)
+              // @ts-ignore: Type error
+              map.setZoom(16, true)
+            });
+          }
+        }}
+      >
+        <Position />
+      </button>
+    </NaverMapController>
+  )
   const mapDom = (
     // <MapWrapper>
     <div className='map-wrapper'>
@@ -168,19 +216,7 @@ const DirectionInner = () => {
             defaultZoom={16}
             ref={setMap}
           >
-            <NaverMapButton
-              onClick={(e) => {
-                e.preventDefault()
-                if (map) {
-                  // @ts-ignore: Type error
-                  map.setCenter(venueLatLng)
-                  // @ts-ignore: Type error
-                  map.setZoom(16, true)
-                }
-              }}
-            >
-              <Position/> 원위치
-            </NaverMapButton>
+            {controller}
             <Marker
               defaultPosition={venueLatLng}
             />
@@ -200,13 +236,13 @@ const DirectionInner = () => {
       {mapDom}
 
       <MapButton href={WEDDING_VANUE_KAKAO_LINK} target='_blank'>
-        <PinAlt fr='kakao_map' color="#1199EE" /> 카카오맵
+        <img src={'/icons/kakao.svg'}/> 카카오맵
       </MapButton>
       <MapButton href={WEDDING_VANUE_NAVER_LINK} target='_blank'>
-        <PinAlt fr='naver_map' color="#2DB400" /> 네이버지도
+        <img src={'/icons/naver.webp'}/> 네이버지도
       </MapButton>
       <MapButton href={WEDDING_VANUE_TMAP_LINK} target='_blank'>
-        <PinAlt fr='naver_map' color="#FF46B4" /> 티맵
+        <img src={'/icons/tmap.svg'}/> 티맵
       </MapButton>
 
 
