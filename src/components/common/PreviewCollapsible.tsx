@@ -11,6 +11,7 @@ const BlurCover = styled.div<{
   min-height: 200px;
   position: absolute;
   bottom: 0;
+  pointer-events: none;
   background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.33) 20%, rgba(255,255,255,1) 100%);
   opacity: ${({ expanded }) => expanded ? 0 : 1};
   transition: ${({ seconds }) => `opacity ${seconds}s ease`};
