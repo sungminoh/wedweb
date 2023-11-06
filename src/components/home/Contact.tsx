@@ -1,39 +1,54 @@
-import { Copy, EmojiLookLeft, EmojiLookRight, Phone } from "iconoir-react";
+import { Phone, Message } from "iconoir-react";
 import styled, { css, keyframes } from "styled-components";
 import { TextSansStyle } from "@/components/home/styles";
-import { BRIDE_KAKAO, BRIDE_TEL, GROOM_KAKAO, GROOM_TEL } from "@/config";
+import {
+  BRIDE_DAD_TEL,
+  BRIDE_KAKAO, BRIDE_MOM_TEL,
+  BRIDE_TEL,
+  GROOM_KAKAO,
+  GROOM_MOM_TEL,
+  GROOM_TEL
+} from "@/config";
 import { useState } from "react";
+import Modal from "@/components/common/Modal";
+import { Header, Wrap } from "@/components/home/talk/styles";
 
 
 const CallWrap = styled.div`
   display: flex;
-  height: 100px;
+  height: 100%;
   flex-direction: row;
   justify-content: center;
   margin: 40px 0;
   > * {
-    margin: 0 15px;
+    margin: 0 10px;
   }
 `;
 
 const CallButtonWrap = styled.div<{ bgColor: string }>`
   ${TextSansStyle}
   font-size: 13px;
-  // transition: all .5s;
-
-  svg {
+  // background-color: ${({ bgColor }) => bgColor};
+  border-radius: 15px;
+  div {
+    position: absolute;
+    border: solid ${({ bgColor }) => bgColor};
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 130px;
+    height: 130px;
+    border-radius: 130px;
+    opacity: 0.5;
+  }
+  img {
     display: block;
     margin: 0 auto;
     margin-bottom: 4px;
-    width: 60px;
-    height: 60px;
-    color: white;
-    padding: 15px;
-    border-radius: 30px;
-    background-color: ${({ bgColor }) => bgColor};
-  }
-  span {
-    margin: 0;
+    width: 150px;
+    height: 150px;
+    padding: 5px;
+    border-radius: 150px;
+    // background-color: ${({ bgColor }) => bgColor};
   }
 `;
 
@@ -46,6 +61,8 @@ type CallButtonProps = {
 const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
   <>
     <CallButtonWrap bgColor={bgColor}>
+      <div>
+      </div>
       {icon}
       {label}
     </CallButtonWrap>
@@ -53,60 +70,8 @@ const CallButton = ({ icon, bgColor, label }: CallButtonProps) => (
 );
 
 
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`
-const fadeOut = keyframes`
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-`
-const ContactLinks = styled.div<{
-  show: boolean,
-  seconds: number,
-}>`
-  margin: 0px;
-  padding: 0px;
-  width: ${({show}) => (show ? '100px' : '0%')};
-  transition: width ${({seconds}) => `${seconds}s ease`};
-  ${
-    ({show, seconds}) => show
-      ? css`
-        animation: ${fadeIn} ${seconds}s forwards;
-      ` : css`
-        animation: ${fadeOut} ${seconds}s forwards;
-      `
-  }
-`;
-
 const ContactButton = styled.a<{ bgColor: string}>`
-  ${TextSansStyle}
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: center;
-  
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  
-  padding: 4px 8px 4px 5px;
-  border: 0;
-  border-radius: 18px;
-  margin: 0 0 5px 0;
-  color: #666;
-  font-size: 13px;
-  text-decoration: none;
-  background: ${({ bgColor }) => bgColor};
-  line-height: 1.3;
+  margin-right: 10px;
   > img {
     width: 18px;
     height: 18px;
@@ -115,6 +80,7 @@ const ContactButton = styled.a<{ bgColor: string}>`
     margin-right: 5px;
   }
   > svg {
+    stroke-width: 2.2;
     display: block;
     width: 18px;
     height: 18px;
@@ -127,6 +93,94 @@ const ContactButton = styled.a<{ bgColor: string}>`
 `;
 
 
+const ContactTable = styled.div`
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+
+  .row {
+    display: table-row;
+  }
+  .cell {
+    display: table-cell;
+    text-align: center;
+  }
+  .label {
+    width: 80px;
+    justify-content: right;
+  }
+  .contacts {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+    align-items: center;
+    margin-right: 10px;
+  }
+`
+
+
+type ContactCardProps = {
+  label: string;
+  name: string;
+  kakao?: string;
+  phone: string;
+};
+
+const ContactCard = ({label, name, kakao, phone}: ContactCardProps) => {
+  return (
+    <div className={"row"}>
+      <div className={"cell label"}>{label}</div>
+      <div className={"cell name"}>{name}</div>
+      <div className={"cell contacts"}>
+        {kakao && <ContactButton
+          // bgColor="rgba(255, 232, 18, .5)"
+          bgColor="rgba(247, 200, 211, .5)"
+          href={kakao}
+          target='_blank'>
+          <img src="/images/kakao.svg" />
+        </ContactButton>}
+        {phone && <ContactButton
+          bgColor="rgba(247, 200, 211, .5)"
+          href={`sms:${phone}`}
+          target='_blank'>
+          <Message />
+        </ContactButton>}
+        {phone && <ContactButton
+          bgColor="rgba(247, 200, 211, .5)"
+          href={`tel:${phone}`}
+          target='_blank'>
+          <Phone />
+        </ContactButton>}
+      </div>
+    </div>
+  )
+}
+
+const BrideContact = () => {
+  return <Wrap>
+      <Header>
+        👰🏻‍<span>신부측 연락처</span>
+      </Header>
+      <ContactTable>
+        <ContactCard label={"신부"} name={"어희재"} kakao={BRIDE_KAKAO} phone={BRIDE_TEL}/>
+        <ContactCard label={"부"} name={"어하준"} phone={BRIDE_DAD_TEL}/>
+        <ContactCard label={"모"} name={"임경원"} phone={BRIDE_MOM_TEL}/>
+      </ContactTable>
+    </Wrap>
+}
+
+const GroomContact = () => {
+  return <Wrap>
+      <Header>
+        🤵🏻<span>신랑측 연락처</span>
+      </Header>
+      <ContactTable>
+        <ContactCard label={"신랑"} name={"오성민"} kakao={GROOM_KAKAO} phone={GROOM_TEL}/>
+        <ContactCard label={"모"} name={"성지영"} phone={GROOM_MOM_TEL}/>
+      </ContactTable>
+    </Wrap>
+}
+
 export const Contact = () => {
   const [showLinks, setShowLinks] = useState('');
 
@@ -135,66 +189,30 @@ export const Contact = () => {
     <CallWrap>
       <div onClick={x => setShowLinks(showLinks == 'groom' ? '' : 'groom')}>
         <CallButton
-          icon={<EmojiLookRight fr='groom_emoji'/>}
-          bgColor="#abdaab"
+          icon={<img src='/photos/profile/groom.jpg'/>}
+          bgColor="#FFF6F6"
           label="신랑측에 연락하기"
         />
       </div>
-      <>
-        <ContactLinks show={showLinks == 'groom'} seconds={.5}>
-          <ul>
-            <li>
-              <ContactButton
-                // bgColor="rgba(255, 232, 18, .5)"
-                bgColor="rgba(162, 218, 162, .5)"
-                href={GROOM_KAKAO}
-                target='_blank'>
-                <img src="/images/kakao.svg" />
-                카카오톡
-              </ContactButton>
-            </li>
-            <li>
-               <ContactButton
-                bgColor="rgba(162, 218, 162, .5)"
-                href={`tel:${GROOM_TEL}`}
-                target='_blank'>
-                <Phone fr={"groom_phone"}/>
-                 전화
-              </ContactButton>
-            </li>
-          </ul>
-        </ContactLinks>
-        <ContactLinks show={showLinks == 'bride'} seconds={.5}>
-          <ul>
-            <li>
-              <ContactButton
-                // bgColor="rgba(255, 232, 18, .5)"
-                bgColor="rgba(247, 200, 211, .5)"
-                href={BRIDE_KAKAO}
-                target='_blank'>
-                <img src="/images/kakao.svg" />
-                카카오톡
-              </ContactButton>
-            </li>
-            <li>
-               <ContactButton
-                bgColor="rgba(247, 200, 211, .5)"
-                href={`tel:${BRIDE_TEL}`}
-                target='_blank'>
-                <Phone fr={"bride_phone"}/>
-                 전화
-              </ContactButton>
-            </li>
-          </ul>
-        </ContactLinks>
-      </>
       <div onClick={x => setShowLinks(showLinks == 'bride' ? '' : 'bride')}>
         <CallButton
-          icon={<EmojiLookLeft fr='bride_emoji'/>}
-          bgColor="#F7C8D3"
+          icon={<img src='/photos/profile/bride.jpg'/>}
+          bgColor="#FFF6F6"
           label="신부측에 연락하기"
         />
       </div>
+      {
+        showLinks == 'bride' &&
+        <Modal handleClose={() => setShowLinks('')}>
+          <BrideContact/>
+        </Modal>
+      }
+      {
+        showLinks == 'groom' &&
+        <Modal handleClose={() => setShowLinks('')}>
+          <GroomContact/>
+        </Modal>
+      }
     </CallWrap>
 
     </>

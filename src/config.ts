@@ -70,8 +70,11 @@ export const BRIDE_SHORT_NAME = '희재'
 export const BRIDE_RELATION = '장녀'
 
 export const GROOM_TEL = '010-4391-1948'
+export const GROOM_MOM_TEL = '010-2714-1948'
 export const GROOM_KAKAO = 'http://qr.kakao.com/talk/3PfY2KNvrgJYDz9tUf4f.OIMkaw-'
 export const BRIDE_TEL = '010-3307-4308'
+export const BRIDE_MOM_TEL = '010-5343-4306'
+export const BRIDE_DAD_TEL = '010-5282-1588'
 export const BRIDE_KAKAO = 'http://qr.kakao.com/talk/wN4OT62.cpJ9MwS9uc20KN7hfSI-'
 
 export const GALLERY_IMAGES = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17]
