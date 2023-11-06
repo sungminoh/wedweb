@@ -173,6 +173,7 @@ const DirectionInner = () => {
   const navermaps = useNavermaps()
   const venueLatLng = new navermaps.LatLng(37.448653424410544, 126.95093702548472)
   const [map, setMap] = useState(null);
+  const [currentLatLng, setCurrentLatLng] = useState();
   const controller = (
     <NaverMapController>
       <button
@@ -198,6 +199,7 @@ const DirectionInner = () => {
               map.setCenter(currentLatLng)
               // @ts-ignore: Type error
               map.setZoom(16, true)
+              setCurrentLatLng(currentLatLng)
             });
           }
         }}
@@ -220,6 +222,12 @@ const DirectionInner = () => {
             <Marker
               defaultPosition={venueLatLng}
             />
+            {currentLatLng && <Marker
+              icon={{
+                content: '<div class="current-wrapper"><div class="current-dot"></div></div>'
+              }}
+              defaultPosition={currentLatLng}
+            />}
           </NaverMap>
         </MapDiv>
       </div>
