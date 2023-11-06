@@ -20,9 +20,6 @@ const CallWrap = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 40px 0;
-  > * {
-    margin: 0 10px;
-  }
 `;
 
 const CallButtonWrap = styled.div<{ bgColor: string }>`
@@ -30,6 +27,7 @@ const CallButtonWrap = styled.div<{ bgColor: string }>`
   font-size: 13px;
   // background-color: ${({ bgColor }) => bgColor};
   border-radius: 15px;
+  margin: 0 10px;
   div {
     position: absolute;
     border: solid ${({ bgColor }) => bgColor};
