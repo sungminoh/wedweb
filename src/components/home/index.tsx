@@ -208,6 +208,7 @@ const Home = () => {
             size: '4',
             // customLabels: {"close":"닫기"},
           }
+          // @ts-ignore
           return atcb_action(config, e.button)
         }}> <CalendarPlus/> 캘린더에 추가 </div>
       </AddToCalendar>
