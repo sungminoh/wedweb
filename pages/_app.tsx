@@ -12,8 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    if (window.location.hostname.indexOf(HOSTNAME) < 0) return;
-    if (window.location.hostname.match(/^heejae/)) {
+    if (window.location.hostname.match(/heejae/)
+      && !window.location.hostname.match(/sungmin/)) {
       setIsBride()
     }
   }, []);
