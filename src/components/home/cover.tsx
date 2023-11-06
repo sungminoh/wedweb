@@ -4,13 +4,12 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import Image from "next-image-export-optimizer";
+import ExportedImage from "next-image-export-optimizer";
 import styled, {css} from "styled-components";
 // import styles bundle
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Scrollbar, A11y, EffectFade, Autoplay } from 'swiper';
+import { Navigation, Pagination, A11y, Autoplay } from 'swiper';
 import { Slide } from "react-awesome-reveal";
-import coverPic from "@/public/photos/cover.jpg";
 import { BRIDE_NAME, GROOM_NAME, WEDDING_DATE, WEDDING_DATE_TZ } from "@/config";
 import TimeCountDown from "@/components/home/countdown";
 import { toDateString } from "@/common/utils";
@@ -114,7 +113,7 @@ const SlideImage = (props: {src: any, offsets?: number[], aspectRatio?: number})
 
   return (
     <div className="my-slide-inner">
-      <Image
+      <ExportedImage
         style={style}
         src={props.src} alt=""
         priority layout="responsive"
@@ -154,7 +153,6 @@ const Cover = () => {
             <Slide direction="up" cascade>
               <h2>
                 {isBride() ? `${BRIDE_NAME} & ${GROOM_NAME}` : `${GROOM_NAME} & ${BRIDE_NAME}` }
-                {/*<Image src={coverPic} priority={true} placeholder="blur" alt="" />*/}
               </h2>
               <h3>{toDateString(WEDDING_DATE, "%Y. %m. %d (%a) %H:%M")}</h3>
               <div className="clock-grids">

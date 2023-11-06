@@ -34,17 +34,17 @@ const LivePage = () => {
 export default LivePage;
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const data = await getData();
-  if (data?.live?.url.startsWith("http")) {
-    return {
-      redirect: {
-        destination: data.live.url,
-        permanent: false,
-      },
-    };
-  }
-  return {
-    props: {},
-  };
-};
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const data = await getData();
+//   if (data?.live?.url.startsWith("http")) {
+//     return {
+//       redirect: {
+//         destination: data.live.url,
+//         permanent: false,
+//       },
+//     };
+//   }
+//   return {
+//     props: {},
+//   };
+// };
