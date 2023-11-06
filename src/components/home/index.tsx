@@ -29,10 +29,13 @@ import { toDateString } from "@/common/utils";
 import Cover from "@/components/home/cover";
 import { Contact } from "@/components/home/Contact";
 // import Direction from "@/components/home/direction";
+import { atcb_action } from "add-to-calendar-button";
 import dynamic from "next/dynamic";
 import { Gift } from "@/components/home/Gift";
 import Snow from "@/components/common/Snow";
 import { PreviewCollapsible } from "@/components/common/PreviewCollapsible";
+import { isBride } from "@/utils";
+import { CalendarPlus } from "iconoir-react";
 
 
 
@@ -128,6 +131,32 @@ const ParentSection = styled.section`
 
 `;
 
+const AddToCalendar = styled.div`
+  ${TextSansStyle}
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  div {
+    padding: 8px 16px 8px 10px;
+    border: 0;
+    border-radius: 18px;
+    color: #666;
+    font-size: 13px;
+    text-decoration: none;
+    background: #f3f3f3;
+    line-height: 1.3;
+    > svg, img {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      margin: -4px 0;
+      margin-right: 4px;
+      border-radius: 9px;
+    }
+  }
+`
+
 
 const Direction = dynamic(
   () => {
@@ -161,6 +190,27 @@ const Home = () => {
         <h2>{toDateString(WEDDING_DATE, "%Y년 %m월 %d일 %a요일 오전 %H시")}</h2>
         <h1>{WEDDING_VANUE}</h1>
       </Header>
+
+      <AddToCalendar>
+        <div onClick={(e) => {
+          const config = {
+            name: isBride() ? "희재 결혼" : "성민 결혼",
+            description: window.location.href,
+            startDate: "2023-12-16",
+            startTime: "11:00",
+            endDate: "2023-12-16",
+            endTime: "13:00",
+            timeZone: "Asia/Seoul",
+            location: "서울대학교 이라운지",
+            iCalFileName: "sungmin-heejae-wedding",
+            options: ['Apple', 'Google', 'Outlook.com', 'iCal'],
+            // language: 'ko',
+            size: '4',
+            // customLabels: {"close":"닫기"},
+          }
+          return atcb_action(config, e.button)
+        }}> <CalendarPlus/> 캘린더에 추가 </div>
+      </AddToCalendar>
 
       {/*<SectionHr />*/}
       {/*<SectionHeader>{TITLE}</SectionHeader>*/}
