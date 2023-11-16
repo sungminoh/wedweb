@@ -30,7 +30,7 @@ const PhotoSlide = styled.div`
   justify-content: center;
   width: 100%;
   height: 100%;
-  
+
   img {
     max-height: 100% !important;
     max-width: 100% !important;
@@ -59,8 +59,8 @@ const MyGallery = () => {
                 <div key={`li-${i}`}>
                   <Item
                     key={`img-${i}`}
-                    // original={`/photos/gallery/${i}.jpg`}
-                    // thumbnail={`/photos/gallery/${i}.jpg`}
+                    original={`/photos/gallery/${i}.jpg`}
+                    thumbnail={`/photos/gallery/${i}.jpg`}
                     content={
                       <PhotoSlide>
                         <img

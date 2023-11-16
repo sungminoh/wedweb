@@ -189,10 +189,10 @@ const Cover = () => {
             <SlideImage src={cover3} offsets={[-90,-70,-55,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover4} offsets={[-100,-80,-60,-25,0]} aspectRatio={parentAspectRatio}/>
+            <SlideImage src={cover4} offsets={[-110,-80,-60,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
           <SwiperSlide data-desc="">
-            <SlideImage src={cover5} offsets={[-135,-100,-60,-25,0]} aspectRatio={parentAspectRatio}/>
+            <SlideImage src={cover5} offsets={[-75,-60,-45,-25,0]} aspectRatio={parentAspectRatio}/>
           </SwiperSlide>
         </Swiper>
       </section>
