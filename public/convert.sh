@@ -1,12 +1,15 @@
 #! /bin/bash
-PORTRAIT=x2048
-LANDSCAPE=2048x
-
+PORTRAIT=x512
+LANDSCAPE=512x
+# PORTRAIT=x2048
+# LANDSCAPE=2048x
 # 변경하려는 이미지의 디렉토리 경로
-image_dir="./original_photos/gallery"
+image_dir="./photos/gallery"
+# image_dir="./original_photos/gallery"
 
 # 크기 변경된 이미지를 저장할 디렉토리 경로
-output_dir="./photos/gallery"
+output_dir="./photos/thumbnail"
+# output_dir="./photos/gallery"
 
 # 이미지 확장자
 image_extension=".jpg" # 원하는 이미지 확장자로 변경
