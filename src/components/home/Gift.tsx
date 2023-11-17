@@ -3,6 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 import { Check, Copy } from "iconoir-react";
 import { BRIDE_BANK, BRIDE_BANK_HOLDER, GROOM_BANK, GROOM_BANK_HOLDER } from "@/config";
 import { useState } from "react";
+import { isBride } from "@/utils";
 
 const GiveWrap = styled.div`
   display: inline-block;
@@ -129,7 +130,7 @@ const Groom = () => {
   return (
     <Collapsible title="🤵 신랑측">
       <Account owner="오성민" bank="신한은행" account="110-284-329679" />
-      {/*<Account owner="(母) 성지영" bank="농협" account="211031-56-212946" />*/}
+      <Account owner="모 성지영" bank="농협" account="211031-56-212946" />
     </Collapsible>
   );
 };
@@ -137,8 +138,12 @@ const Bride = () => {
   return (
     <Collapsible title="👰 신부측">
       <Account owner="어희재" bank="신한은행" account ="110-247-285527" />
-      {/*<Account owner="(父) 어하준" bank="aa은행" account ="123-456-7890" />*/}
-      {/*<Account owner="(母) 임경원" bank="aa은행" account ="123-456-7890" />*/}
+      { !isBride()  && (
+        <>
+          <Account owner="부 어하준" bank="aa은행" account ="110-247-285527" />
+          <Account owner="모 임경원" bank="aa은행" account ="143-910405-15607" />
+        </>
+      )}
     </Collapsible>
   );
 };
