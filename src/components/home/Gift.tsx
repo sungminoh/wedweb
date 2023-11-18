@@ -134,25 +134,39 @@ const Groom = () => {
     </Collapsible>
   );
 };
+
 const Bride = () => {
   return (
     <Collapsible title="👰 신부측">
       <Account owner="어희재" bank="신한은행" account ="110-247-285527" />
-      { isBride() || (
-        <>
-          <Account owner="부 어하준" bank="신한은행" account ="110-247-285527" />
-          <Account owner="모 임경원" bank="하나은행" account ="143-910405-15607" />
-        </>
-      )}
+      <Account owner="부 어하준" bank="신한은행" account ="110-247-285527" />
+      <Account owner="모 임경원" bank="하나은행" account ="143-910405-15607" />
     </Collapsible>
   );
 };
 
+const GroomSimple = () => {
+  return (
+    <Collapsible title="🤵 신랑측">
+      <Account owner="오성민" bank="신한은행" account="110-284-329679" />
+    </Collapsible>
+  );
+};
+
+const BrideSimple = () => {
+  return (
+    <Collapsible title="👰 신부측">
+      <Account owner="어희재" bank="신한은행" account ="110-247-285527" />
+    </Collapsible>
+  );
+};
+
+
 export const Gift  = () => {
   return <section>
     <GiveWrap>
-      <Groom/>
-      <Bride/>
+      <GroomSimple />
+      <BrideSimple />
     </GiveWrap>
   </section>;
 }
