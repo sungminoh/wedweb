@@ -1,9 +1,7 @@
-import { SectionHeader } from "@/components/home/styles";
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import { Check, Copy } from "iconoir-react";
-import { BRIDE_BANK, BRIDE_BANK_HOLDER, GROOM_BANK, GROOM_BANK_HOLDER } from "@/config";
-import { useState } from "react";
-import { isBride } from "@/utils";
+import { useEffect, useState } from "react";
+import { useIsBride } from "@/utils";
 
 const GiveWrap = styled.div`
   display: inline-block;
@@ -163,10 +161,27 @@ const BrideSimple = () => {
 
 
 export const Gift  = () => {
-  return <section>
-    <GiveWrap>
-      <GroomSimple />
-      <BrideSimple />
-    </GiveWrap>
-  </section>;
+  const isBride = useIsBride();
+
+  return (
+    <>
+      <section>
+        {isBride
+          ? (
+            <GiveWrap>
+              <GroomSimple />
+              <BrideSimple />
+            </GiveWrap>
+          ) : (
+            <GiveWrap>
+              <Groom />
+              <Bride />
+            </GiveWrap>
+          )
+        }
+      </section>
+    </>
+  );
 }
+
+export default Gift

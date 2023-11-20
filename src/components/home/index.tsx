@@ -31,10 +31,10 @@ import { Contact } from "@/components/home/Contact";
 // import Direction from "@/components/home/direction";
 import { atcb_action } from "add-to-calendar-button";
 import dynamic from "next/dynamic";
-import { Gift } from "@/components/home/Gift";
+import Gift from "@/components/home/Gift";
 import Snow from "@/components/common/Snow";
 import { PreviewCollapsible } from "@/components/common/PreviewCollapsible";
-import { isBride } from "@/utils";
+import { useIsBride } from "@/utils";
 import { CalendarPlus } from "iconoir-react";
 
 
@@ -181,6 +181,7 @@ const Chat = dynamic(
 
 
 const Home = () => {
+  const isBride = useIsBride();
   return (
     <Main>
       <Snow/>
@@ -194,7 +195,7 @@ const Home = () => {
       <AddToCalendar>
         <div onClick={(e) => {
           const config = {
-            name: isBride() ? "희재 결혼" : "성민 결혼",
+            name: isBride ? "희재 결혼" : "성민 결혼",
             description: window.location.href,
             startDate: "2023-12-16",
             startTime: "11:00",

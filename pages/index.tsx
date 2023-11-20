@@ -3,10 +3,11 @@ import React from "react";
 import { GROOM_NAME, BRIDE_NAME, WEDDING_VANUE, WEDDING_DATE, OG_IMAGE } from "@/config";
 import { toDateString } from "@/common/utils";
 import Home from "@/components/home";
-import { isBride } from "@/utils";
+import { useIsBride } from "@/utils";
 
 const HomePage = () => {
-  const title = isBride()
+  const isBride = useIsBride();
+  const title = isBride
     ? `${BRIDE_NAME} ♡ ${GROOM_NAME}`
     : `${GROOM_NAME} ♡ ${BRIDE_NAME}`;
 

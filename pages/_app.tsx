@@ -5,18 +5,12 @@ import "../global.css";
 import { HOSTNAME, NAVER_API_CLIENT_ID } from "@/config";
 import '../src/styles/sass/style.scss';
 import Script from "next/script";
-import { setIsBride } from "@/utils";
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    if (window.location.hostname.match(/heejae/)
-      && !window.location.hostname.match(/sungmin/)) {
-      setIsBride()
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (typeof window === "undefined") return;
+  // }, []);
 
   return (
     <>

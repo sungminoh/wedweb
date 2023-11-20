@@ -18,7 +18,7 @@ import cover2 from "@/public/photos/cover/2.jpg";
 import cover3 from "@/public/photos/cover/3.jpg";
 import cover4 from "@/public/photos/cover/4.jpg";
 import cover5 from "@/public/photos/cover/5.jpg";
-import { isBride } from "@/utils";
+import { useIsBride } from "@/utils";
 
 
 const Header = styled.h1`
@@ -144,6 +144,8 @@ const Cover = () => {
     };
   }, []);
 
+  const isBride = useIsBride();
+
   return (
     <>
       <section id="cover" className="cover-slider cover-slider-media">
@@ -152,7 +154,7 @@ const Cover = () => {
           <div className="cover-text">
             <Slide direction="up" cascade>
               <h2>
-                {isBride() ? `${BRIDE_NAME} & ${GROOM_NAME}` : `${GROOM_NAME} & ${BRIDE_NAME}` }
+                {isBride ? `${BRIDE_NAME} & ${GROOM_NAME}` : `${GROOM_NAME} & ${BRIDE_NAME}` }
               </h2>
               <h3>{toDateString(WEDDING_DATE, "%Y. %m. %d (%a) %H:%M")}</h3>
               <div className="clock-grids">
