@@ -22,9 +22,11 @@ const WriteSectionSubHeader = styled.div`
   color: #666;
   p:first-child {
     float: left;
+    margin-bottom: 2px;
   }
   p:last-child {
     float: right;
+    margin-bottom: 2px;
   }
 `;
 
